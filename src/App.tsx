@@ -23,7 +23,7 @@ export default function App() {
           <Projects/>
           <Skills />
           
-          {/* <NavBar /> => overflow-x problem on mobile, maybe replace it with a hamburger in the Header */}
+          <NavBar />
           <Contact />
       </motion.div>
     </main>
