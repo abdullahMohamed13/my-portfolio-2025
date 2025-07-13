@@ -1,8 +1,8 @@
 // import { motion } from 'framer-motion'
-import { useState } from "react";
+// import { useState } from "react";
 import AnimatedHeader from "../components/AnimatedHeader"
 import { Separator } from "../components/Separator";
-import { Calendar } from "@/components/ui/calendar";
+// import { Calendar } from "@/components/ui/calendar";
 import { Badge } from "@/components/ui/badge";
 import {
   Carousel,
@@ -13,23 +13,20 @@ import {
 } from "@/components/ui/carousel"
 
 export function About() {
-  const [date, setDate] = useState<Date | undefined>(new Date())
+  // const [date, setDate] = useState<Date | undefined>(new Date())
 
   return (
     <section id="about" className="relative flex-section-center section text-center">
-      <AnimatedHeader text="About Me ♞" />
+      <AnimatedHeader text="About Me" />
 
       <p className="text-xl max-w-3xl">
         I got into programming in Sep 2022 via <Badge className="text-lg">C++</Badge>, A frontend developer who loves turning ideas into clean, interactive, and responsive web experiences.
         My tools of choice are <strong>React</strong>, <strong>TypeScript</strong>, and <strong>Tailwind CSS</strong> — 
         technologies that help me build fast, beautiful, and maintainable interfaces.
-      </p>
-
-      <Separator />
-
-      <p className="text-xl max-w-3xl">
-        I love to learn by doing — whether it’s building a new UI patterns.
-        I care about both how things look and how they feel.
+        <p className="text-xl max-w-3xl">
+          I love to learn by doing — whether it’s building a new UI patterns.
+          I care about both how things look and how they feel.
+        </p>
       </p>
 
       <Separator />
@@ -76,9 +73,3 @@ export function About() {
     </section>
   );
 }
-
-{/* Top SVG Border */}
-{/* <img src="/waves-top.svg" className="absolute top-0 left-0 w-full" alt="" />x */}
-
-{/* Bottom SVG Border */}
-{/* <img src="/waves-bottom.svg" className="absolute bottom-0 left-0 w-full" alt="" /> */}

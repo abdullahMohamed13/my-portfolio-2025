@@ -5,8 +5,6 @@ function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-const copyMsgCSS = ``
-
 function Footer() {
   return (
     <footer className="w-full bg-[var(--card)] text-[var(--foreground)] border-t border-[var(--border)] mt-8 py-6 flex flex-col items-center gap-4">

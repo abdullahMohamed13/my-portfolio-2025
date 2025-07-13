@@ -13,7 +13,6 @@ const scrollToSection = (id: string) => {
     }
 };
 
-
 const items = [
     { icon: <AiFillHome size={18} />, label: 'Intro', onClick: () => scrollToSection('hero')},
     { icon: <CgProfile size={18} />, label: 'About', onClick: () => scrollToSection('about')},
@@ -34,7 +33,7 @@ function NavBar() {
                 className={`relative pointer-events-auto transition-transform duration-300 ${showNav ? 'translate-y-0' : 'translate-y-17'} w-full max-w-xs sm:max-w-md md:max-w-xl mx-auto`}>
                 {/* Toggle Icon at top right of nav bar */}
                 <button
-                    className="navbar-toggle-arrow absolute bottom-15 right-29 bg-[var(--foreground)] text-[var(--background)] rounded-full shadow-lg p-2 transition-opacity duration-200 hover:bg-opacity-80 focus:outline-none z-10"
+                    className="navbar-toggle-arrow absolute bottom-15 right-0 sm:right-29 bg-[var(--foreground)] text-[var(--background)] rounded-full shadow-lg p-2 transition-opacity duration-200 hover:bg-opacity-80 focus:outline-none z-10"
                     onClick={handleNavExpand}
                     aria-label={showNav ? 'Hide navigation' : 'Show navigation'}
                     type="button">

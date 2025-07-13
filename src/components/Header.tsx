@@ -5,7 +5,7 @@ import { ModeToggle } from './mode-toggle';
 function Header() {
     return <header className="flex justify-between">
         <h1 className="text-3xl relative font-mono group font-light text-secondary pl-2 border-l-4 border-primary">
-            Abdallah Aziz
+            Abdallah
             <span className="absolute left-0 -bottom-1 w-0 h-1 bg-primary transition-all duration-300 group-hover:w-full"></span>
         </h1>
 

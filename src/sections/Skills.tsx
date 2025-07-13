@@ -1,13 +1,13 @@
 import GlassIcons from './../components/react-bits/Components/GlassIcons';
 import { SiTypescript, SiTailwindcss, SiJavascript, SiReact, SiHtml5, SiCss3, SiGithub, SiReactrouter, SiVite,
     SiRedux, SiNextdotjs, SiGraphql, SiJest, SiShadcnui, SiFramer, SiNpm} from 'react-icons/si';
-import { FiLayers, FiArrowDown, FiArrowUp } from 'react-icons/fi'
+import { FiLayers } from 'react-icons/fi'
 import { VscVscode } from "react-icons/vsc";
 
 import AnimatedHeader from './../components/AnimatedHeader';
-import { Button } from './../components/ui/button'
+// import { Button } from './../components/ui/button'
 import { useState } from 'react';
-import GooeyNav from './../components/react-bits/Components/GooeyNav';
+// import GooeyNav from './../components/react-bits/Components/GooeyNav';
 
 const iconsStyle: string = `text-[20px] sm:text-[25px] text-black`
 
@@ -152,12 +152,12 @@ const all = [...languages, ...frameworks_libraries, ...styling_ui, ...tools].fil
 );
 
 export function Skills() {
-    const [currentChoice, setCurrentChoice] = useState<string>('all');
-    const [showMoreSkills, setShowMoreSkills] = useState<boolean>(false);
+    const [currentChoice] = useState<string>('all');
+    // const [showMoreSkills, setShowMoreSkills] = useState<boolean>(false);
 
-    const handleSkillsExpand = () => {
-        setShowMoreSkills(prev => !prev);
-    }
+    // const handleSkillsExpand = () => {
+    //     setShowMoreSkills(prev => !prev);
+    // }
 
     const currentItems =
     currentChoice === 'languages' ? languages :
@@ -168,14 +168,14 @@ export function Skills() {
     currentChoice === 'all' ? all :
     [];
 
-    const listItems = [
-        { label: "All", onClick: () => setCurrentChoice('all') },
-        { label: "Languages", onClick: () => setCurrentChoice('languages') },
-        { label: "Frameworks & Libraries", onClick: () => setCurrentChoice('frameworks_libraries') },
-        { label: "Styling & UI", onClick: () => setCurrentChoice('styling_ui')  },
-        { label: "Tools", onClick: () => setCurrentChoice('tools') },
-        { label: "Planning To Learn", onClick: () => setCurrentChoice('planningToLearning')  },
-    ];
+    // const listItems = [
+    //     { label: "All", onClick: () => setCurrentChoice('all') },
+    //     { label: "Languages", onClick: () => setCurrentChoice('languages') },
+    //     { label: "Frameworks & Libraries", onClick: () => setCurrentChoice('frameworks_libraries') },
+    //     { label: "Styling & UI", onClick: () => setCurrentChoice('styling_ui')  },
+    //     { label: "Tools", onClick: () => setCurrentChoice('tools') },
+    //     { label: "Planning To Learn", onClick: () => setCurrentChoice('planningToLearning')  },
+    // ];
     
     return <section id="skills" className='flex-section-center section'>
         <AnimatedHeader text='Skills & Tools' />

@@ -35,7 +35,7 @@ export default function AnimatedHeader({text, className}: TextProps) {
     return (
         <div
             ref={containerRef}
-            className="relative font-bold">
+            className="relative font-bold mb-5">
             <VariableProximity
                 label={text}
                 className={`variable-proximity-demo text-4xl font-bold ${className || ''}`}
@@ -46,7 +46,8 @@ export default function AnimatedHeader({text, className}: TextProps) {
                 falloff='linear'
                 style={{
                     fontFamily: 'Inter, system-ui, sans-serif',
-                    cursor: 'default'
+                    cursor: 'default',
+                    color: 'var(--secondary)'
                 }}
             />
         </div>

@@ -96,9 +96,15 @@ function DockItem({
       role="button"
       aria-haspopup="true"
     >
-      {Children.map(children, (child) =>
-        cloneElement(child as React.ReactElement, { isHovered })
-      )}
+      {Children.map(children, (child) => {
+        if (
+          React.isValidElement(child) &&
+          child.type === DockLabel
+        ) {
+          return cloneElement(child as React.ReactElement<any>, { isHovered });
+        }
+        return child;
+      })}
     </motion.div>
   );
 }
@@ -106,13 +112,14 @@ function DockItem({
 type DockLabelProps = {
   className?: string;
   children: React.ReactNode;
+  isHovered?: MotionValue<number>;
 };
 
-function DockLabel({ children, className = "", ...rest }: DockLabelProps) {
-  const { isHovered } = rest as { isHovered: MotionValue<number> };
+function DockLabel({ children, className = "", isHovered }: DockLabelProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    if (!isHovered) return;
     const unsubscribe = isHovered.on("change", (latest) => {
       setIsVisible(latest === 1);
     });

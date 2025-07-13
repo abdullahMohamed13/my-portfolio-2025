@@ -2,7 +2,6 @@ import PixelTransition from "../components/react-bits/Animations/PixelTransition
 import AnimatedHeader from "../components/AnimatedHeader";
 import { SiTypescript, SiTailwindcss, SiJavascript, SiReact, SiHtml5, SiCss3 } from 'react-icons/si';
 import type { ReactNode } from "react";
-import FuzzyText from '../components/react-bits/TextAnimations/FuzzyText';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -126,13 +125,6 @@ export function Projects() {
           </div>
         ))}
       </div>
-      {/* overflow-x problem on mobile */}
-      {/* <FuzzyText
-          baseIntensity={0.1} 
-          hoverIntensity={0.3} 
-          enableHover={true}>
-          Stay tuned for upcoming projects ⏳...
-      </FuzzyText> */}
     </section>
   );
 }
