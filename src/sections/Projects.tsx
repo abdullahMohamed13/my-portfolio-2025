@@ -4,16 +4,23 @@ import { SiTypescript, SiTailwindcss, SiJavascript, SiReact, SiHtml5, SiCss3 } f
 import type { ReactNode } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 interface Project {
-  title: string;
-  stack: string[];
-  stackIcons: ReactNode[];
-  imgSrc: string;
-  projectInSite: string;
-  liveURL: string;
-  githubURL: string;
-  linkedinPost?: string;
+  title: string
+  stack: string[]
+  stackIcons: ReactNode[]
+  description: string
+  imgSrc: string
+  projectInSite: string
+  liveURL: string
+  githubURL: string
+  linkedinPost?: string
 }
 
 export function Projects() {
@@ -22,6 +29,8 @@ export function Projects() {
       title: 'Chess Times Square',
       stack: ['ReactJs', 'JavaScript', 'CSS'],
       stackIcons: [<SiReact className="text-green-800"/>, <SiJavascript className="text-green-800"/>, <SiCss3 className="text-green-800"/>],
+      description: `free online chess clock, with customizable time controls & dashboard to track game
+      results. Perfect for over-the-board blitz, bullet, and classical chess.`,
       imgSrc: '/projects/chess-times-square.png',
       projectInSite: '/projects/chess-times-square-home-page.jpeg',
       liveURL: 'https://chess-times-square.vercel.app/',
@@ -32,6 +41,7 @@ export function Projects() {
       title: 'Notary',
       stack: ['ReactJs', 'TypeScript', 'TailwindCSS'],
       stackIcons: [<SiReact className="text-[#0ea5e9]"/>, <SiTypescript className="text-[#0ea5e9]"/>, <SiTailwindcss className="text-[#0ea5e9]"/>],
+      description: 'A modern multilingual note-taking app.',
       imgSrc: '/projects/notary.png',
       projectInSite: '/projects/notary-home-page.png',
       liveURL: 'https://notary-app-six.vercel.app/',
@@ -42,6 +52,7 @@ export function Projects() {
       title: 'infoDash',
       stack: ['HTML', 'CSS', "JavaScript"],
       stackIcons: [<SiHtml5 className="text-[#5b100a]"/>, <SiCss3 className="text-[#5b100a]"/>, <SiJavascript className="text-[#5b100a]"/>],
+      description: 'A responsive dashboard interface with interactive components, clean layout structure, and smooth adaptability across devices for an optimal user experience.',
       imgSrc: '/projects/info-dash.png',
       projectInSite: '/projects/info-dash-home-page.png',
       liveURL: 'https://info-dashboard-puce.vercel.app',
@@ -51,6 +62,7 @@ export function Projects() {
       title: 'Repo Hub',
       stack: ['HTML', 'CSS', "JavaScript"],
       stackIcons: [<SiHtml5 className="text-red-600"/>, <SiCss3 className="text-red-600"/>, <SiJavascript className="text-red-600"/>],
+      description: 'A JavaScript app that fetches and displays public repositories with its details for any GitHub user using the GitHub API.',
       imgSrc: '/projects/repo-hub.png',
       projectInSite: '/projects/repo-hub-home-page.png',
       liveURL: 'https://repo-hub-ten.vercel.app',
@@ -101,6 +113,14 @@ export function Projects() {
               ))}
             </div>
 
+            <Accordion type="single" collapsible>
+              <AccordionItem value="item-1">
+                <AccordionTrigger>Description</AccordionTrigger>
+                <AccordionContent>
+                  {proj.description}
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
             <div className="flex flex-wrap justify-center gap-2">
               <Button asChild>
                 <a href={proj.liveURL} target="_blank">
@@ -125,6 +145,8 @@ export function Projects() {
           </div>
         ))}
       </div>
+      <div className="text-xl bg-muted hover:bg-muted/80 mt-4 px-4 py-2 rounded-lg shadow-sm hover:scale-[1.02]
+        transition-transform duration-300 flex items-center gap-2">Stay Tuned For Upcoming Projects 🚀</div>
     </section>
   );
 }

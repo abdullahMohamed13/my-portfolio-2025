@@ -25,8 +25,8 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section flex-section-center px-4 py-12 bg-[var(--background)] text-[var(--foreground)]">
+      <AnimatedHeader text='Contact Me' className='mb-1 font-bold text-center'/>
       <div className="w-full max-w-lg bg-[var(--card)] rounded-2xl shadow-xl p-8 flex flex-col gap-6">
-        <AnimatedHeader text='Contact Me' className='mb-1 font-bold text-center'/>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <label className="flex flex-col gap-1">
             <span className="font-medium">Your Email</span>

@@ -98,27 +98,6 @@ const styling_ui = [
     },
 ]
 
-const planningToLearning = [
-    {
-        icon: <SiNextdotjs />,
-        color: '#0070f3',
-        label: 'Next.js',
-        customClass: iconsStyle
-    },
-    {
-        icon: <SiGraphql />,
-        color: '#E10098',
-        label: 'GraphQL',
-        customClass: iconsStyle
-    },
-    {
-        icon: <SiJest />,
-        color: '#C63D14',
-        label: 'Jest',
-        customClass: iconsStyle
-    },
-]
-
 const tools = [
     {
         icon: <SiGithub />,
@@ -150,6 +129,27 @@ const tools = [
 const all = [...languages, ...frameworks_libraries, ...styling_ui, ...tools].filter(
   (item, index, arr) => index === arr.findIndex(other => other.label === item.label)
 );
+
+const planningToLearning = [
+    {
+        icon: <SiNextdotjs />,
+        color: '#0070f3',
+        label: 'Next.js',
+        customClass: iconsStyle
+    },
+    {
+        icon: <SiGraphql />,
+        color: '#E10098',
+        label: 'GraphQL',
+        customClass: iconsStyle
+    },
+    {
+        icon: <SiJest />,
+        color: '#C63D14',
+        label: 'Jest',
+        customClass: iconsStyle
+    },
+]
 
 export function Skills() {
     const [currentChoice] = useState<string>('all');

@@ -28,21 +28,22 @@ function NavBar() {
     }
 
     return (
-        <nav className="fixed bottom-0 left-0 w-full z-[100] flex justify-center pointer-events-none">
+        <nav className="fixed bottom-0 left-0 w-full z-[100] flex justify-center">
             <div
-                className={`relative pointer-events-auto transition-transform duration-300 ${showNav ? 'translate-y-0' : 'translate-y-17'} w-full max-w-xs sm:max-w-md md:max-w-xl mx-auto`}>
+                className={`relative transition-transform duration-300 ${showNav ? 'translate-y-0' : 'translate-y-18'} w-full max-w-xs sm:max-w-md md:max-w-xl mx-auto`}>
                 {/* Toggle Icon at top right of nav bar */}
                 <button
-                    className="navbar-toggle-arrow absolute bottom-15 right-0 sm:right-29 bg-[var(--foreground)] text-[var(--background)] rounded-full shadow-lg p-2 transition-opacity duration-200 hover:bg-opacity-80 focus:outline-none z-10"
+                    className={`navbar-toggle-arrow absolute ${showNav ? 'bottom-11 sm:right-28.5' : 'bottom-19 sm:right-65'} right-0  bg-[var(--foreground)] text-[var(--background)] rounded-full shadow-lg p-2 transition-opacity duration-200 hover:bg-opacity-80 focus:outline-none z-10`}
                     onClick={handleNavExpand}
+                    title={showNav ? 'Hide navigation' : 'Show navigation'}
                     aria-label={showNav ? 'Hide navigation' : 'Show navigation'}
                     type="button">
-                    {showNav ? <FaArrowDown size={16} /> : <FaArrowUp size={16} />}
+                    {showNav ? <FaArrowDown size={16} /> : <FaArrowUp size={12} />}
                 </button>
 
                 <div >
                     <Dock
-                        className="navigation-dock bg-[var(--foreground)] rounded-t-2xl shadow-2xl px-4 py-2 flex justify-center items-center"
+                        className={`navigation-dock ${!showNav && `pointer-events-none`} bg-[var(--foreground)] rounded-t-2xl shadow-2xl px-4 py-2 flex justify-center items-center`}
                         items={items}
                         panelHeight={68}
                         baseItemSize={50}
