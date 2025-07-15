@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import AnimatedHeader from './../components/AnimatedHeader';
 import { Button } from '@/components/ui/button';
+import emailjs from 'emailjs-com';
+import { toast } from 'sonner';
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -14,19 +16,40 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const isValidGmail = (email: string) => {
+    return /@gmail\.com$/i.test(email.trim());
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // For now, just log the data
-    console.log('Contact form submitted:', form);
-    setSubmitted(true);
-    setForm({ email: '', subject: '', message: '' });
-    setTimeout(() => setSubmitted(false), 3000);
+    if (!isValidGmail(form.email)) {
+      toast.error('Please enter a valid Gmail address ending with @gmail.com');
+      return;
+    }
+    emailjs.sendForm(
+      'service_x4ha7bn',
+      'template_q4kyjou',
+      e.currentTarget,
+      '0zoGJUCb_5YDXPkDI'
+    )
+    .then(() => {
+        setSubmitted(true);
+        setForm({ email: '', subject: '', message: '' });
+        setTimeout(() => setSubmitted(false), 5000);
+        toast.success("Your message is successfully sent, I'll reach out to you soon <3");
+    }, (error) => {
+        toast.error('Failed to send message, please try again.');
+        console.log(error);
+    });
   };
 
   return (
-    <section id="contact" className="section flex-section-center px-4 py-12 bg-[var(--background)] text-[var(--foreground)]">
+    <section id="contact" className="flex-section-center px-4 py-12 bg-[var(--background)] text-[var(--foreground)]">
       <AnimatedHeader text='Contact Me' className='mb-1 font-bold text-center'/>
       <div className="w-full max-w-lg bg-[var(--card)] rounded-2xl shadow-xl p-8 flex flex-col gap-6">
+      <p className="text-base text-red-500 font-medium -mt-2">
+        Kindly enter a valid Gmail address to ensure I can get back to you.
+      </p>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <label className="flex flex-col gap-1">
             <span className="font-medium">Your Email</span>

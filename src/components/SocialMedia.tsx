@@ -1,5 +1,10 @@
 import { useState } from 'react';
 import { SiGithub, SiLinkedin, SiGmail, SiWhatsapp, SiCodewars } from 'react-icons/si';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 export default function SocialMedia() {
     const [copied, setCopied] = useState(false);
@@ -23,15 +28,23 @@ export default function SocialMedia() {
           <a href="https://www.codewars.com/users/abdullahMohamed138" target='_blank' className='hover:text-[#AD2C27]' rel="noopener noreferrer">
             <SiCodewars />
           </a>
-          <a title='Copy To Clipboard' onClick={() => copyToClipboard("+201010434465")} className="relative">
-            <SiWhatsapp className='hover:text-green-500 transition-colors' />
-            {copied && (
-              <span 
-                className="absolute left-full z-[1000] ml-2 bg-[var(--primary)] text-white px-2 py-1 rounded text-xs whitespace-nowrap animate-pulse">
-                Copied!
-              </span>
-            )}
-          </a>
+          <Tooltip>
+            <TooltipTrigger>
+              <a onClick={() => copyToClipboard("+201010434465")} className="relative">
+                <SiWhatsapp className='hover:text-green-500 transition-colors' />
+                {copied && (
+                  <span 
+                    className="absolute left-full z-[1000] ml-2 bg-[var(--primary)] text-white px-2 py-1 rounded text-xs whitespace-nowrap animate-pulse">
+                    Copied!
+                  </span>
+                )}
+              </a>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p className='text-white'>Copy To Clipboard</p>
+            </TooltipContent>
+          </Tooltip>
+
           {/* Add LeetCode in the future */}
         </div>
 }

@@ -171,7 +171,7 @@ export default function Carousel({
               className={`relative shrink-0 flex flex-col ${
                 round
                   ? "items-center justify-center text-center bg-[#060010] border-0"
-                  : "items-start justify-between bg-[#222] border border-[#222] rounded-[12px]"
+                  : "items-start justify-between bg-card border border-[#222] rounded-[12px]"
               } overflow-hidden cursor-grab active:cursor-grabbing`}
               style={{
                 width: itemWidth,
@@ -182,15 +182,15 @@ export default function Carousel({
               transition={effectiveTransition}
             >
               <div className={`${round ? "p-0 m-0" : "mb-4 p-5"}`}>
-                <span className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[#060010]">
+                <span className="flex h-[48px] w-[48px] items-center justify-center rounded-full bg-[#060010]">
                   {item.icon}
                 </span>
               </div>
               <div className="p-5">
-                <div className="mb-1 font-black text-lg text-white">
+                <div className="mb-1 font-black text-lg text-foreground">
                   {item.title}
                 </div>
-                <p className="text-sm text-white">{item.description}</p>
+                <p className="text-sm text-foreground">{item.description}</p>
               </div>
             </motion.div>
           );

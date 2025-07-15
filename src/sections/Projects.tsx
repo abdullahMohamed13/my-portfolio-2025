@@ -1,7 +1,6 @@
 import PixelTransition from "../components/react-bits/Animations/PixelTransition";
 import AnimatedHeader from "../components/AnimatedHeader";
-import { SiTypescript, SiTailwindcss, SiJavascript, SiReact, SiHtml5, SiCss3 } from 'react-icons/si';
-import type { ReactNode } from "react";
+// import { SiTypescript, SiTailwindcss, SiJavascript, SiReact, SiHtml5, SiCss3 } from 'react-icons/si';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,7 +13,8 @@ import {
 interface Project {
   title: string
   stack: string[]
-  stackIcons: ReactNode[]
+  themeColor: string
+  // stackIcons: ReactNode[]
   description: string
   imgSrc: string
   projectInSite: string
@@ -28,7 +28,8 @@ export function Projects() {
     {
       title: 'Chess Times Square',
       stack: ['ReactJs', 'JavaScript', 'CSS'],
-      stackIcons: [<SiReact className="text-green-800"/>, <SiJavascript className="text-green-800"/>, <SiCss3 className="text-green-800"/>],
+      themeColor: '#389B38',
+      // stackIcons: [<SiReact />, <SiJavascript />, <SiCss3 />],
       description: `free online chess clock, with customizable time controls & dashboard to track game
       results. Perfect for over-the-board blitz, bullet, and classical chess.`,
       imgSrc: '/projects/chess-times-square.png',
@@ -40,7 +41,8 @@ export function Projects() {
     {
       title: 'Notary',
       stack: ['ReactJs', 'TypeScript', 'TailwindCSS'],
-      stackIcons: [<SiReact className="text-[#0ea5e9]"/>, <SiTypescript className="text-[#0ea5e9]"/>, <SiTailwindcss className="text-[#0ea5e9]"/>],
+      themeColor: '#007cc1',
+      // stackIcons: [<SiReact />, <SiTypescript />, <SiTailwindcss />],
       description: 'A modern multilingual note-taking app.',
       imgSrc: '/projects/notary.png',
       projectInSite: '/projects/notary-home-page.png',
@@ -51,9 +53,10 @@ export function Projects() {
     {
       title: 'infoDash',
       stack: ['HTML', 'CSS', "JavaScript"],
-      stackIcons: [<SiHtml5 className="text-[#5b100a]"/>, <SiCss3 className="text-[#5b100a]"/>, <SiJavascript className="text-[#5b100a]"/>],
+      themeColor: '#5b100a',
+      // stackIcons: [<SiHtml5 />, <SiCss3 />, <SiJavascript />],
       description: 'A responsive dashboard interface with interactive components, clean layout structure, and smooth adaptability across devices for an optimal user experience.',
-      imgSrc: '/projects/info-dash.png',
+      imgSrc: '/projects/info-dash.webp',
       projectInSite: '/projects/info-dash-home-page.png',
       liveURL: 'https://info-dashboard-puce.vercel.app',
       githubURL: 'https://github.com/abdullahMohamed13/InfoDashboard'
@@ -61,9 +64,10 @@ export function Projects() {
     {
       title: 'Repo Hub',
       stack: ['HTML', 'CSS', "JavaScript"],
-      stackIcons: [<SiHtml5 className="text-red-600"/>, <SiCss3 className="text-red-600"/>, <SiJavascript className="text-red-600"/>],
+      themeColor: '#F2141E',
+      // stackIcons: [<SiHtml5 />, <SiCss3 />, <SiJavascript />],
       description: 'A JavaScript app that fetches and displays public repositories with its details for any GitHub user using the GitHub API.',
-      imgSrc: '/projects/repo-hub.png',
+      imgSrc: '/projects/repo-hub.webp',
       projectInSite: '/projects/repo-hub-home-page.png',
       liveURL: 'https://repo-hub-ten.vercel.app',
       githubURL: 'https://github.com/abdullahMohamed13/repo-hub'
@@ -71,13 +75,12 @@ export function Projects() {
   ];
 
   return (
-    <section id="projects" className="flex-section-center section">
+    <section id="projects" className="section-margin flex-section-center section">
       <AnimatedHeader text="Projects" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {projects.map((proj, index) => (
           <div key={index} className="bg-card text-card-foreground p-4 rounded-2xl flex flex-col items-center gap-4">
-            {/* shadow hover:shadow-xl transition-shadow */}
             <PixelTransition
               firstContent={
                 <img
@@ -99,19 +102,19 @@ export function Projects() {
               className="custom-pixel-card"
             />
 
-            <h3 className="text-xl font-semibold text-center">{proj.title}</h3>
+{/* <h3 className="text-xl font-semibold text-center">{proj.title}</h3> */}
 
             <div className="text-sm flex gap-2">
-              {proj.stack.map((i) => {
-                return <Badge>{i}</Badge>
+              {proj.stack.map((single, key) => {
+                return <Badge key={key} style={{backgroundColor: proj.themeColor, color: 'white'}}>{single}</Badge>
               })}
             </div>
-
-            <div className="flex gap-4 text-4xl">
-              {proj.stackIcons.map((icon, i) => (
-                <span key={i}>{icon}</span>
-              ))}
-            </div>
+{/* 
+<div className="flex gap-4 text-4xl">
+  {proj.stackIcons.map((icon, i) => (
+    <span key={i}>{icon}</span>
+  ))}
+</div> */}
 
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
@@ -120,7 +123,7 @@ export function Projects() {
                   {proj.description}
                 </AccordionContent>
               </AccordionItem>
-            </Accordion>
+            </Accordion >
             <div className="flex flex-wrap justify-center gap-2">
               <Button asChild>
                 <a href={proj.liveURL} target="_blank">
@@ -145,8 +148,8 @@ export function Projects() {
           </div>
         ))}
       </div>
-      <div className="text-xl bg-muted hover:bg-muted/80 mt-4 px-4 py-2 rounded-lg shadow-sm hover:scale-[1.02]
-        transition-transform duration-300 flex items-center gap-2">Stay Tuned For Upcoming Projects 🚀</div>
+      <div className="text-lg md:text-xl bg-muted hover:bg-muted/80 mt-4 px-4 py-2 rounded-lg shadow-sm hover:scale-[1.02]
+        transition-transform duration-300 flex items-center gap-2 text-center">Stay Tuned For Upcoming Projects 🚀</div>
     </section>
   );
 }

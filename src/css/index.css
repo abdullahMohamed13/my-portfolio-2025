@@ -14,7 +14,7 @@
   }
 
   body {
-    @apply m-0 leading-10 bg-background text-foreground tracking-normal;
+    @apply m-0 bg-background text-foreground tracking-normal;
   }
 
   html {
@@ -43,8 +43,8 @@
   .flex-section-center {
     @apply flex justify-center items-center flex-col;
   }
-  .section {
-    @apply min-h-screen my-10;
+  .section-margin {
+    @apply my-10;
   }
 }
 

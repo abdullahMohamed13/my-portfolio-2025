@@ -1,13 +1,22 @@
 import GlassIcons from './../components/react-bits/Components/GlassIcons';
 import { SiTypescript, SiTailwindcss, SiJavascript, SiReact, SiHtml5, SiCss3, SiGithub, SiReactrouter, SiVite,
     SiRedux, SiNextdotjs, SiGraphql, SiJest, SiShadcnui, SiFramer, SiNpm} from 'react-icons/si';
-import { FiLayers } from 'react-icons/fi'
+import { FiArrowDown, FiArrowUp, FiLayers } from 'react-icons/fi'
 import { VscVscode } from "react-icons/vsc";
 
 import AnimatedHeader from './../components/AnimatedHeader';
-// import { Button } from './../components/ui/button'
+import { Button } from './../components/ui/button'
 import { useState } from 'react';
-// import GooeyNav from './../components/react-bits/Components/GooeyNav';
+import {
+  Menubar,
+  MenubarMenu,
+  MenubarTrigger,
+} from "@/components/ui/menubar"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 
 const iconsStyle: string = `text-[20px] sm:text-[25px] text-black`
 
@@ -130,7 +139,7 @@ const all = [...languages, ...frameworks_libraries, ...styling_ui, ...tools].fil
   (item, index, arr) => index === arr.findIndex(other => other.label === item.label)
 );
 
-const planningToLearning = [
+const planningToLearn = [
     {
         icon: <SiNextdotjs />,
         color: '#0070f3',
@@ -152,51 +161,81 @@ const planningToLearning = [
 ]
 
 export function Skills() {
-    const [currentChoice] = useState<string>('all');
-    // const [showMoreSkills, setShowMoreSkills] = useState<boolean>(false);
+    const [currentChoice, setCurrentChoice] = useState<string>('all');
+    const [showMoreSkills, setShowMoreSkills] = useState<boolean>(true);
+    const [popoverOpen, setPopoverOpen] = useState<boolean>(false);
 
-    // const handleSkillsExpand = () => {
-    //     setShowMoreSkills(prev => !prev);
-    // }
+    const handleSkillsExpand = () => {
+        setShowMoreSkills(prev => !prev);
+    }
 
     const currentItems =
+    currentChoice === 'all' ? all :
     currentChoice === 'languages' ? languages :
     currentChoice === 'frameworks_libraries' ? frameworks_libraries :
     currentChoice === 'styling_ui' ? styling_ui :
-    currentChoice === 'planningToLearning' ? planningToLearning :
     currentChoice === 'tools' ? tools :
-    currentChoice === 'all' ? all :
+    currentChoice === 'planningToLearn' ? planningToLearn :
     [];
 
-    // const listItems = [
-    //     { label: "All", onClick: () => setCurrentChoice('all') },
-    //     { label: "Languages", onClick: () => setCurrentChoice('languages') },
-    //     { label: "Frameworks & Libraries", onClick: () => setCurrentChoice('frameworks_libraries') },
-    //     { label: "Styling & UI", onClick: () => setCurrentChoice('styling_ui')  },
-    //     { label: "Tools", onClick: () => setCurrentChoice('tools') },
-    //     { label: "Planning To Learn", onClick: () => setCurrentChoice('planningToLearning')  },
-    // ];
+    const listItems = [
+        { label: "All", fn: () => setCurrentChoice('all') },
+        { label: "Languages", fn: () => setCurrentChoice('languages') },
+        { label: "Frameworks & Libraries", fn: () => setCurrentChoice('frameworks_libraries') },
+        { label: "Styling & UI", fn: () => setCurrentChoice('styling_ui')  },
+        { label: "Tools", fn: () => setCurrentChoice('tools') },
+        { label: "What's Next", fn: () => setCurrentChoice('planningToLearn')  },
+    ];
     
-    return <section id="skills" className='flex-section-center section'>
+    return <section id="skills" className='section-margin flex-section-center'>
         <AnimatedHeader text='Skills & Tools' />
-        {/* overflow-x problem on mobile */}
-        {/* <GooeyNav
-            items={listItems}
-            particleCount={15}
-            particleDistances={[90, 10]}
-            particleR={100}
-            initialActiveIndex={0}
-            animationTime={600}
-            timeVariance={300}
-            colors={[1, 2, 3, 1, 2, 3, 1, 4]}
-        /> */}
-        <div className="mt-10 flex justify-center">
-            <GlassIcons items={currentItems} />
+        <div className='block md:hidden'>
+            <Popover className='' open={popoverOpen} onOpenChange={setPopoverOpen}>
+                <PopoverTrigger>
+                    <Button className='bg-accent text-accent-foreground'>
+                        {listItems.find(item => 
+                            (item.label === "All" && currentChoice === 'all') ||
+                            (item.label === "Languages" && currentChoice === 'languages') ||
+                            (item.label === "Frameworks & Libraries" && currentChoice === 'frameworks_libraries') ||
+                            (item.label === "Styling & UI" && currentChoice === 'styling_ui') ||
+                            (item.label === "Tools" && currentChoice === 'tools') ||
+                            (item.label === "What's Next" && currentChoice === 'planningToLearn')
+                        )?.label}
+                    </Button>
+                </PopoverTrigger>
+                <PopoverContent>
+                    {listItems.map((item, key) => {
+                        return <ul className="[&>li]:mt-2">
+                                    <li className='cursor-pointer hover:bg-background transition-colors rounded-md pl-2 py-1'
+                                        key={key}
+                                        onClick={() => {
+                                            item.fn()
+                                            setPopoverOpen(false);
+                                            document.body.focus();
+                                        }}
+                                    >
+                                    {item.label}
+                                    </li>
+                                </ul>
+                    })}
+                </PopoverContent>
+            </Popover>
         </div>
-        {/* {currentItems.length > 6 &&
-        <Button className='flex-center gap-1' onClick={handleSkillsExpand}>
-            <span>{showMoreSkills ? 'Show Less' : 'Show More' }</span>
-            <span>{showMoreSkills ? <FiArrowUp /> : <FiArrowDown />}</span>
-        </Button>} */}
+        <Menubar className='mt-4 hidden md:flex'>
+            <MenubarMenu>
+                {listItems.map((item, key) => {
+                    return <MenubarTrigger key={key} onClick={item.fn}>{item.label}</MenubarTrigger>
+                })}
+            </MenubarMenu>
+        </Menubar>
+        <div className="mt-2 flex justify-center">
+            <GlassIcons items={showMoreSkills ? currentItems.slice(0, 6) : currentItems} />
+        </div>
+        {currentItems.length > 6 && (
+            <Button className='flex-center gap-1' onClick={handleSkillsExpand}>
+                <span>{showMoreSkills ? 'Show More' : 'Show Less' }</span>
+                <span>{showMoreSkills ? <FiArrowDown className='animate-bounce' /> : <FiArrowUp className='animate-bounce' />}</span>
+            </Button>
+        )}
     </section>
 }

@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import { ThemeProvider } from "@/components/theme-provider"
 import Header from './components/Header';
 import Contact from './sections/Contact';
+import { Toaster } from 'sonner';
 
 export default function App() {
   
@@ -17,14 +18,14 @@ export default function App() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}>
+          <NavBar />
           <Header />
           <Hero />
           <About />
           <Projects/>
           <Skills />
-          
-          <NavBar />
           <Contact />
+          <Toaster />
       </motion.div>
     </main>
     <Footer />
