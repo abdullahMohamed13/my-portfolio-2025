@@ -31,7 +31,9 @@ function Footer() {
       
       <SocialMedia />
       <div className="text-sm text-center opacity-80">
-        ©2025 Abdallah Aziz All Rights Reserved.
+        <p className='mb-1'>©2025 Abdallah Aziz All Rights Reserved.</p>
+        <p>Built By <b className='text-base'>Me</b> With:</p>
+        <p>ReactJs - TailwindCSS - TypeScript</p>
       </div>
       <div className="text-base sm:text-lg text-center *:leading-5.5 opacity-80">
         Don't Forget 🙏
