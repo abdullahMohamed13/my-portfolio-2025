@@ -29,10 +29,10 @@ function Header() {
             <div className="inline md:hidden">
                 <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
                 <PopoverTrigger>
-                    <FiMenu className="w-6 h-6 ml-3 text-foreground inline cursor-pointer" />
+                    <FiMenu className="w-6 h-6 ml-2.5 text-foreground inline cursor-pointer" />
                 </PopoverTrigger>
                 <PopoverContent>
-                    <ul className="[&>li]:mt-2 flex flex-col gap-2">
+                    <ul className="[&>li]:mt-2 flex flex-col gap-2 -mb-2">
                         <li className={menuStyle}>
                             <a href="#hero" className="w-full flex items-center gap-1">
                                 <AiFillHome/> Intro
@@ -61,7 +61,7 @@ function Header() {
             
         </h1>
 
-        <div className="flex-center gap-2">
+        <div className="flex-center gap-1 sm:gap-2">
             <ModeToggle />
             <Tooltip>
                 <TooltipTrigger>
