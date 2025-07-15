@@ -2,6 +2,7 @@ import GlassIcons from './../components/react-bits/Components/GlassIcons';
 import { SiTypescript, SiTailwindcss, SiJavascript, SiReact, SiHtml5, SiCss3, SiGithub, SiReactrouter, SiVite,
     SiRedux, SiNextdotjs, SiGraphql, SiJest, SiShadcnui, SiFramer, SiNpm} from 'react-icons/si';
 import { FiArrowDown, FiArrowUp, FiLayers } from 'react-icons/fi'
+import { FaArrowDown } from 'react-icons/fa'
 import { VscVscode } from "react-icons/vsc";
 
 import AnimatedHeader from './../components/AnimatedHeader';
@@ -200,7 +201,7 @@ export function Skills() {
                             (item.label === "Styling & UI" && currentChoice === 'styling_ui') ||
                             (item.label === "Tools" && currentChoice === 'tools') ||
                             (item.label === "What's Next" && currentChoice === 'planningToLearn')
-                        )?.label}
+                        )?.label} <FaArrowDown style={{fontSize: '10px'}} />
                     </Button>
                 </PopoverTrigger>
                 <PopoverContent>
