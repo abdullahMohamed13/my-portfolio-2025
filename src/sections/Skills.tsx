@@ -190,7 +190,7 @@ export function Skills() {
     return <section id="skills" className='section-margin flex-section-center'>
         <AnimatedHeader text='Skills & Tools' />
         <div className='block md:hidden'>
-            <Popover className='' open={popoverOpen} onOpenChange={setPopoverOpen}>
+            <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
                 <PopoverTrigger>
                     <Button className='bg-accent text-accent-foreground'>
                         {listItems.find(item => 

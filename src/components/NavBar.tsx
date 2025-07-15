@@ -42,7 +42,7 @@ function NavBar() {
                     {showNav ? <FaArrowDown size={16} /> : <FaArrowUp size={12} />}
                 </button>
 
-                <div >
+                <div>
                     <Dock
                         className={`navigation-dock ${!showNav && `pointer-events-none`} bg-[#495669] rounded-t-2xl shadow-2xl px-4 py-2 flex justify-center items-center`}
                         items={items}
