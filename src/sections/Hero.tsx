@@ -34,7 +34,7 @@ export function Hero() {
           </div>
 
           <h2 className="scroll-m-20 pb-2 text-3xl font-bold">
-            Hi There 👋
+            Hi There <span className="wave">👋</span>
           </h2>
           <p className='leading-6 sm:leading-12 mb-2 text-muted-foreground *:text-[var(--foreground)]'>I'm always interested in building cool web things with <strong>React</strong>, <strong>TypeScript</strong> & <strong>Tailwind CSS</strong></p>
           <p className='leading-6 sm:leading-7 text-muted-foreground'>I’m passionate about turning complex ideas into interactive, high-quality web interfaces. I build with precision, iterate with intention, and always ship with purpose.</p>
