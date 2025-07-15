@@ -26,7 +26,7 @@ function Header() {
     return <header className="flex justify-between">
         <h1 className="text-3xl relative font-mono group font-light text-secondary pl-2 border-l-4 border-primary">
             Abdallah
-            <div className="inline">
+            <div className="inline md:hidden">
                 <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
                 <PopoverTrigger>
                     <FiMenu className="w-6 h-6 ml-3 text-foreground inline cursor-pointer" />
