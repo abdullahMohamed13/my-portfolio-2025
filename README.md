@@ -22,7 +22,7 @@ A place where I showcase my projects, skills, and journey as a developer.
 
 ### 📱 Mobile View
 
-![Mobile Screenshot](/public/portfolio-mobile)
+![Mobile Screenshot](/public/portfolio-mobile.png)
 
 ## 📦 Setup
 
