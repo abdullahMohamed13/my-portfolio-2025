@@ -23,6 +23,7 @@ src/
 │   ├── react-bits/     # Components imported from the react-bits library
 │   └── ui/             # UI components from Shadcn UI
 ├── css/                # Global styles and library-specific CSS overrides
+├── lib/                # Utility functions and helpers (e.g. formatters, config)
 └── App.tsx             # Root component that sets up layout
 
 ## 📸 Screenshots
