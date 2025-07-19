@@ -1,6 +1,7 @@
 # 💼 My Portfolio Website
 
 A place where I showcase my projects, skills, and journey as a developer.
+If you like this project, consider starring the repo⭐
 
 ## 🚀 Live Demo
 
