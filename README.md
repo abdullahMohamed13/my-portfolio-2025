@@ -21,6 +21,9 @@ If you like this project, consider starring the repo⭐
 
 ![Desktop Screenshot](/public/portfolio-desktop.png)
 
+<br />
+<br />
+<br />
 ### 📱 Mobile View
 
 ![Mobile Screenshot](/public/portfolio-mobile.png)
