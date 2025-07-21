@@ -14,18 +14,6 @@ If you like this project, consider starring the repo⭐
 - **Tailwind CSS**
 - **Shadcn UI / Framer Motion / React Bits**
 - **Vite**
-- 
-## 📸 Screenshots
-
-### 🖥️ Desktop View
-
-![Desktop Screenshot](/public/portfolio-desktop.png)
-
-### 📱 Mobile View
-
-![Mobile Screenshot](/public/portfolio-mobile.png)
-
-## 📦 Setup
 
 ## 📸 Screenshots
 
