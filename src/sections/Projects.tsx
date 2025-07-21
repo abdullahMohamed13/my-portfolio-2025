@@ -1,6 +1,9 @@
 import PixelTransition from "../components/react-bits/Animations/PixelTransition";
 import AnimatedHeader from "../components/AnimatedHeader";
 // import { SiTypescript, SiTailwindcss, SiJavascript, SiReact, SiHtml5, SiCss3 } from 'react-icons/si';
+import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
+import { SiVercel } from 'react-icons/si';
+import { FiExternalLink } from "react-icons/fi";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -126,20 +129,20 @@ export function Projects() {
             </Accordion >
             <div className="flex flex-wrap justify-center gap-2">
               <Button asChild>
-                <a href={proj.liveURL} target="_blank">
-                  Live App
+                <a href={proj.liveURL} target="_blank" className="flex-center gap-1">
+                  App <FiExternalLink />
                 </a>
               </Button>
               <Button>
-                <a href={proj.githubURL} target="_blank">
-                  GitHub Repo
+                <a href={proj.githubURL} target="_blank" className="flex-center gap-1">
+                  Repo <FaGithub />
                 </a>
               </Button>
               {proj.linkedinPost && (
                 <>
                   <Button>
-                    <a href={proj.linkedinPost} target="_blank">
-                      LinkedIn Post
+                    <a href={proj.linkedinPost} target="_blank" className="flex-center gap-1">
+                      Post <FaLinkedin />
                     </a>
                   </Button>
                 </>
