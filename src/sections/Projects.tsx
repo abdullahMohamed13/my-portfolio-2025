@@ -1,8 +1,7 @@
 import PixelTransition from "../components/react-bits/Animations/PixelTransition";
 import AnimatedHeader from "../components/AnimatedHeader";
 // import { SiTypescript, SiTailwindcss, SiJavascript, SiReact, SiHtml5, SiCss3 } from 'react-icons/si';
-import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
-import { SiVercel } from 'react-icons/si';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FiExternalLink } from "react-icons/fi";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
