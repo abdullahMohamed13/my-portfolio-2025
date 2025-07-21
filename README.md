@@ -16,6 +16,16 @@ A place where I showcase my projects, skills, and journey as a developer.
 
 ## 📦 Setup
 
+## 📸 Screenshots
+
+### 🖥️ Desktop View
+
+![Desktop Screenshot](/public/portfolio-desktop.png)
+
+### 📱 Mobile View
+
+![Mobile Screenshot](/public/portfolio-mobile.png)
+
 ```bash
 src/
 ├── sections/           # Page-specific sections (Hero, Projects, Contact, etc.)
@@ -25,13 +35,3 @@ src/
 ├── css/                # Global styles and library-specific CSS overrides
 ├── lib/                # Utility functions and helpers (e.g. formatters, config)
 └── App.tsx             # Root component that sets up layout
-
-## 📸 Screenshots
-
-### 🖥️ Desktop View
-
-![Desktop Screenshot](/public/portfolio-desktop.png)
-
-### 📱 Mobile View
-
-![Mobile Screenshot](/public/portfolio-mobile)
