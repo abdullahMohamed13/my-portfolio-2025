@@ -1,53 +1,57 @@
 // custom components
 import { Separator } from "../components/Separator";
 import AnimatedHeader from "../components/AnimatedHeader"
+//#region Importing
 // react-bits
-import Carousel from "@/components/react-bits/Components/Carousel";
+// import Carousel from "@/components/react-bits/Components/Carousel";
+// react-icons
+// import { GiWeightLiftingUp, GiPunch  } from "react-icons/gi";
+// import { FaChessKnight, FaFutbol } from "react-icons/fa";
+// import { MdSportsBasketball } from 'react-icons/md'
+// #endregion
 // shadcn/ui
 import { Badge } from "@/components/ui/badge";
-// react-icons
-import { GiWeightLiftingUp, GiPunch  } from "react-icons/gi"; // 
-import { FaChessKnight, FaFutbol } from "react-icons/fa";
-import { MdSportsBasketball, MdWork } from 'react-icons/md'
-import { SiNextdotjs, SiReactquery }from 'react-icons/si';
+import { MdWork } from 'react-icons/md'
+import { SiJest, SiNextdotjs }from 'react-icons/si';
 
 import { AiOutlineSearch }from 'react-icons/ai';
 import TrueFocus from "@/components/react-bits/TextAnimations/TrueFocus";
 
 export function About() {
-  const carouselItems = [
-    {
-      title: "Chess",
-      description: "I love chess — I got obsessed with it and climbed to the top 0.6% on Chess.com in just 14 months. It was a fun and intense journey.",
-      id: 1,
-      icon: <FaChessKnight className="h-[34px] w-[34px] text-white" />,
-      imgSrc: `/public/me-chess.jpg`
-    },
-    {
-      title: "Mixed Martial Arts",
-      description: "I've been a fan of MMA for quite some time. Soon, I plan to start training seriously and step into the gym myself.",
-      id: 2,
-      icon: <GiPunch className="h-[34px] w-[34px] text-white" />,
-    },
-    {
-      title: "Football",
-      description: "From 2017 to 2020, I trained as a youth footballer at Zamalek FC. My journey was cut short due to the COVID quarantine, which eventually led me to pursue a different path in life.",
-      id: 3,
-      icon: <FaFutbol className="h-[34px] w-[34px] text-white" />,
-    },
-    {
-      title: "Gym",
-      description: "I’ve been going to the gym consistently since 2022, and it's now a key part of my routine and lifestyle.",
-      id: 4,
-      icon: <GiWeightLiftingUp className="h-[34px] w-[34px] text-white" />,
-    },
-    {
-      title: "Basketball",
-      description: "I tried playing basketball back in 2015, but I was too short for it at that time 🚶🏻‍♂️. Still a pretty fun memory",
-      id: 5,
-      icon: <MdSportsBasketball className="h-[34px] w-[34px] text-white" />,
-    },
-  ];
+  // Hobbies list
+  // const carouselItems = [
+  //   {
+  //     title: "Chess",
+  //     description: "I love chess — I got obsessed with it and climbed to the top 0.6% on Chess.com in just 14 months. It was a fun and intense journey.",
+  //     id: 1,
+  //     icon: <FaChessKnight className="h-[34px] w-[34px] text-white" />,
+  //     imgSrc: `/public/me-chess.jpg`
+  //   },
+  //   {
+  //     title: "Mixed Martial Arts",
+  //     description: "I've been a fan of MMA for quite some time. Soon, I plan to start training seriously and step into the gym myself.",
+  //     id: 2,
+  //     icon: <GiPunch className="h-[34px] w-[34px] text-white" />,
+  //   },
+  //   {
+  //     title: "Football",
+  //     description: "From 2017 to 2020, I trained as a youth footballer at Zamalek FC. My journey was cut short due to the COVID quarantine, which eventually led me to pursue a different path in life.",
+  //     id: 3,
+  //     icon: <FaFutbol className="h-[34px] w-[34px] text-white" />,
+  //   },
+  //   {
+  //     title: "Gym",
+  //     description: "I’ve been going to the gym consistently since 2022, and it's now a key part of my routine and lifestyle.",
+  //     id: 4,
+  //     icon: <GiWeightLiftingUp className="h-[34px] w-[34px] text-white" />,
+  //   },
+  //   {
+  //     title: "Basketball",
+  //     description: "I tried playing basketball back in 2015, but I was too short for it at that time 🚶🏻‍♂️. Still a pretty fun memory",
+  //     id: 5,
+  //     icon: <MdSportsBasketball className="h-[34px] w-[34px] text-white" />,
+  //   },
+  // ];
 
   return (
     <section id="about" className="section-margin relative flex-section-center section text-center">
@@ -72,11 +76,10 @@ export function About() {
           I learn best by building. Whether it’s experimenting with new UI patterns or polishing the details of a layout, I care deeply about how things look, feel, and function. I enjoy crafting user experiences that are not only visually appealing but also intuitive and smooth.
         </p>
       </div>
-
-      <Separator />
       
-      <div className="text-xl max-w-3xl">
-        {/* Outside of coding */}
+      {/* Hobbies section */}
+      {/* <Separator /> */}
+      {/* <div className="text-xl max-w-3xl">
         <h3 className="text-2xl font-semibold mb-2.5">Hobbies & Storylines:</h3>
         <Carousel
           items={carouselItems}
@@ -87,7 +90,7 @@ export function About() {
           loop={true}
           round={false}
         />
-      </div>
+      </div> */}
 
       <Separator />
 
@@ -109,8 +112,8 @@ export function About() {
               animationDuration={2}
               pauseBetweenAnimations={2}>
                 <Badge className="bg-[#b4b4b4] dark:bg-white text-black text-sm sm:text-lg">
-                  React Query
-                  <SiReactquery size={24} />
+                  Jest
+                  <SiJest size={28} />
                 </Badge>
                 <Badge className="bg-[#b4b4b4] dark:bg-white text-black text-sm sm:text-lg">
                   NextJS
@@ -126,7 +129,7 @@ export function About() {
             <MdWork className="text-primary text-2xl"/>
             Next Career Goal:
           </h4>
-          <span className="text-foreground hover:text-secondary transition-colors">Secure a junior-level position</span>
+          <span className="text-foreground hover:text-secondary transition-colors">Secure an entry-level frontend developer position</span>
         </div>
       </div>
     </section>
