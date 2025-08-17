@@ -1,22 +1,31 @@
 import PixelTransition from "../components/react-bits/Animations/PixelTransition";
 import AnimatedHeader from "../components/AnimatedHeader";
-// import { SiTypescript, SiTailwindcss, SiJavascript, SiReact, SiHtml5, SiCss3 } from 'react-icons/si';
+import { SiTypescript, SiTailwindcss, SiJavascript, SiReact, SiHtml5, SiCss3, SiClerk } from 'react-icons/si';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FiExternalLink } from "react-icons/fi";
-import { Badge } from "@/components/ui/badge";
+// import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import type { ReactNode } from "react";
 
 interface Project {
   title: string
   stack: string[]
   themeColor: string
-  // stackIcons: ReactNode[]
+  stackIcons: {
+    text: string,
+    icon: ReactNode
+   }[]
   description: string
   imgSrc: string
   projectInSite: string
@@ -28,14 +37,58 @@ interface Project {
 export function Projects() {
   const projects: Project[] = [
     {
+      title: 'Titan MMA Gym',
+      stack: ['ReactJs', 'TypeScript', 'TailwindCSS', 'Clerk'],
+      themeColor: '#e20000',
+      stackIcons: [
+        {
+          text: 'React',
+          icon: <SiReact />
+        },
+        {
+          text: 'TypeScript',
+          icon: <SiTypescript />
+        },
+        {
+          text: 'TailwindCSS',
+          icon: <SiTailwindcss />
+        },
+        {
+          text: 'Clerk',
+          icon: <SiClerk />
+        },
+      ],
+      description: `A full-stack website designed to represent a Mixed Martial Arts (MMA) gym.
+      The primary purpose is to showcase the gym's classes, coaches, students, branches, and offerings
+      - while also allowing users to sign-up and book training sessions via the plans page.`,
+      imgSrc: '/projects/titan-mma.webp',
+      projectInSite: '/projects/titan-mma-home-page.webp',
+      liveURL: 'https://titan-mma-gym.netlify.app',
+      githubURL: 'https://github.com/abdullahMohamed13/titan-MMA-gym',
+      // linkedinPost: ''
+    },
+    {
       title: 'Chess Times Square',
       stack: ['ReactJs', 'JavaScript', 'CSS'],
       themeColor: '#389B38',
-      // stackIcons: [<SiReact />, <SiJavascript />, <SiCss3 />],
-      description: `free online chess clock, with customizable time controls & dashboard to track game
+      stackIcons: [
+        {
+          text: 'React',
+          icon: <SiReact />
+        },
+        {
+          text: 'JavaScript',
+          icon: <SiJavascript />
+        },
+        {
+          text: 'CSS',
+          icon: <SiCss3 />
+        },
+      ],
+      description: `A Free online chess clock, with customizable time controls & dashboard to track game
       results. Perfect for over-the-board blitz, bullet, and classical chess.`,
-      imgSrc: '/projects/chess-times-square.png',
-      projectInSite: '/projects/chess-times-square-home-page.jpeg',
+      imgSrc: '/projects/chess-times-square.webp',
+      projectInSite: '/projects/chess-times-square-home-page.webp',
       liveURL: 'https://chess-times-square.vercel.app/',
       githubURL: 'https://github.com/abdullahMohamed13/ChessTimesSquare',
       linkedinPost: 'https://www.linkedin.com/posts/abdallah-aziz-999b54295_reactjs-frontenddeveloper-webdevelopment-activity-7339562171699228672-T7Sr?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEeKCYUB2f05TmAQBvRvCLK8mgQqJSaN2fg'
@@ -44,10 +97,23 @@ export function Projects() {
       title: 'Notary',
       stack: ['ReactJs', 'TypeScript', 'TailwindCSS'],
       themeColor: '#007cc1',
-      // stackIcons: [<SiReact />, <SiTypescript />, <SiTailwindcss />],
+      stackIcons: [
+        {
+          text: 'React',
+          icon: <SiReact />
+        },
+        {
+          text: 'TypeScript',
+          icon: <SiTypescript />
+        },
+        {
+          text: 'TailwindCSS',
+          icon: <SiTailwindcss />
+        },
+      ],
       description: 'A modern multilingual note-taking app.',
-      imgSrc: '/projects/notary.png',
-      projectInSite: '/projects/notary-home-page.png',
+      imgSrc: '/projects/notary.webp',
+      projectInSite: '/projects/notary-home-page.webp',
       liveURL: 'https://notary-app-six.vercel.app/',
       githubURL: 'https://github.com/abdullahMohamed13/notary-app',
       linkedinPost: 'https://www.linkedin.com/posts/abdallah-aziz-999b54295_notary-notary-react-activity-7345069928779079681-5C4m?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEeKCYUB2f05TmAQBvRvCLK8mgQqJSaN2fg'
@@ -56,21 +122,47 @@ export function Projects() {
       title: 'infoDash',
       stack: ['HTML', 'CSS', "JavaScript"],
       themeColor: '#5b100a',
-      // stackIcons: [<SiHtml5 />, <SiCss3 />, <SiJavascript />],
+      stackIcons: [
+        {
+          text: 'HTML',
+          icon: <SiHtml5 />
+        },
+        {
+          text: 'CSS',
+          icon: <SiCss3 />
+        },
+        {
+          text: 'JavaScript',
+          icon: <SiJavascript />
+        },
+      ],
       description: 'A responsive dashboard interface with interactive components, clean layout structure, and smooth adaptability across devices for an optimal user experience.',
       imgSrc: '/projects/info-dash.webp',
-      projectInSite: '/projects/info-dash-home-page.png',
+      projectInSite: '/projects/info-dash-home-page.webp',
       liveURL: 'https://info-dashboard-puce.vercel.app',
       githubURL: 'https://github.com/abdullahMohamed13/InfoDashboard'
     },
     {
       title: 'Repo Hub',
       stack: ['HTML', 'CSS', "JavaScript"],
-      themeColor: '#F2141E',
-      // stackIcons: [<SiHtml5 />, <SiCss3 />, <SiJavascript />],
+      themeColor: '#4ca463',
+      stackIcons: [
+        {
+          text: 'HTML',
+          icon: <SiHtml5 />
+        },
+        {
+          text: 'CSS',
+          icon: <SiCss3 />
+        },
+        {
+          text: 'JavaScript',
+          icon: <SiJavascript />
+        },
+      ],
       description: 'A JavaScript app that fetches and displays public repositories with its details for any GitHub user using the GitHub API.',
       imgSrc: '/projects/repo-hub.webp',
-      projectInSite: '/projects/repo-hub-home-page.png',
+      projectInSite: '/projects/repo-hub-home-page.webp',
       liveURL: 'https://repo-hub-ten.vercel.app',
       githubURL: 'https://github.com/abdullahMohamed13/repo-hub'
     }
@@ -80,7 +172,7 @@ export function Projects() {
     <section id="projects" className="section-margin flex-section-center section">
       <AnimatedHeader text="Projects" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-2 gap-10">
         {projects.map((proj, index) => (
           <div key={index} className="bg-card text-card-foreground p-4 rounded-2xl flex flex-col items-center gap-4">
             <PixelTransition
@@ -104,19 +196,34 @@ export function Projects() {
               className="custom-pixel-card"
             />
 
-{/* <h3 className="text-xl font-semibold text-center">{proj.title}</h3> */}
-
-            <div className="text-sm flex gap-2">
+            {/* Stack Text */}
+            {/* <div className="text-sm flex gap-2">
               {proj.stack.map((single, key) => {
                 return <Badge key={key} style={{backgroundColor: proj.themeColor, color: 'white'}}>{single}</Badge>
               })}
+            </div> */}
+
+            {/* Stack icons */}
+            
+            <div className="flex gap-4 justify-center mt-3 text-4xl">
+              {proj.stackIcons.map((stack, i) => (
+                <Tooltip>
+                    <span
+                      key={i}
+                      className="pt-3 pr-3 pl-3 pb-0 rounded-full shadow-lg bg-gradient-to-tr from-muted to-background
+                      hover:scale-125 hover:rotate-6 transition-transform duration-300"
+                      style={{ color: proj.themeColor }}
+                      >
+                    <TooltipTrigger>
+                      {stack.icon}
+                  </TooltipTrigger>
+                    </span>
+                  <TooltipContent>
+                    <p className="text-white">{stack.text}</p>
+                  </TooltipContent>
+                </Tooltip>
+              ))}
             </div>
-{/* 
-<div className="flex gap-4 text-4xl">
-  {proj.stackIcons.map((icon, i) => (
-    <span key={i}>{icon}</span>
-  ))}
-</div> */}
 
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
@@ -126,7 +233,7 @@ export function Projects() {
                 </AccordionContent>
               </AccordionItem>
             </Accordion >
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="flex flex-wrap justify-center gap-2"> {/* *:bg-secondary */}
               <Button asChild>
                 <a href={proj.liveURL} target="_blank" className="flex-center gap-1">
                   App <FiExternalLink />
