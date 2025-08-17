@@ -1,9 +1,19 @@
 import GlassIcons from './../components/react-bits/Components/GlassIcons';
-import { SiTypescript, SiTailwindcss, SiJavascript, SiReact, SiHtml5, SiCss3, SiGithub, SiReactrouter, SiVite,
-    SiRedux, SiNextdotjs, SiGraphql, SiJest, SiShadcnui, SiFramer, SiNpm} from 'react-icons/si';
+import {
+    // Languages 
+    SiTypescript, SiJavascript, SiHtml5, SiCss3,
+    // frameworks_libraries
+    SiReact, SiReactquery, SiReactrouter, SiRedux,
+    // UI libraries
+    SiTailwindcss, SiMaterialformkdocs, SiShadcnui, SiFramer,
+    // Tools & Integrations
+    SiGithub, SiVite, SiNpm, SiWebpack, SiVercel, SiNetlify, SiClerk,
+    // Future skills
+    SiNextdotjs, SiGraphql, SiJest,
+} from 'react-icons/si';
+
 import { FiArrowDown, FiArrowUp, FiLayers } from 'react-icons/fi'
 import { FaArrowDown } from 'react-icons/fa'
-import { VscVscode } from "react-icons/vsc";
 
 import AnimatedHeader from './../components/AnimatedHeader';
 import { Button } from './../components/ui/button'
@@ -63,22 +73,22 @@ const frameworks_libraries = [
     },
     {
         icon: <SiReactrouter />,
-        color: 'white',
+        color: '#F44250',
         label: 'React Router',
         customClass: iconsStyle
     },
     {
-        icon: <SiFramer />,
-        color: '#0055FF',
-        label: 'Framer Motion',
-        customClass: iconsStyle
-    },
-    {
         icon: <SiRedux />,
-        color: 'white',
+        color: '#754ABB',
         label: 'Redux',
         customClass: iconsStyle
     },
+    {
+        icon: <SiReactquery />,
+        color: '#FBD74C',
+        label: 'React Query',
+        customClass: iconsStyle
+    }
 ]
 
 const styling_ui = [
@@ -89,15 +99,21 @@ const styling_ui = [
         customClass: iconsStyle
     },
     {
-        icon: <SiFramer />,
-        color: '#0055FF',
-        label: 'Framer Motion',
-        customClass: iconsStyle
-    },
-    {
         icon: <SiShadcnui />,
         color: '#6366F1',
         label: 'Shadcn UI',
+        customClass: iconsStyle
+    },
+    {
+        icon: <SiMaterialformkdocs />,
+        color: '#007FFF',
+        label: 'Material UI',
+        customClass: iconsStyle
+    },
+    {
+        icon: <SiFramer />,
+        color: '#0055FF',
+        label: 'Framer Motion',
         customClass: iconsStyle
     },
     {
@@ -108,11 +124,35 @@ const styling_ui = [
     },
 ]
 
-const tools = [
+const tools_integrations = [
     {
         icon: <SiGithub />,
-        color: '#181717',
+        color: '#24292e',
         label: 'GitHub',
+        customClass: iconsStyle
+    },
+    {
+        icon: <SiNpm />,
+        color: '#CB0000',
+        label: 'npm',
+        customClass: iconsStyle
+    },
+    {
+        icon: <SiClerk />,
+        color: '#BAB1FF',
+        label: 'Clerk',
+        customClass: iconsStyle
+    },
+    {
+        icon: <SiNetlify />,
+        color: '#00B8B5',
+        label: 'Netlify',
+        customClass: iconsStyle
+    },
+    {
+        icon: <SiVercel />,
+        color: '#111',
+        label: 'Vercel',
         customClass: iconsStyle
     },
     {
@@ -123,21 +163,16 @@ const tools = [
         customClass: iconsStyle
     },
     {
-        icon: <VscVscode />,
-        color: '#007ACC',
-        label: 'VS Code',
-        customClass: iconsStyle
-    },
-    {
-        icon: <SiNpm />,
-        color: '#181717',
-        label: 'npm',
+        icon: <SiWebpack />,
+        color: '#1c78c0',
+        label: 'Webpack',
         customClass: iconsStyle
     },
 ]
 
-const all = [...languages, ...frameworks_libraries, ...styling_ui, ...tools].filter(
-  (item, index, arr) => index === arr.findIndex(other => other.label === item.label)
+const all = [...languages, ...frameworks_libraries, ...tools_integrations, ...styling_ui].filter(
+    // Remove duplicated skills if there's any
+    (item, index, arr) => index === arr.findIndex(other => other.label === item.label)
 );
 
 const planningToLearn = [
@@ -175,7 +210,7 @@ export function Skills() {
     currentChoice === 'languages' ? languages :
     currentChoice === 'frameworks_libraries' ? frameworks_libraries :
     currentChoice === 'styling_ui' ? styling_ui :
-    currentChoice === 'tools' ? tools :
+    currentChoice === 'tools_integrations' ? tools_integrations :
     currentChoice === 'planningToLearn' ? planningToLearn :
     [];
 
@@ -184,7 +219,7 @@ export function Skills() {
         { label: "Languages", fn: () => setCurrentChoice('languages') },
         { label: "Frameworks & Libraries", fn: () => setCurrentChoice('frameworks_libraries') },
         { label: "Styling & UI", fn: () => setCurrentChoice('styling_ui')  },
-        { label: "Tools", fn: () => setCurrentChoice('tools') },
+        { label: "Tools & Integrations", fn: () => setCurrentChoice('tools_integrations') },
         { label: "What's Next", fn: () => setCurrentChoice('planningToLearn')  },
     ];
     
@@ -199,7 +234,7 @@ export function Skills() {
                             (item.label === "Languages" && currentChoice === 'languages') ||
                             (item.label === "Frameworks & Libraries" && currentChoice === 'frameworks_libraries') ||
                             (item.label === "Styling & UI" && currentChoice === 'styling_ui') ||
-                            (item.label === "Tools" && currentChoice === 'tools') ||
+                            (item.label === "Tools & Integrations" && currentChoice === 'tools_integrations') ||
                             (item.label === "What's Next" && currentChoice === 'planningToLearn')
                         )?.label} <FaArrowDown style={{fontSize: '10px'}} />
                     </Button>
