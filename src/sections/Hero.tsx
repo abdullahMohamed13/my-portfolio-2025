@@ -48,7 +48,7 @@ export function Hero() {
           </Button>
         </Magnet>
         <Button asChild>
-          <a href='#contact'>Let's contact</a>
+          <a href='#contact'>Hire Me</a>
         </Button>
       </div>
     </div>
@@ -67,20 +67,3 @@ export function Hero() {
 </section>
 
 }
-
-{/*
-  <h2 className='text-4xl font-bold'>Nice to meet you 👋</h2>
-<h3>
-  I turn ideas into fast, functional, and aesthetic websites using <strong>React</strong>, <strong>TypeScript</strong> & <strong>Tailwind CSS</strong>.
-</h3>
-<p>
-  Once obsessed with chess, now obsessed with code — I bring the same strategy and discipline from the board to the browser.
-  Whether it's creating seamless UI, writing clean logic, or debugging at 2am, I'm all in.
-</p>
-<p className="pt-2 italic text-muted-foreground">
-  Also — catch me building things by day, throwing kicks by night. 🥋
-</p>
-
-  */}
-
-      // <p>I’m passionate about turning complex ideas into interactive, high-quality web interfaces. I build with precision, iterate with intention, and always ship with purpose.</p>
