@@ -202,23 +202,20 @@ export function Projects() {
                 return <Badge key={key} style={{backgroundColor: proj.themeColor, color: 'white'}}>{single}</Badge>
               })}
             </div> */}
-
-            {/* Stack icons */}
             
+            {/* Stack icons */}
             <div className="flex gap-4 justify-center mt-3 text-4xl">
               {proj.stackIcons.map((stack, i) => (
-                <Tooltip>
-                    <span
-                      key={i}
-                      className="pt-3 pr-3 pl-3 pb-0 rounded-full shadow-lg bg-gradient-to-tr from-muted to-background
-                      hover:scale-125 hover:rotate-6 transition-transform duration-300"
-                      style={{ color: proj.themeColor }}
-                      >
-                    <TooltipTrigger>
-                      {stack.icon}
+                <Tooltip >
+                  <TooltipTrigger
+                    key={i}
+                    className="p-3 rounded-full shadow-lg bg-gradient-to-tr from-muted to-background
+                    hover:scale-125 hover:rotate-6 transition-transform duration-300 cursor-default"
+                    style={{ color: proj.themeColor }}
+                  >
+                    {stack.icon}
                   </TooltipTrigger>
-                    </span>
-                  <TooltipContent>
+                  <TooltipContent themeColor={proj.themeColor}>
                     <p className="text-white">{stack.text}</p>
                   </TooltipContent>
                 </Tooltip>
