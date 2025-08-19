@@ -3,6 +3,10 @@ import * as TooltipPrimitive from "@radix-ui/react-tooltip"
 
 import { cn } from "@/lib/utils"
 
+interface CustomTooltipContentProps extends React.ComponentProps<typeof TooltipPrimitive.Content> {
+  themeColor?: string
+}
+
 function TooltipProvider({
   delayDuration = 0,
   ...props
@@ -38,7 +42,7 @@ function TooltipContent({
   children,
   themeColor = 'var(--color-secondary)',
   ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Content>) {
+}: CustomTooltipContentProps) {
   return (
     <TooltipPrimitive.Portal>
       <TooltipPrimitive.Content
