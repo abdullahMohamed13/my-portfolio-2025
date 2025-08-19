@@ -33,14 +33,11 @@
   .flex-between-center {
     @apply flex justify-between items-center
   }
-  .flex-col-center {
-    @apply flex justify-center items-center flex-col
-  }
   .flex-section-center {
     @apply flex justify-center items-center flex-col;
   }
-  .section-margin {
-    @apply my-10;
+  .section-padding {
+    @apply py-16;
   }
 }
 

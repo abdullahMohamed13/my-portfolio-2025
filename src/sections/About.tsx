@@ -17,7 +17,7 @@ import { SiJest, SiNextdotjs }from 'react-icons/si';
 import { AiOutlineSearch }from 'react-icons/ai';
 import TrueFocus from "@/components/react-bits/TextAnimations/TrueFocus";
 
-export function About() {
+export default function About() {
   // Hobbies list
   // const carouselItems = [
   //   {
@@ -52,28 +52,27 @@ export function About() {
   //     icon: <MdSportsBasketball className="h-[34px] w-[34px] text-white" />,
   //   },
   // ];
-
+  
   return (
-    <section id="about" className="section-margin relative flex-section-center section text-center">
+    <section id="about" className="py-16 sm:pt-0 relative flex-section-center text-center">
       <AnimatedHeader text="About Me" />
       <div className="text-xl max-w-3xl leading-10">
         <p>
-          I started programming in September 2022 with <Badge className="text-lg">C++</Badge>. Since then, I've focused on frontend development — turning ideas into clean, interactive, and responsive web experiences.
-          My favorite tools are
-          <strong>
-            <Badge className="mx-1.5 text-lg bg-[#61DAFB]">React</Badge>
-          </strong>,
-          <strong>
-            <Badge className="mx-1.5 text-lg bg-[#06B6D4]">Tailwind CSS</Badge>
-          </strong>, and
-          <strong>
-            <Badge className="mx-1.5 text-lg bg-[#3178C6]">TypeScript</Badge>
-          </strong>
-          — tools that let me build fast, beautiful, and maintainable interfaces.
+          I started programming in September 2022 with <Badge className="text-xl">C++</Badge>. Since then, I've
+          focused on frontend development — turning ideas into clean, interactive, and responsive web experiences.
         </p>
+        <div className="*:mx-1.5 *:text-xl">
+          <span style={{fontWeight: 'normal'}}>My tools of choice are</span>
+          <Badge className="bg-[#61DAFB]">React</Badge>
+          <Badge className="bg-[#06B6D4]">Tailwind CSS</Badge>
+          <Badge className="bg-[#3178C6]">TypeScript</Badge>
+        </div>
+        <span>
+          They allow me to build fast, beautiful, and maintainable websites and interfaces.
+        </span>
 
         <p>
-          I learn best by building. Whether it’s experimenting with new UI patterns or polishing the details of a layout, I care deeply about how things look, feel, and function. I enjoy crafting user experiences that are not only visually appealing but also intuitive and smooth.
+          I learn best by building. Whether it's experimenting with new UI patterns or polishing the details of a layout, I care deeply about how things look, feel, and function. I enjoy crafting user experiences that are not only visually appealing but also intuitive and smooth.
         </p>
       </div>
       

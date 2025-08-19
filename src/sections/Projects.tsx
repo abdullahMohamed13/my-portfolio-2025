@@ -1,10 +1,11 @@
+import type { ReactNode } from "react";
+// React-Bits Components
 import PixelTransition from "../components/react-bits/Animations/PixelTransition";
 import AnimatedHeader from "../components/AnimatedHeader";
+// Icons
 import { SiTypescript, SiTailwindcss, SiJavascript, SiReact, SiHtml5, SiCss3, SiClerk } from 'react-icons/si';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { FiExternalLink } from "react-icons/fi";
-// import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { FaGithub, FaLinkedin, FaExternalLinkAlt } from 'react-icons/fa';
+// Shadcn Components
 import {
   Tooltip,
   TooltipContent,
@@ -16,30 +17,33 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import type { ReactNode } from "react";
+// Custom Reusable Components
+import ProjectActionButton from "@/components/ProjectActionButton";
 
-interface Project {
+interface ProjectProps {
   title: string
-  stack: string[]
-  themeColor: string
-  stackIcons: {
-    text: string,
-    icon: ReactNode
-   }[]
   description: string
   imgSrc: string
   projectInSite: string
+  deploymentPlatform: 'Vercel' | 'Netlify'
+  stack: string[]
+  themeColor: string
+  stackIcons: {
+    text: string
+    icon: ReactNode
+   }[]
   liveURL: string
   githubURL: string
   linkedinPost?: string
 }
 
-export function Projects() {
-  const projects: Project[] = [
+export default function Projects() {
+  const projects: ProjectProps[] = [
     {
       title: 'Titan MMA Gym',
-      stack: ['ReactJs', 'TypeScript', 'TailwindCSS', 'Clerk'],
+      stack: ['ReactJs', 'TypeScript', 'TailwindCSS', 'Clerk', 'Convex'],
       themeColor: '#e20000',
+      deploymentPlatform: 'Netlify',
       stackIcons: [
         {
           text: 'React',
@@ -58,19 +62,20 @@ export function Projects() {
           icon: <SiClerk />
         },
       ],
-      description: `A full-stack website designed to represent a Mixed Martial Arts (MMA) gym.
+      description: `A full-stack booking system designed to represent a Mixed Martial Arts (MMA) gym.
       The primary purpose is to showcase the gym's classes, coaches, students, branches, and offerings
       - while also allowing users to sign-up and book training sessions via the plans page.`,
       imgSrc: '/projects/titan-mma.webp',
       projectInSite: '/projects/titan-mma-home-page.webp',
       liveURL: 'https://titan-mma-gym.netlify.app',
       githubURL: 'https://github.com/abdullahMohamed13/titan-MMA-gym',
-      // linkedinPost: ''
+      linkedinPost: 'https://www.linkedin.com/posts/abdallah-aziz-999b54295_titanmma-reactjs-typescript-activity-7363564671762579458-U-7Z?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEeKCYUB2f05TmAQBvRvCLK8mgQqJSaN2fg'
     },
     {
       title: 'Chess Times Square',
       stack: ['ReactJs', 'JavaScript', 'CSS'],
       themeColor: '#389B38',
+      deploymentPlatform: 'Vercel',
       stackIcons: [
         {
           text: 'React',
@@ -97,6 +102,7 @@ export function Projects() {
       title: 'Notary',
       stack: ['ReactJs', 'TypeScript', 'TailwindCSS'],
       themeColor: '#007cc1',
+      deploymentPlatform: 'Vercel',
       stackIcons: [
         {
           text: 'React',
@@ -122,6 +128,7 @@ export function Projects() {
       title: 'infoDash',
       stack: ['HTML', 'CSS', "JavaScript"],
       themeColor: '#5b100a',
+      deploymentPlatform: 'Vercel',
       stackIcons: [
         {
           text: 'HTML',
@@ -146,6 +153,7 @@ export function Projects() {
       title: 'Repo Hub',
       stack: ['HTML', 'CSS', "JavaScript"],
       themeColor: '#4ca463',
+      deploymentPlatform: 'Vercel',
       stackIcons: [
         {
           text: 'HTML',
@@ -169,12 +177,23 @@ export function Projects() {
   ];
 
   return (
-    <section id="projects" className="section-margin flex-section-center section">
+    <section id="projects" className="section-padding flex-section-center section">
       <AnimatedHeader text="Projects" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-2 gap-10">
         {projects.map((proj, index) => (
-          <div key={index} className="bg-card text-card-foreground p-4 rounded-2xl flex flex-col items-center gap-4">
+          // Project Card
+          <div key={index} className="relative bg-card text-card-foreground p-4 rounded-2xl flex flex-col items-center gap-4">
+            
+            {/* Deployment Platform Badge */}
+            <div className="absolute bg-popover text-xs top-6 right-6 z-2 p-1.5 flex gap-2 items-center rounded-lg">
+              <span className="rounded-full bg-red-500 w-1.5 h-1.5 animate-ping" />
+              <span className="flex items-center">
+                Live on {proj.deploymentPlatform}
+              </span>
+            </div>
+
+            {/* Project Image */}
             <PixelTransition
               firstContent={
                 <img
@@ -191,24 +210,17 @@ export function Projects() {
                 />
               }
               gridSize={22}
-              pixelColor='var(--primary)'
+              pixelColor={proj.themeColor}
               animationStepDuration={0.4}
-              className="custom-pixel-card"
+              style={{borderStyle: 'none'}}
             />
-
-            {/* Stack Text */}
-            {/* <div className="text-sm flex gap-2">
-              {proj.stack.map((single, key) => {
-                return <Badge key={key} style={{backgroundColor: proj.themeColor, color: 'white'}}>{single}</Badge>
-              })}
-            </div> */}
             
             {/* Stack icons */}
             <div className="flex gap-4 justify-center mt-3 text-4xl">
-              {proj.stackIcons.map((stack, i) => (
+              {proj.stackIcons.map((stack, index) => (
                 <Tooltip >
                   <TooltipTrigger
-                    key={i}
+                    key={index}
                     className="p-3 rounded-full shadow-lg bg-gradient-to-tr from-muted to-background
                     hover:scale-125 hover:rotate-6 transition-transform duration-300 cursor-default"
                     style={{ color: proj.themeColor }}
@@ -216,12 +228,13 @@ export function Projects() {
                     {stack.icon}
                   </TooltipTrigger>
                   <TooltipContent themeColor={proj.themeColor}>
-                    <p className="text-white">{stack.text}</p>
+                    <p className="text-white font-bold">{stack.text}</p>
                   </TooltipContent>
                 </Tooltip>
               ))}
             </div>
 
+            {/* Description */}
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
                 <AccordionTrigger>Description</AccordionTrigger>
@@ -230,32 +243,40 @@ export function Projects() {
                 </AccordionContent>
               </AccordionItem>
             </Accordion >
-            <div className="flex flex-wrap justify-center gap-2"> {/* *:bg-secondary */}
-              <Button asChild>
-                <a href={proj.liveURL} target="_blank" className="flex-center gap-1">
-                  App <FiExternalLink />
-                </a>
-              </Button>
-              <Button>
-                <a href={proj.githubURL} target="_blank" className="flex-center gap-1">
-                  Repo <FaGithub />
-                </a>
-              </Button>
-              {proj.linkedinPost && (
-                <>
-                  <Button>
-                    <a href={proj.linkedinPost} target="_blank" className="flex-center gap-1">
-                      Post <FaLinkedin />
-                    </a>
-                  </Button>
-                </>
-              )}
+
+            {/*  CTA Buttons */}
+            <div className="flex flex-wrap justify-center gap-2">
+              {/* Live App button */}
+              <ProjectActionButton
+                text="App"
+                href={proj.liveURL}
+                icon={<FaExternalLinkAlt />}
+                bgColor={proj.themeColor}
+              />
+              {/* GitHub Repo button */}
+              <ProjectActionButton
+                text="Repo"
+                href={proj.githubURL}
+                icon={<FaGithub />}
+                bgColor={proj.themeColor}
+              />
+              {/* Linkedin Post button */}
+                {proj.linkedinPost && (
+                  <ProjectActionButton
+                    text="Post"
+                    href={proj.linkedinPost}
+                    icon={<FaLinkedin />}
+                    bgColor={proj.themeColor}
+                  />
+                )}
             </div>
           </div>
         ))}
       </div>
-      <div className="text-lg md:text-xl bg-muted hover:bg-muted/80 mt-4 px-4 py-2 rounded-lg shadow-sm hover:scale-[1.02]
-        transition-transform duration-300 flex items-center gap-2 text-center">Stay Tuned For Upcoming Projects 🚀</div>
+      <p className="text-lg md:text-xl bg-muted hover:bg-muted/80 mt-8 px-4 py-2 rounded-lg shadow-sm
+        hover:scale-[1.02] transition-transform duration-300 flex items-center gap-2 text-center">
+          Stay Tuned For Upcoming Projects 🚀
+      </p>
     </section>
   );
 }

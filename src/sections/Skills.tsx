@@ -1,4 +1,7 @@
+import { useState } from 'react';
+// ReactBits Components
 import GlassIcons from './../components/react-bits/Components/GlassIcons';
+// Tech icons
 import {
     // Languages 
     SiTypescript, SiJavascript, SiHtml5, SiCss3,
@@ -10,14 +13,15 @@ import {
     SiGithub, SiVite, SiNpm, SiWebpack, SiVercel, SiNetlify, SiClerk,
     // Future skills
     SiNextdotjs, SiGraphql, SiJest,
+    SiDocker,
 } from 'react-icons/si';
-
+// Arrows Icons
 import { FiArrowDown, FiArrowUp, FiLayers } from 'react-icons/fi'
 import { FaArrowDown } from 'react-icons/fa'
-
+// Custom Components
 import AnimatedHeader from './../components/AnimatedHeader';
+// shadcn components
 import { Button } from './../components/ui/button'
-import { useState } from 'react';
 import {
   Menubar,
   MenubarMenu,
@@ -179,7 +183,7 @@ const planningToLearn = [
     {
         icon: <SiNextdotjs />,
         color: '#0070f3',
-        label: 'Next.js',
+        label: 'Next JS',
         customClass: iconsStyle
     },
     {
@@ -194,9 +198,15 @@ const planningToLearn = [
         label: 'Jest',
         customClass: iconsStyle
     },
+    {
+        icon: <SiDocker />,
+        color: '#1D63ED',
+        label: 'Docker',
+        customClass: iconsStyle
+    },
 ]
 
-export function Skills() {
+export default function Skills() {
     const [currentChoice, setCurrentChoice] = useState<string>('all');
     const [showMoreSkills, setShowMoreSkills] = useState<boolean>(true);
     const [popoverOpen, setPopoverOpen] = useState<boolean>(false);
@@ -206,13 +216,12 @@ export function Skills() {
     }
 
     const currentItems =
-    currentChoice === 'all' ? all :
-    currentChoice === 'languages' ? languages :
-    currentChoice === 'frameworks_libraries' ? frameworks_libraries :
-    currentChoice === 'styling_ui' ? styling_ui :
-    currentChoice === 'tools_integrations' ? tools_integrations :
-    currentChoice === 'planningToLearn' ? planningToLearn :
-    [];
+        currentChoice === 'all' ? all :
+        currentChoice === 'languages' ? languages :
+        currentChoice === 'frameworks_libraries' ? frameworks_libraries :
+        currentChoice === 'styling_ui' ? styling_ui :
+        currentChoice === 'tools_integrations' ? tools_integrations :
+        currentChoice === 'planningToLearn' ? planningToLearn : [];
 
     const listItems = [
         { label: "All", fn: () => setCurrentChoice('all') },
@@ -223,7 +232,7 @@ export function Skills() {
         { label: "What's Next", fn: () => setCurrentChoice('planningToLearn')  },
     ];
     
-    return <section id="skills" className='section-margin flex-section-center'>
+    return <section id="skills" className='section-padding flex-section-center'>
         <AnimatedHeader text='Skills & Tools' />
         <div className='block md:hidden'>
             <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import Magnet from '../components/react-bits/Animations/Magnet'
 import RotatingText from '../components/react-bits/TextAnimations/RotatingText';
 import { Button } from '@/components/ui/button';
@@ -10,11 +9,6 @@ export function Hero() {
     text-center sm:text-left flex-col sm:flex-row gap-5">
 
     <div className="intro flex-c flex-col *:p-2">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-      >
         <div>
           <div className="creative flex justify-center items-center sm:justify-start sm:items-start pt-10 sm:pt-0 pb-10 text-2xl">
             <span className='px-2 sm:px-2 md:px-3 sm:py-1 md:py-2 font-semibold'>Creative</span>
@@ -39,7 +33,6 @@ export function Hero() {
           <p className='leading-6 sm:leading-12 mb-2 text-muted-foreground *:text-[var(--foreground)]'>I'm always interested in building cool web things with <strong>React</strong>, <strong>TypeScript</strong> & <strong>Tailwind CSS</strong></p>
           <p className='leading-6 sm:leading-7 text-muted-foreground'>I’m passionate about turning complex ideas into interactive, high-quality web interfaces. I build with precision, iterate with intention, and always ship with purpose.</p>
         </div>
-      </motion.div>
 
       <div className="*:mx-1 mb-3">
         <Magnet padding={20} disabled={false} magnetStrength={3}>

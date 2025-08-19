@@ -1,14 +1,18 @@
-import NavBar from './components/NavBar';
-import { About } from './sections/About';
-import { Hero } from './sections/Hero';
-import { Projects } from './sections/Projects';
-import { Skills } from './sections/Skills';
 import { motion } from 'framer-motion'
-import Footer from './components/Footer';
+import { lazy, Suspense } from 'react';
+// sections
+import { Hero } from './sections/Hero';
+const Projects = lazy(() => import('./sections/Projects'))
+const About = lazy(() => import('./sections/About'))
+const Skills = lazy(() => import('./sections/Skills'))
+const Contact = lazy(() => import('./sections/Contact'))
+// Components
 import { ThemeProvider } from "@/components/theme-provider"
-import Header from './components/Header';
-import Contact from './sections/Contact';
+import FadeInOnScroll from './components/FadeInOnScroll';
 import { Toaster } from 'sonner';
+import NavBar from './components/NavBar';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 export default function App() {
   
@@ -21,12 +25,15 @@ export default function App() {
           <NavBar />
           <Header />
           <Hero />
-          <About />
-          <Projects/>
-          <Skills />
-          <Contact />
-          <Toaster />
       </motion.div>
+
+      <Suspense fallback={null}>
+        <FadeInOnScroll><About /></FadeInOnScroll>
+        <FadeInOnScroll><Projects /></FadeInOnScroll>
+        <FadeInOnScroll><Skills /></FadeInOnScroll>
+        <FadeInOnScroll><Contact /></FadeInOnScroll>
+      </Suspense>
+      <Toaster />
     </main>
     <Footer />
   </ThemeProvider>
