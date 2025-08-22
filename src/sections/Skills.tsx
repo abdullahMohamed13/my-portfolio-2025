@@ -8,7 +8,7 @@ import {
     // frameworks_libraries
     SiReact, SiReactquery, SiReactrouter, SiRedux,
     // UI libraries
-    SiTailwindcss, SiMaterialformkdocs, SiShadcnui, SiFramer,
+    SiTailwindcss, SiMui, SiShadcnui, SiFramer,
     // Tools & Integrations
     SiGithub, SiVite, SiNpm, SiWebpack, SiVercel, SiNetlify, SiClerk,
     // Future skills
@@ -16,7 +16,7 @@ import {
     SiDocker,
 } from 'react-icons/si';
 // Arrows Icons
-import { FiArrowDown, FiArrowUp, FiLayers } from 'react-icons/fi'
+import { FiArrowDown, FiArrowUp } from 'react-icons/fi'
 import { FaArrowDown } from 'react-icons/fa'
 // Custom Components
 import AnimatedHeader from './../components/AnimatedHeader';
@@ -70,12 +70,6 @@ const frameworks_libraries = [
         customClass: iconsStyle
     },
     {
-        icon: <SiTailwindcss />,
-        color: '#06B6D4',
-        label: 'Tailwind CSS',
-        customClass: iconsStyle
-    },
-    {
         icon: <SiReactrouter />,
         color: '#F44250',
         label: 'React Router',
@@ -103,27 +97,21 @@ const styling_ui = [
         customClass: iconsStyle
     },
     {
+        icon: <SiMui />,
+        color: '#007FFF',
+        label: 'Material UI',
+        customClass: iconsStyle
+    },
+    {
         icon: <SiShadcnui />,
         color: '#6366F1',
         label: 'Shadcn UI',
         customClass: iconsStyle
     },
     {
-        icon: <SiMaterialformkdocs />,
-        color: '#007FFF',
-        label: 'Material UI',
-        customClass: iconsStyle
-    },
-    {
         icon: <SiFramer />,
         color: '#0055FF',
         label: 'Framer Motion',
-        customClass: iconsStyle
-    },
-    {
-        icon: <FiLayers />,
-        color: '#1E293B',
-        label: 'React Bits',
         customClass: iconsStyle
     },
 ]
@@ -133,6 +121,12 @@ const tools_integrations = [
         icon: <SiGithub />,
         color: '#24292e',
         label: 'GitHub',
+        customClass: iconsStyle
+    },
+    {
+        icon: <SiDocker />,
+        color: '#1D63ED',
+        label: 'Docker',
         customClass: iconsStyle
     },
     {
@@ -162,7 +156,6 @@ const tools_integrations = [
     {
         icon: <SiVite />,
         color: '#646CFF',
-        // #3d1663 | #2a623d
         label: 'Vite',
         customClass: iconsStyle
     },
@@ -174,7 +167,7 @@ const tools_integrations = [
     },
 ]
 
-const all = [...languages, ...frameworks_libraries, ...tools_integrations, ...styling_ui].filter(
+const all = [...languages, ...frameworks_libraries, ...styling_ui, ...tools_integrations].filter(
     // Remove duplicated skills if there's any
     (item, index, arr) => index === arr.findIndex(other => other.label === item.label)
 );
@@ -196,12 +189,6 @@ const planningToLearn = [
         icon: <SiJest />,
         color: '#C63D14',
         label: 'Jest',
-        customClass: iconsStyle
-    },
-    {
-        icon: <SiDocker />,
-        color: '#1D63ED',
-        label: 'Docker',
         customClass: iconsStyle
     },
 ]
@@ -227,14 +214,15 @@ export default function Skills() {
         { label: "All", fn: () => setCurrentChoice('all') },
         { label: "Languages", fn: () => setCurrentChoice('languages') },
         { label: "Frameworks & Libraries", fn: () => setCurrentChoice('frameworks_libraries') },
-        { label: "Styling & UI", fn: () => setCurrentChoice('styling_ui')  },
-        { label: "Tools & Integrations", fn: () => setCurrentChoice('tools_integrations') },
+        { label: "Styling/UI", fn: () => setCurrentChoice('styling_ui')  },
+        { label: "Tools", fn: () => setCurrentChoice('tools_integrations') },
         { label: "What's Next", fn: () => setCurrentChoice('planningToLearn')  },
     ];
     
     return <section id="skills" className='section-padding flex-section-center'>
         <AnimatedHeader text='Skills & Tools' />
-        <div className='block md:hidden'>
+        {/* skills navigation on small screens */}
+        <nav className='block md:hidden'>
             <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
                 <PopoverTrigger>
                     <Button className='bg-accent text-accent-foreground'>
@@ -242,8 +230,8 @@ export default function Skills() {
                             (item.label === "All" && currentChoice === 'all') ||
                             (item.label === "Languages" && currentChoice === 'languages') ||
                             (item.label === "Frameworks & Libraries" && currentChoice === 'frameworks_libraries') ||
-                            (item.label === "Styling & UI" && currentChoice === 'styling_ui') ||
-                            (item.label === "Tools & Integrations" && currentChoice === 'tools_integrations') ||
+                            (item.label === "Styling/UI" && currentChoice === 'styling_ui') ||
+                            (item.label === "Tools" && currentChoice === 'tools_integrations') ||
                             (item.label === "What's Next" && currentChoice === 'planningToLearn')
                         )?.label} <FaArrowDown style={{fontSize: '10px'}} />
                     </Button>
@@ -265,7 +253,9 @@ export default function Skills() {
                     })}
                 </PopoverContent>
             </Popover>
-        </div>
+        </nav>
+
+        {/* Menubar on bigger screens */}
         <Menubar className='mt-4 hidden md:flex'>
             <MenubarMenu>
                 {listItems.map((item, key) => {
@@ -273,9 +263,13 @@ export default function Skills() {
                 })}
             </MenubarMenu>
         </Menubar>
+
+        {/* Skills Items */}
         <div className="mt-2 flex justify-center">
             <GlassIcons items={showMoreSkills ? currentItems.slice(0, 6) : currentItems} />
         </div>
+
+        {/* "show more" button */}
         {currentItems.length > 6 && (
             <Button className='flex-center gap-1' onClick={handleSkillsExpand}>
                 <span>{showMoreSkills ? 'Show More' : 'Show Less' }</span>
