@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import Dock from './react-bits/Components/Dock';
-import { FaArrowUp, FaArrowDown } from 'react-icons/fa'
+import { FaArrowUp, FaArrowDown, FaQuoteLeft } from 'react-icons/fa'
 import { AiFillHome } from 'react-icons/ai'
 import { CgProfile } from 'react-icons/cg'
 import { VscFolderLibrary } from 'react-icons/vsc'
 import { BiCodeAlt } from 'react-icons/bi'
+import { MdContactMail } from "react-icons/md";
 
 const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
@@ -17,7 +18,9 @@ const items = [
     { icon: <AiFillHome size={18} />, label: 'Intro', onClick: () => scrollToSection('hero')},
     { icon: <CgProfile size={18} />, label: 'About', onClick: () => scrollToSection('about')},
     { icon: <VscFolderLibrary size={18} />, label: 'Projects', onClick: () => scrollToSection('projects')},
+    { icon: <FaQuoteLeft size={18} />, label: 'Testimonials', onClick: () => scrollToSection('testimonials')},
     { icon: <BiCodeAlt size={18} />, label: 'Skills', onClick: () => scrollToSection('skills')},
+    { icon: <MdContactMail size={18} />, label: 'Contact', onClick: () => scrollToSection('contact')},
 ];
 
 function NavBar() {
@@ -34,7 +37,7 @@ function NavBar() {
                 {/* Toggle Icon at top right of nav bar */}
                 
                 <button
-                    className={`navbar-toggle-arrow absolute ${showNav ? 'bottom-11 sm:right-28' : 'bottom-19 sm:right-68.5'} right-0 border-neutral-700 bg-muted text-foreground rounded-xl shadow-lg p-2 transition-opacity duration-200 hover:bg-opacity-80 focus:outline-none z-10`}
+                    className={`navbar-toggle-arrow absolute ${showNav ? 'bottom-11 sm:right-11' : 'bottom-19 sm:right-68.5'} right-0 border-neutral-700 bg-muted text-foreground rounded-xl shadow-lg p-2 transition-opacity duration-200 hover:bg-opacity-80 focus:outline-none z-10`}
                     onClick={handleNavExpand}
                     title={showNav ? 'Hide navigation' : 'Show navigation'}
                     aria-label={showNav ? 'Hide navigation' : 'Show navigation'}
@@ -43,7 +46,6 @@ function NavBar() {
                 </button>
 
                 <div>
-                    {/* [#495669] */}
                     <Dock
                         className={`navigation-dock ${!showNav && `pointer-events-none`} bg-muted rounded-t-2xl
                         shadow-2xl px-4 py-2 flex justify-center items-center`}

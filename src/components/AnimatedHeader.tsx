@@ -26,7 +26,7 @@ export default function AnimatedHeader({text, className}: TextProps) {
     if (useFallback) {
         return (
             <ShinyText 
-                text={text}
+                text={`// ${text}`}
                 className={`${className} text-primary font-mono text-4xl flex-center`} 
             />
         );
@@ -37,8 +37,8 @@ export default function AnimatedHeader({text, className}: TextProps) {
             ref={containerRef}
             className="relative font-bold mb-5">
             <VariableProximity
-                label={text}
-                className={`variable-proximity-demo text-4xl font-bold border-b-2 border-card ${className || ''}`}
+                label={`// ${text}`}
+                className={`variable-proximity-demo italic text-4xl font-bold border-b-2 border-card ${className || ''}`}
                 fromFontVariationSettings="'wght' 400"
                 toFontVariationSettings="'wght' 900"
                 containerRef={containerRef}

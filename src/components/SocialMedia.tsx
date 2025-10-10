@@ -1,50 +1,37 @@
-import { useState } from 'react';
-import { SiGithub, SiLinkedin, SiGmail, SiWhatsapp, SiCodewars } from 'react-icons/si';
+import { SiGithub } from 'react-icons/si';
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { toast } from 'sonner';
 
-export default function SocialMedia() {
-    const [copied, setCopied] = useState(false);
+export default function SocialMedia({centered, className}: {centered?: boolean, className?: string}) {
 
     const copyToClipboard = (text: string) => {
         navigator.clipboard.writeText(text);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
+        toast.success("WhatsApp number is copied!");
     }
 
-    return <div className="social-media flex-center gap-4 *:text-2xl *:cursor-pointer *:transition-colors">
-          <a href="https://github.com/abdullahMohamed13" target='_blank' className='hover:text-amber-900'>
-            <SiGithub />
+    return <div className={`${centered && 'flex-center gap-4'} ${className} *:text-2xl *:cursor-pointer *:transition-colors`}>
+          <a href="https://github.com/abdullahMohamed13" target='_blank'>
+            <SiGithub size={24} />
           </a>
-          <a href="https://www.linkedin.com/in/abdallah-aziz-999b54295" target='_blank' className='hover:text-[#0077B5]' rel="noopener noreferrer">
-            <SiLinkedin />
-            </a>
-          <a href="mailto:abdullah.229op@gmail.com" className='hover:text-red-600' rel="noopener noreferrer">
-            <SiGmail />
+          <a href="https://www.linkedin.com/in/abdallah-aziz-999b54295" target='_blank' rel="noopener noreferrer">
+            <img src='/contacts/linkedin.svg' className='h-6.5' />
           </a>
-          <a href="https://www.codewars.com/users/abdullahMohamed138" target='_blank' className='hover:text-[#AD2C27]' rel="noopener noreferrer">
-            <SiCodewars />
+          <a href="mailto:abdullah.229op@gmail.com" rel="noopener noreferrer">
+            <img src='/contacts/gmail.svg' className='h-6.5' />
           </a>
           <Tooltip>
             <TooltipTrigger>
               <a onClick={() => copyToClipboard("+201010434465")} className="relative">
-                <SiWhatsapp className='hover:text-green-500 transition-colors' />
-                {copied && (
-                  <span 
-                    className="absolute left-full z-[1000] ml-2 bg-[var(--primary)] text-white px-2 py-1 rounded text-xs whitespace-nowrap animate-pulse">
-                    Copied!
-                  </span>
-                )}
+                <img src='/contacts/whatsapp.svg' className='h-6.5' />
               </a>
             </TooltipTrigger>
             <TooltipContent>
-              <p className='text-white'>Copy To Clipboard</p>
+              Copy To Clipboard
             </TooltipContent>
           </Tooltip>
-
-          {/* Add LeetCode in the future */}
         </div>
 }

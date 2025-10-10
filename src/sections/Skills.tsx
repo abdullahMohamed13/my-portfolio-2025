@@ -10,7 +10,7 @@ import {
     // UI libraries
     SiTailwindcss, SiMui, SiShadcnui, SiFramer,
     // Tools & Integrations
-    SiGithub, SiVite, SiNpm, SiWebpack, SiVercel, SiNetlify, SiClerk,
+    SiGithub, SiVite, SiNpm, SiWebpack,
     // Future skills
     SiNextdotjs, SiGraphql, SiJest,
     SiDocker,
@@ -136,24 +136,6 @@ const tools_integrations = [
         customClass: iconsStyle
     },
     {
-        icon: <SiClerk />,
-        color: '#BAB1FF',
-        label: 'Clerk',
-        customClass: iconsStyle
-    },
-    {
-        icon: <SiNetlify />,
-        color: '#00B8B5',
-        label: 'Netlify',
-        customClass: iconsStyle
-    },
-    {
-        icon: <SiVercel />,
-        color: '#111',
-        label: 'Vercel',
-        customClass: iconsStyle
-    },
-    {
         icon: <SiVite />,
         color: '#646CFF',
         label: 'Vite',
@@ -256,7 +238,7 @@ export default function Skills() {
         </nav>
 
         {/* Menubar on bigger screens */}
-        <Menubar className='mt-4 hidden md:flex'>
+       <Menubar className='mt-4 hidden md:flex'>
             <MenubarMenu>
                 {listItems.map((item, key) => {
                     return <MenubarTrigger key={key} onClick={item.fn}>{item.label}</MenubarTrigger>

@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import PixelTransition from "../components/react-bits/Animations/PixelTransition";
 import AnimatedHeader from "../components/AnimatedHeader";
 // Icons
-import { SiTypescript, SiTailwindcss, SiJavascript, SiReact, SiHtml5, SiCss3, SiClerk } from 'react-icons/si';
+import { SiTypescript, SiTailwindcss, SiJavascript, SiReact, SiCss3, SiClerk } from 'react-icons/si';
 import { FaGithub, FaLinkedin, FaExternalLinkAlt } from 'react-icons/fa';
 // Shadcn Components
 import {
@@ -25,7 +25,7 @@ interface ProjectProps {
   description: string
   imgSrc: string
   projectInSite: string
-  deploymentPlatform: 'Vercel' | 'Netlify'
+  deploymentPlatform: 'Netlify' | 'Render' | 'Github Pages'
   stack: string[]
   themeColor: string
   stackIcons: {
@@ -75,7 +75,7 @@ export default function Projects() {
       title: 'Chess Times Square',
       stack: ['ReactJs', 'JavaScript', 'CSS'],
       themeColor: '#389B38',
-      deploymentPlatform: 'Vercel',
+      deploymentPlatform: 'Render',
       stackIcons: [
         {
           text: 'React',
@@ -94,7 +94,7 @@ export default function Projects() {
       results. Perfect for over-the-board blitz, bullet, and classical chess.`,
       imgSrc: '/projects/chess-times-square.webp',
       projectInSite: '/projects/chess-times-square-home-page.webp',
-      liveURL: 'https://chess-times-square.vercel.app/',
+      liveURL: 'https://chesstimessquare.onrender.com',
       githubURL: 'https://github.com/abdullahMohamed13/ChessTimesSquare',
       linkedinPost: 'https://www.linkedin.com/posts/abdallah-aziz-999b54295_reactjs-frontenddeveloper-webdevelopment-activity-7339562171699228672-T7Sr?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEeKCYUB2f05TmAQBvRvCLK8mgQqJSaN2fg'
     },
@@ -102,7 +102,7 @@ export default function Projects() {
       title: 'Notary',
       stack: ['ReactJs', 'TypeScript', 'TailwindCSS'],
       themeColor: '#007cc1',
-      deploymentPlatform: 'Vercel',
+      deploymentPlatform: 'Github Pages',
       stackIcons: [
         {
           text: 'React',
@@ -120,66 +120,44 @@ export default function Projects() {
       description: 'A modern multilingual note-taking app.',
       imgSrc: '/projects/notary.webp',
       projectInSite: '/projects/notary-home-page.webp',
-      liveURL: 'https://notary-app-six.vercel.app/',
+      liveURL: 'https://abdullahmohamed13.github.io/notary-app',
       githubURL: 'https://github.com/abdullahMohamed13/notary-app',
       linkedinPost: 'https://www.linkedin.com/posts/abdallah-aziz-999b54295_notary-notary-react-activity-7345069928779079681-5C4m?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEeKCYUB2f05TmAQBvRvCLK8mgQqJSaN2fg'
     },
-    {
-      title: 'infoDash',
-      stack: ['HTML', 'CSS', "JavaScript"],
-      themeColor: '#5b100a',
-      deploymentPlatform: 'Vercel',
-      stackIcons: [
-        {
-          text: 'HTML',
-          icon: <SiHtml5 />
-        },
-        {
-          text: 'CSS',
-          icon: <SiCss3 />
-        },
-        {
-          text: 'JavaScript',
-          icon: <SiJavascript />
-        },
-      ],
-      description: 'A responsive dashboard interface with interactive components, clean layout structure, and smooth adaptability across devices for an optimal user experience.',
-      imgSrc: '/projects/info-dash.webp',
-      projectInSite: '/projects/info-dash-home-page.webp',
-      liveURL: 'https://info-dashboard-puce.vercel.app',
-      githubURL: 'https://github.com/abdullahMohamed13/InfoDashboard'
-    },
-    {
-      title: 'Repo Hub',
-      stack: ['HTML', 'CSS', "JavaScript"],
-      themeColor: '#4ca463',
-      deploymentPlatform: 'Vercel',
-      stackIcons: [
-        {
-          text: 'HTML',
-          icon: <SiHtml5 />
-        },
-        {
-          text: 'CSS',
-          icon: <SiCss3 />
-        },
-        {
-          text: 'JavaScript',
-          icon: <SiJavascript />
-        },
-      ],
-      description: 'A JavaScript app that fetches and displays public repositories with its details for any GitHub user using the GitHub API.',
-      imgSrc: '/projects/repo-hub.webp',
-      projectInSite: '/projects/repo-hub-home-page.webp',
-      liveURL: 'https://repo-hub-ten.vercel.app',
-      githubURL: 'https://github.com/abdullahMohamed13/repo-hub'
-    }
+    // {
+    //   title: 'infoDash',
+    //   stack: ['HTML', 'CSS', "JavaScript"],
+    //   themeColor: '#5b100a',
+    //   deploymentPlatform: 'Render',
+    //   stackIcons: [
+    //     {
+    //       text: 'HTML',
+    //       icon: <SiHtml5 />
+    //     },
+    //     {
+    //       text: 'CSS',
+    //       icon: <SiCss3 />
+    //     },
+    //     {
+    //       text: 'JavaScript',
+    //       icon: <SiJavascript />
+    //     },
+    //   ],
+    //   description: 'A responsive dashboard interface with interactive components, clean layout structure, and smooth adaptability across devices for an optimal user experience.',
+    //   imgSrc: '/projects/info-dash.webp',
+    //   projectInSite: '/projects/info-dash-home-page.webp',
+    //   liveURL: 'https://infodashboard.onrender.com',
+    //   githubURL: 'https://github.com/abdullahMohamed13/InfoDashboard'
+    // },
   ];
 
   return (
     <section id="projects" className="section-padding flex-section-center section">
       <AnimatedHeader text="Projects" />
-
+      <code className="text-lg md:text-xl text-foreground/70 my-6 px-4 py-2 text-center
+        hover:scale-[1.02] transition-transform duration-300">
+        /* I've worked on many projects, here are a few of my favorites! */
+      </code>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-2 gap-10">
         {projects.map((proj, index) => (
           // Project Card
@@ -273,10 +251,11 @@ export default function Projects() {
           </div>
         ))}
       </div>
-      <p className="text-lg md:text-xl bg-muted hover:bg-muted/80 mt-8 px-4 py-2 rounded-lg shadow-sm
-        hover:scale-[1.02] transition-transform duration-300 flex items-center gap-2 text-center">
+
+      <div className="text-lg md:text-xl bg-muted hover:bg-muted/80 mt-8 px-4 py-2 rounded-lg shadow-sm
+        hover:scale-[1.02] transition-transform duration-300">
           Stay Tuned For Upcoming Projects 🚀
-      </p>
+      </div>
     </section>
   );
 }

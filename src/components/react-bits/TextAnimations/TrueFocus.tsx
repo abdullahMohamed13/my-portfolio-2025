@@ -83,7 +83,7 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
 
     return (
         <div
-            className="relative flex gap-4 justify-center items-center flex-wrap"
+            className="relative flex gap-7 justify-center items-center flex-wrap"
             ref={containerRef}
         >
             {childrenArray.map((child: ReactNode, index: number) => {
@@ -92,7 +92,7 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
                     <span
                         key={index}
                         ref={(el) => { wordRefs.current[index] = el; }}
-                        className="relative text-[3rem] font-black cursor-pointer"
+                        className="relative text-[3rem]"
                         style={{
                             filter: manualMode
                                 ? isActive
@@ -124,13 +124,13 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
                     duration: animationDuration,
                 }}
                 style={{
-                "--border-color": "var(--secondary)",
+                "--border-color": "var(--primary)",
                 "--glow-color": glowColor,
                 } as React.CSSProperties}
             >
                 <span
                 // top-[-10px]
-                    className="absolute w-4 h-4 border-[3px] rounded-[3px] left-[-10px] border-r-0 border-b-0"
+                    className="absolute w-4 h-4 border-[3px] rounded-[3px] top-[10px] left-[-10px] border-r-0 border-b-0"
                     style={{
                         borderColor: "var(--border-color)",
                         filter: "drop-shadow(0 0 4px var(--border-color))",
@@ -138,7 +138,7 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
                 ></span>
                 <span
                 //  top-[-10px] 
-                    className="absolute w-4 h-4 border-[3px] rounded-[3px] right-[-10px] border-l-0 border-b-0"
+                    className="absolute w-4 h-4 border-[3px] rounded-[3px] top-[10px] right-[-10px] border-l-0 border-b-0"
                     style={{
                         borderColor: "var(--border-color)",
                         filter: "drop-shadow(0 0 4px var(--border-color))",

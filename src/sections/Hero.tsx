@@ -1,62 +1,107 @@
-import Magnet from '../components/react-bits/Animations/Magnet'
-import RotatingText from '../components/react-bits/TextAnimations/RotatingText';
-import { Button } from '@/components/ui/button';
 import SocialMedia from '@/components/SocialMedia';
-import ProfileCard from '@/components/react-bits/Components/ProfileCard';
+// React bits
+import Magnet from '../components/react-bits/Animations/Magnet'
+// shadcn
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+// icons
+import { SiTypescript, SiJavascript, SiHtml5, SiCss3, SiReact, SiTailwindcss } from 'react-icons/si';
+// shadcn.io
+import { ContainerTextFlip } from '@/components/ui/shadcn-io/container-text-flip';
+import { TextGenerateEffect } from '@/components/ui/shadcn-io/text-generate-effect';
 
-export function Hero() {
-    return <section id='hero' className="min-h-screen flex-center
-    text-center sm:text-left flex-col sm:flex-row gap-5">
+const CTASectionOnMobile =
+<div className="block sm:hidden *:mx-1 mb-3">
+          <Button asChild>
+            <a href='#projects' className='text-white'>Check projects</a>
+          </Button>
+          <Button asChild variant='outline'>
+            <a href='#contact' className='text-foreground'>Hire Me</a>
+          </Button>
+        </div> 
 
-    <div className="intro flex-c flex-col *:p-2">
-        <div>
-          <div className="creative flex justify-center items-center sm:justify-start sm:items-start pt-10 sm:pt-0 pb-10 text-2xl">
-            <span className='px-2 sm:px-2 md:px-3 sm:py-1 md:py-2 font-semibold'>Creative</span>
-            <RotatingText
-              texts={['Coder', 'Designer', 'Builder', 'Thinker']}
-              mainClassName="inline-flex justify-center bg-primary text-white overflow-hidden rounded-lg 
-              font-bold py-2 px-4 w-[140px]"
-              staggerFrom={"last"}
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "-120%" }}
-              staggerDuration={0.025}
-              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-              transition={{ type: "spring", damping: 30, stiffness: 400 }}
-              rotationInterval={2200}
-            />
-          </div>
-
-          <h2 className="scroll-m-20 pb-2 text-3xl font-bold">
-            Hi There <span className="wave">👋</span>
-          </h2>
-          <p className='leading-6 sm:leading-12 mb-2 text-muted-foreground *:text-[var(--foreground)]'>I'm always interested in building cool web things with <strong>React</strong>, <strong>TypeScript</strong> & <strong>Tailwind CSS</strong></p>
-          <p className='leading-6 sm:leading-7 text-muted-foreground'>I’m passionate about turning complex ideas into interactive, high-quality web interfaces. I build with precision, iterate with intention, and always ship with purpose.</p>
+const CTASectionOnDesktop =
+        <div className="hidden sm:block *:mx-1 mb-3">
+          <Magnet padding={20} disabled={false} magnetStrength={3}>
+            <Button asChild>
+              <a href='#projects' className='text-white'>Check projects</a>
+            </Button>
+          </Magnet>
+          <Button asChild variant='outline'>
+            <a href='#contact' className='text-foreground'>Hire Me</a>
+          </Button>
         </div>
 
-      <div className="*:mx-1 mb-3">
-        <Magnet padding={20} disabled={false} magnetStrength={3}>
-          <Button asChild>
-            <a href='#projects'>Check projects</a>
-          </Button>
-        </Magnet>
-        <Button asChild>
-          <a href='#contact'>Hire Me</a>
-        </Button>
-      </div>
-    </div>
+export function Hero() {
 
-    <div className="flex flex-col gap-5">
-      <ProfileCard
-        avatarUrl="/me.png"
-        iconUrl="/code-symbols.png"
-        grainUrl="/code-symbols.png"
-        name="Abdallah Aziz"
-        title="Frontend Developer"
-        showUserInfo={false}
-      />
-      <SocialMedia />
-    </div>   
-</section>
+  const words = `I'm always interested in building solutions that truly solves a problem.
+            I believe that the world would be a better place if we started thinking about solutions to problems we are facing personally.`
+
+    return <section id="hero"
+      className="relative px-3 text-white min-h-screen flex-center pt-5 pb-10 sm:pb-0 text-center sm:text-left flex-col sm:flex-row gap-5 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/layered-steps-haikei.png')" }}
+    >
+
+      <div className="flex-c flex-col sm:-mt-40 *:p-2">
+          <div>
+            <div className="flex justify-center flex-col gap-3 items-center sm:justify-start sm:items-start pt-10 sm:pt-0 text-2xl">
+              <p className='font-bold'>Hi, I am Abdallah Aziz</p>
+              <div>
+                <span className='text-3xl pr-2 font-semibold'>a</span>
+                <ContainerTextFlip
+                  words={["Frontend Developer", "Web Developer", "React Developer"]}
+                  interval={4000}
+                  animationDuration={600}
+                />
+              </div>
+            </div>
+
+            <TextGenerateEffect 
+              words={words}
+              className="text-2xl text-center md:text-left pb-8 pt-8"
+              duration={0.6}
+              staggerDelay={0.15}
+            />
+          
+            <div className='text-center md:text-left text-2xl'>
+              <p>These are the technologies I'm most comfortable using:</p>
+              <div className="grid sm:flex grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 mt-1 place-items-center">
+                <Badge className="flex items-center gap-1 bg-[#F7DF1E]">
+                  JavaScript <SiJavascript />
+                </Badge>
+                <Badge className="flex items-center gap-1 bg-[#61DAFB]">
+                  React <SiReact />
+                </Badge>
+                <Badge className="flex items-center gap-1 bg-[#3178C6]">
+                  TypeScript <SiTypescript />
+                </Badge>
+                <Badge className="flex items-center gap-1 bg-[#06B6D4]">
+                  Tailwind CSS <SiTailwindcss />
+                </Badge>
+                <Badge className="flex items-center gap-1 bg-[#E34F26]">
+                  HTML5 <SiHtml5 />
+                </Badge>
+                <Badge className="flex items-center gap-1 bg-[#1572B6]">
+                  CSS3 <SiCss3 />
+                </Badge>
+              </div>
+
+
+            </div>
+          </div>
+
+          {CTASectionOnDesktop}
+      </div>
+
+      <div className="flex flex-col gap-3 sm:-mt-40">
+        <img src="/me.png" className='rounded-full hover:border transition-all sm:mx-0 mx-10 border-3' alt="Abdallah Photo" />
+        <div className='gap-1 flex-center'>
+          <span className='w-2 h-2 bg-green-500 rounded-full'></span>
+          <p className='text-xs'>Available To Work</p>
+        </div>
+        <SocialMedia centered/>
+        {CTASectionOnMobile}
+      </div>   
+  </section>
 
 }

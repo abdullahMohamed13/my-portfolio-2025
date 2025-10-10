@@ -1,42 +1,38 @@
 import { Button } from "./ui/button";
-import { FaDownload } from 'react-icons/fa';
 import { ModeToggle } from './mode-toggle';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
 import { CgProfile, CgHome } from 'react-icons/cg'
 import { VscFolderLibrary } from 'react-icons/vsc'
 import { BiCodeAlt, BiConversation } from 'react-icons/bi'
 import { FiMenu } from 'react-icons/fi';
 import { useState } from "react";
+import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger } from "./ui/context-menu";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 const menuStyle = 'border-b-1 cursor-pointer hover:bg-background transition-colors rounded-md pl-2 py-1 text-left'
 
 function Header() {
     const [popoverOpen, setPopoverOpen] = useState<boolean>(false);
     
-    return <header className="flex justify-between">
-        <div className="flex items-center font-mono font-light text-secondary pl-2 border-l-4 border-primary">
-            {/* Name + underline wrapper */}
-            <div className="relative group inline-block">
-            <h1 className="text-3xl">Abdallah</h1>
-            <span className="absolute -left-2.5 -bottom-1 w-0 h-1 bg-primary transition-all duration-300 group-hover:w-[calc(100%+10px)]" />
-            </div>
+    return  <header className="sticky z-[2000] top-0 backdrop-blur flex justify-between px-3 py-3 bg-[#140021] [&_*]:no-underline">
 
+        <h1 className="font-mono font-bold text-primary pl-2 border-l-4 border-secondary text-2xl sm:text-3xl">
+            <a href="/">Abdallah</a>
+        </h1>
+
+        {/* theme-toggle and resume downloader */}
+        <div className="flex-center gap-2 sm:gap-2">
             {/* Hamburger Icon for navigation */}
             <div className="inline md:hidden">
                 <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
                     <PopoverTrigger>
-                        <FiMenu className="w-6 h-6 ml-2.5 text-foreground inline cursor-pointer" />
+                        <FiMenu className="w-6 h-6 ml-2.5 text-white inline cursor-pointer" />
                     </PopoverTrigger>
-                    <PopoverContent>
+                    <PopoverContent className="z-[2001]">
                         <ul className="[&>li]:mt-2 flex flex-col gap-2 -mb-[10px]">
                             <li className={menuStyle}>
                                 <a href="#hero" className="w-full flex items-center gap-1">
@@ -67,23 +63,28 @@ function Header() {
                     </PopoverContent>
                 </Popover>
             </div>
-        </div>
-
-        {/* theme-toggle and resume downloader */}
-        <div className="flex-center gap-1 sm:gap-2">
             <ModeToggle />
-            <Tooltip>
-                <TooltipTrigger>
-                    <Button>
-                        <a href="/Abdallah_Mohamed_Resume.pdf" download>Resume</a>
-                        <FaDownload/>
-                    </Button>
-                </TooltipTrigger>
-                {/* Show on hover */}
-                <TooltipContent>
-                    <p className="text-white">Download</p>
-                </TooltipContent>
-            </Tooltip>
+            <ContextMenu>
+                <ContextMenuTrigger>
+                    <Tooltip>
+                        <TooltipTrigger>
+                            <Button className="cursor-default">Resume</Button>
+                        </TooltipTrigger>
+                        <TooltipContent className="z-[2001]">
+                            Right click for options
+                        </TooltipContent>
+                    </Tooltip>
+                </ContextMenuTrigger>
+                <ContextMenuContent className="z-[2001]">
+                    <a href="/Abdallah-Aziz-Resume.pdf" download className="block">
+                        <ContextMenuItem inset>Download</ContextMenuItem>
+                    </a>
+                    <ContextMenuItem inset onSelect={() => window.location.href = '/Abdallah-Aziz-Resume.pdf'}>
+                        Show
+                    </ContextMenuItem>
+                </ContextMenuContent>
+            </ContextMenu>
+
         </div>
     </header>;
 }

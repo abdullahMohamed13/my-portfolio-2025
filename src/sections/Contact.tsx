@@ -48,7 +48,7 @@ export default function Contact() {
       <AnimatedHeader text='Contact Me' className='mb-1 font-bold text-center'/>
       <div className="w-full max-w-lg bg-[var(--card)] rounded-2xl shadow-xl p-8 flex flex-col gap-6">
       <p className="text-base text-red-500 font-medium -mt-2">
-        Kindly enter a valid Gmail address to ensure I can get back to you.
+        Kindly enter a valid gmail address to ensure I can get back to you.
       </p>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <label className="flex flex-col gap-1">

@@ -201,7 +201,7 @@ export default function Dock({
           <DockItem
             key={index}
             onClick={item.onClick}
-            className={`${item.className} hover:bg-primary text-white transition-colors`}
+            className={`${item.className} hover:bg-primary cursor-pointer text-white transition-colors`}
             mouseX={mouseX}
             spring={spring}
             distance={distance}
