@@ -5,7 +5,7 @@ If you like this project, consider starring the repo⭐
 
 ## 🚀 Live Demo
 
-🌐 [Visit Website](https://abdallah-aziz.vercel.app)
+🌐 [Visit Website](https://abdallah-aziz.netlify.app)
 
 ## 🛠️ Built With
 
