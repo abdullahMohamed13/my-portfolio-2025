@@ -196,9 +196,8 @@ export default function Projects() {
             {/* Stack icons */}
             <div className="flex gap-4 justify-center mt-3 text-4xl">
               {proj.stackIcons.map((stack, index) => (
-                <Tooltip >
+                <Tooltip key={index}>
                   <TooltipTrigger
-                    key={index}
                     className="p-3 rounded-full shadow-lg bg-gradient-to-tr from-muted to-background
                     hover:scale-125 hover:rotate-6 transition-transform duration-300 cursor-default"
                     style={{ color: proj.themeColor }}

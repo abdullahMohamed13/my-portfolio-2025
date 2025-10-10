@@ -10,8 +10,8 @@ import { VscFolderLibrary } from 'react-icons/vsc'
 import { BiCodeAlt, BiConversation } from 'react-icons/bi'
 import { FiMenu } from 'react-icons/fi';
 import { useState } from "react";
-import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger } from "./ui/context-menu";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 
 const menuStyle = 'border-b-1 cursor-pointer hover:bg-background transition-colors rounded-md pl-2 py-1 text-left'
 
@@ -63,27 +63,29 @@ function Header() {
                     </PopoverContent>
                 </Popover>
             </div>
+            
             <ModeToggle />
-            <ContextMenu>
-                <ContextMenuTrigger>
+
+            <DropdownMenu>
+                <DropdownMenuTrigger>
                     <Tooltip>
                         <TooltipTrigger>
-                            <Button className="cursor-default">Resume</Button>
+                            <Button>Resume</Button>
                         </TooltipTrigger>
-                        <TooltipContent className="z-[2001]">
-                            Right click for options
+                        <TooltipContent className="z-[3000]">
+                            Click for options
                         </TooltipContent>
                     </Tooltip>
-                </ContextMenuTrigger>
-                <ContextMenuContent className="z-[2001]">
-                    <a href="/Abdallah-Aziz-Resume.pdf" download className="block">
-                        <ContextMenuItem inset>Download</ContextMenuItem>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="z-[3000]">
+                    <a href="/Abdallah-Aziz-Resume.pdf" download>
+                        <DropdownMenuItem>Download</DropdownMenuItem>
                     </a>
-                    <ContextMenuItem inset onSelect={() => window.location.href = '/Abdallah-Aziz-Resume.pdf'}>
+                    <DropdownMenuItem onSelect={() => window.location.href = '/Abdallah-Aziz-Resume.pdf'}>
                         Show
-                    </ContextMenuItem>
-                </ContextMenuContent>
-            </ContextMenu>
+                    </DropdownMenuItem>
+                </DropdownMenuContent>
+            </DropdownMenu>
 
         </div>
     </header>;

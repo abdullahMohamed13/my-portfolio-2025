@@ -24,23 +24,19 @@ function Footer() {
 
         {/* right section */}
         <div className='flex flex-col gap-4 sm:gap-6 *:flex *:flex-col *:gap-1'>
-          <div>
-            <p className='text-md text-white flex items-center gap-1.5'><GiTalk color='var(--color-primary)' /> Contact Me</p>
+          <div className='flex-center'>
+            <p className='text-md text-white flex items-center gap-1.5'><GiTalk className='text-white sm:text-primary' /> Contact Me</p>
             <SocialMedia className='flex gap-2 mt-1'/>
           </div>
-          <div>
-            <p className='text-md text-white flex items-center gap-1.5'><GiEarthAsiaOceania color='var(--color-primary)' /> Location</p>
-            <p className='text-white/70 flex gap-2 items-center'>
-              Cairo
-              <img title='Egypt' src='egypt.svg' className='h-6' alt='Egyptian Flag' />
-            </p>
-            <p className='text-white/70 flex gap-2 items-center'>
-              Al-Qalyubia
+          <div className='flex-center'>
+            <p className='text-md text-white flex items-center gap-1.5'><GiEarthAsiaOceania className='text-white sm:text-primary' /> Location</p>
+            <p className='flex gap-2 items-center'>
+              Cairo, Egypt
               <img title='Egypt' src='egypt.svg' className='h-6' alt='Egyptian Flag' />
             </p>
           </div>
-          <div>
-            <p className='text-md text-white mb-2 flex items-center gap-1.5'><FaLanguage color='var(--color-primary)' /> Languages</p>
+          <div className='flex-center'>
+            <p className='text-md text-white mb-2 flex items-center gap-1.5'><FaLanguage className='text-white sm:text-primary' /> Languages</p>
             <div className='flex gap-2'>
               <span>
                 <img src='/languages/arabic.svg' title='Native' className='h-6' alt='Arabic Language' />

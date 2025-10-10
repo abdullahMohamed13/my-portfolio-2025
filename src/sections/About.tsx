@@ -10,9 +10,9 @@ import TrueFocus from "@/components/react-bits/TextAnimations/TrueFocus";
 export default function About() {
   
   return (
-    <section id="about" className="section-padding relative flex-section-center text-center">
+    <section id="about" className="px-4 sm:px-0 section-padding relative flex-section-center text-center">
       <AnimatedHeader text="About Me" />
-      <div className="text-xl px-3 sm:px-0 max-w-3xl leading-8">
+      <div className="text-xl max-w-3xl leading-8">
         <p>
           I started coding in September 2022 with <Badge className="bg-[#004482] text-white">C++</Badge> , building simple console apps.
           Around that period of time, frontend development caught my eye, since then I've focused on web development and designing.
@@ -36,7 +36,7 @@ export default function About() {
               blurAmount={2}
               animationDuration={2}
               pauseBetweenAnimations={2}
-              >
+            >
                 <Badge className="bg-card dark:text-white text-sm sm:text-lg">
                   Jest
                   <img src="/skills/jest.svg" className="h-6 ml-1" />
