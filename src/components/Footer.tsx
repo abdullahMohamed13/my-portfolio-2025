@@ -28,7 +28,6 @@ function Footer() {
         size: 'large',
         image: "/languages/spanish.jpg",
     },
-
   ]
 
   return (

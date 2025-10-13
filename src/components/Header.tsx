@@ -12,6 +12,7 @@ import { FiMenu } from 'react-icons/fi';
 import { useState } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import { Link } from "react-router-dom";
 
 const menuStyle = 'border-b-1 cursor-pointer hover:bg-background transition-colors rounded-md pl-2 py-1 text-left'
 
@@ -78,12 +79,12 @@ function Header() {
                     </Tooltip>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="z-[3000]">
+                    <DropdownMenuItem className="cursor-pointer">
+                        <Link to='/resume' className="w-full">Show</Link>
+                    </DropdownMenuItem>
                     <a href="/pdf-files/Abdallah-Aziz-Resume.pdf" download>
                         <DropdownMenuItem variant="default" className="cursor-pointer">Download</DropdownMenuItem>
                     </a>
-                    <DropdownMenuItem className="cursor-pointer" onSelect={() => window.location.href = '/pdf-files/Abdallah-Aziz-Resume.pdf'}>
-                        Show
-                    </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
 
