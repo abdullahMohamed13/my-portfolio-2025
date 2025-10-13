@@ -34,15 +34,15 @@ const CTASectionOnDesktop =
 
 export function Hero() {
 
-  const words = `I'm always interested in building solutions that truly solves a problem.
-            I believe that the world would be a better place if we started thinking about solutions to problems we are facing personally.`
+  const words = `I'm always interested in building solutions that truly solve real-world problems.
+            I believe the world becomes a better place when we start creating tools and experiences that address the challenges we personally face.`
 
     return <section id="hero"
       className="relative px-3 text-white min-h-screen flex-center pt-5 pb-10 sm:pb-0 text-center sm:text-left flex-col sm:flex-row gap-5 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/layered-steps-haikei.png')" }}
+      style={{ backgroundImage: "url('/backgrounds/hero-background.png')" }}
     >
 
-      <div className="flex-c flex-col sm:-mt-40 *:p-2">
+      <div className="sm:-mt-40 *:p-2">
           <div>
             <div className="flex justify-center flex-col gap-3 items-center sm:justify-start sm:items-start pt-10 sm:pt-0 text-2xl">
               <p className='font-bold'>Hi, I am Abdallah Aziz</p>
@@ -63,7 +63,7 @@ export function Hero() {
               staggerDelay={0.15}
             />
           
-            <div className='text-center md:text-left text-2xl'>
+          <div className='text-center md:text-left text-2xl'>
               <p>These are the technologies I'm most comfortable using:</p>
               <div className="grid sm:flex grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 mt-1 place-items-center">
                 <Badge className="flex items-center gap-1 bg-[#F7DF1E]">
@@ -86,7 +86,6 @@ export function Hero() {
                 </Badge>
               </div>
 
-
             </div>
           </div>
 
@@ -96,8 +95,8 @@ export function Hero() {
       <div className="flex flex-col gap-3 sm:-mt-40">
         <img src="/me.png" className='rounded-full hover:border transition-all sm:mx-0 mx-10 border-3' alt="Abdallah Photo" />
         <div className='gap-1 flex-center'>
-          <span className='w-2 h-2 bg-green-500 rounded-full'></span>
-          <p className='text-xs'>Available To Work</p>
+          <span className='w-3 h-3 bg-green-500 animate-pulse border-2 shadow-2xl rounded-full'></span>
+          <p className='text-base'>Available To Work</p>
         </div>
         <SocialMedia centered/>
         {CTASectionOnMobile}

@@ -1,14 +1,40 @@
 import SocialMedia from '@/components/SocialMedia';
 import { FaLanguage } from "react-icons/fa";
 import { GiTalk, GiEarthAsiaOceania } from "react-icons/gi";
-import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
+import { AnimatedTooltip } from './ui/shadcn-io/animated-tooltip';
 
 function Footer() {
+
+  const languages = [
+    {
+        id: 0,
+        name: "Arabic",
+        designation: "Native",
+        size: 'large',
+        image: "/languages/arabic.jpg",
+    },
+    {
+      id: 1,
+      name: "English",
+      designation: "Go To Certificate",
+      size: 'large',
+      image: "/languages/english.jpg",
+      onClick: () => window.location.href = "/pdf-files/EF SET Certificate.pdf",
+    },
+    {
+        id: 2,
+        name: "Spanish",
+        designation: "Basic",
+        size: 'large',
+        image: "/languages/spanish.jpg",
+    },
+
+  ]
 
   return (
     <footer
       className="relative w-full text-white border-t border-[var(--border)] px-4 sm:px-0 py-8 pb-25 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/footer-background.png')" }}
+      style={{ backgroundImage: "url('/backgrounds/footer-background.png')" }}
     >
       <main className='flex flex-col sm:flex-row items-center sm:items-start gap-8 sm:gap-4 justify-around'>
 
@@ -38,18 +64,7 @@ function Footer() {
           <div className='flex-center'>
             <p className='text-md text-white mb-2 flex items-center gap-1.5'><FaLanguage className='text-white sm:text-primary' /> Languages</p>
             <div className='flex gap-2'>
-              <span>
-                <img src='/languages/arabic.svg' title='Native' className='h-6' alt='Arabic Language' />
-              </span>
-              <Tooltip>
-                <TooltipTrigger>
-                  <img onClick={() => window.location.href = '/Abdallah-Aziz-Resume.pdf'} src='/languages/english.svg' className='h-6' alt='English Language' />
-                </TooltipTrigger>
-                <TooltipContent>Go To Certificate</TooltipContent>
-              </Tooltip>
-              <span>
-                <img src='/languages/spanish.svg' title='Basic' className='h-6' alt='Spanish Language' />
-              </span>
+              <AnimatedTooltip items={languages} />
             </div>
           </div>
         </div>

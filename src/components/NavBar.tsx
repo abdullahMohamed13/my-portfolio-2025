@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import Dock from './react-bits/Components/Dock';
-import { FaArrowUp, FaArrowDown, FaQuoteLeft } from 'react-icons/fa'
+import { FaArrowUp, FaArrowDown, FaQuoteLeft, FaRegEnvelope } from 'react-icons/fa'
 import { AiFillHome } from 'react-icons/ai'
-import { CgProfile } from 'react-icons/cg'
 import { VscFolderLibrary } from 'react-icons/vsc'
 import { BiCodeAlt } from 'react-icons/bi'
 import { MdContactMail } from "react-icons/md";
@@ -16,11 +15,11 @@ const scrollToSection = (id: string) => {
 
 const items = [
     { icon: <AiFillHome size={18} />, label: 'Intro', onClick: () => scrollToSection('hero')},
-    { icon: <CgProfile size={18} />, label: 'About', onClick: () => scrollToSection('about')},
+    { icon: <MdContactMail size={18} />, label: 'About', onClick: () => scrollToSection('about')},
     { icon: <VscFolderLibrary size={18} />, label: 'Projects', onClick: () => scrollToSection('projects')},
     { icon: <FaQuoteLeft size={18} />, label: 'Testimonials', onClick: () => scrollToSection('testimonials')},
     { icon: <BiCodeAlt size={18} />, label: 'Skills', onClick: () => scrollToSection('skills')},
-    { icon: <MdContactMail size={18} />, label: 'Contact', onClick: () => scrollToSection('contact')},
+    { icon: <FaRegEnvelope size={18} />, label: 'Contact', onClick: () => scrollToSection('contact')},
 ];
 
 function NavBar() {

@@ -13,11 +13,9 @@ export default function About() {
     <section id="about" className="px-4 sm:px-0 section-padding relative flex-section-center text-center">
       <AnimatedHeader text="About Me" />
       <div className="text-xl max-w-3xl leading-8">
-        <p>
           I started coding in September 2022 with <Badge className="bg-[#004482] text-white">C++</Badge> , building simple console apps.
           Around that period of time, frontend development caught my eye, since then I've focused on web development and designing.
           Brining an idea to life through code feels like superpower and I'm grateful that my tools allow me to make that happen.
-        </p>
       </div>
       
       <Separator />

@@ -78,10 +78,10 @@ function Header() {
                     </Tooltip>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="z-[3000]">
-                    <a href="/Abdallah-Aziz-Resume.pdf" download>
-                        <DropdownMenuItem>Download</DropdownMenuItem>
+                    <a href="/pdf-files/Abdallah-Aziz-Resume.pdf" download>
+                        <DropdownMenuItem variant="default" className="cursor-pointer">Download</DropdownMenuItem>
                     </a>
-                    <DropdownMenuItem onSelect={() => window.location.href = '/Abdallah-Aziz-Resume.pdf'}>
+                    <DropdownMenuItem className="cursor-pointer" onSelect={() => window.location.href = '/pdf-files/Abdallah-Aziz-Resume.pdf'}>
                         Show
                     </DropdownMenuItem>
                 </DropdownMenuContent>

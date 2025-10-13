@@ -154,11 +154,11 @@ export default function Projects() {
   return (
     <section id="projects" className="section-padding flex-section-center section">
       <AnimatedHeader text="Projects" />
-      <code className="text-lg md:text-xl text-foreground/70 my-6 px-4 py-2 text-center
+      <code className="text-lg md:text-xl text-foreground/70 mb-6 px-4 py-2 text-center
         hover:scale-[1.02] transition-transform duration-300">
         /* I've worked on many projects, here are a few of my favorites! */
       </code>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-2 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {projects.map((proj, index) => (
           // Project Card
           <div key={index} className="relative bg-card text-card-foreground p-4 rounded-2xl flex flex-col items-center gap-4">

@@ -53,19 +53,17 @@ export function ContainerTextFlip({
 
   return (
     <motion.div
+      key={words[currentWordIndex]}
       layout
       layoutId={`words-here-${id}`}
       animate={{ width }}
       transition={{ duration: animationDuration / 2000 }}
       className={cn(
-        'relative inline-block rounded-lg pt-2 pb-3 text-center text-foreground md:text-4xl',
-        '[background:linear-gradient(to_bottom,#f3f4f6,#e5e7eb)]',
-        'shadow-[inset_0_-1px_#d1d5db,inset_0_0_0_1px_#d1d5db,_0_4px_8px_#d1d5db]',
-        'dark:[background:linear-gradient(to_bottom,#374151,#1f2937)]',
-        'dark:shadow-[inset_0_-1px_#10171e,inset_0_0_0_1px_hsla(205,89%,46%,.24),_0_4px_8px_#00000052]',
-        className,
+        'relative inline-block rounded-lg pt-2 pb-3 text-center font-bold md:text-4xl text-white',
+        'bg-[linear-gradient(135deg,var(--color-primary),#140021)]',
+        'shadow-[0_2px_8px_var(--color-border)]',
+        className
       )}
-      key={words[currentWordIndex]}
     >
       <motion.div
         transition={{
