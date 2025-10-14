@@ -40,7 +40,7 @@ function TooltipContent({
   className,
   sideOffset = 0,
   children,
-  themeColor = 'var(--color-card)',
+  themeColor = 'var(--color-primary)',
   ...props
 }: CustomTooltipContentProps) {
   return (

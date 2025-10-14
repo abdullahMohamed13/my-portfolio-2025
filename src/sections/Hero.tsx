@@ -46,7 +46,7 @@ const CTASectionOnDesktop =
             <DropdownMenuTrigger>
                 <Tooltip>
                     <TooltipTrigger>
-                        <Button variant='outline'>Resume</Button>
+                        <Button variant='outline' className="text-foreground">Resume</Button>
                     </TooltipTrigger>
                     <TooltipContent className="z-[3000]">
                         Click for options
