@@ -256,7 +256,7 @@ export default function Skills() {
         </nav>
 
         {/* Skills section on mobile */}
-        <div className='grid grid-cols-2 md:hidden gap-3 mt-5'>
+        <div className='grid grid-cols-2 md:hidden gap-3 mx-3 mt-5'>
             {renderSkillsCards()}
         </div>
 

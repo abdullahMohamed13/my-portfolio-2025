@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom";
 import SocialMedia from '@/components/SocialMedia';
 // React bits
 import Magnet from '../components/react-bits/Animations/Magnet'
 // shadcn
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 // icons
 import { SiTypescript, SiJavascript, SiHtml5, SiCss3, SiReact, SiTailwindcss } from 'react-icons/si';
 // shadcn.io
@@ -12,13 +15,24 @@ import { TextGenerateEffect } from '@/components/ui/shadcn-io/text-generate-effe
 
 const CTASectionOnMobile =
 <div className="block sm:hidden *:mx-1 mb-3">
-          <Button asChild>
-            <a href='#projects' className='text-white'>Check projects</a>
-          </Button>
-          <Button asChild variant='outline'>
-            <a href='#contact' className='text-foreground'>Hire Me</a>
-          </Button>
-        </div> 
+    <Button asChild>
+      <a href='#projects' className='text-white'>Check projects</a>
+    </Button>
+
+    <DropdownMenu>
+      <DropdownMenuTrigger>
+        <Button>Resume</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="z-[3000]">
+        <DropdownMenuItem className="cursor-pointer">
+            <Link to='/resume' className="w-full">Show</Link>
+        </DropdownMenuItem>
+        <a href="/pdf-files/Abdallah-Aziz-Resume.pdf" download>
+            <DropdownMenuItem variant="default" className="cursor-pointer">Download</DropdownMenuItem>
+        </a>
+      </DropdownMenuContent>
+    </DropdownMenu>
+</div> 
 
 const CTASectionOnDesktop =
         <div className="hidden sm:block *:mx-1 mb-3">
@@ -27,9 +41,27 @@ const CTASectionOnDesktop =
               <a href='#projects' className='text-white'>Check projects</a>
             </Button>
           </Magnet>
-          <Button asChild variant='outline'>
-            <a href='#contact' className='text-foreground'>Hire Me</a>
-          </Button>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+                <Tooltip>
+                    <TooltipTrigger>
+                        <Button variant='outline'>Resume</Button>
+                    </TooltipTrigger>
+                    <TooltipContent className="z-[3000]">
+                        Click for options
+                    </TooltipContent>
+                </Tooltip>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="z-[3000]">
+                <DropdownMenuItem className="cursor-pointer">
+                    <Link to='/resume' className="w-full">Show</Link>
+                </DropdownMenuItem>
+                <a href="/pdf-files/Abdallah-Aziz-Resume.pdf" download>
+                    <DropdownMenuItem variant="default" className="cursor-pointer">Download</DropdownMenuItem>
+                </a>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
 
 export function Hero() {

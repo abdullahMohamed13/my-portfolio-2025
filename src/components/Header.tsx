@@ -1,4 +1,3 @@
-import { Button } from "./ui/button";
 import { ModeToggle } from './mode-toggle';
 import {
   Popover,
@@ -10,9 +9,7 @@ import { VscFolderLibrary } from 'react-icons/vsc'
 import { BiCodeAlt, BiConversation } from 'react-icons/bi'
 import { FiMenu } from 'react-icons/fi';
 import { useState } from "react";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
-import { Link } from "react-router-dom";
+import { Button } from './ui/button';
 
 const menuStyle = 'border-b-1 cursor-pointer hover:bg-background transition-colors rounded-md pl-2 py-1 text-left'
 
@@ -51,6 +48,11 @@ function Header() {
                                 </a>
                             </li>   
                             <li className={menuStyle}>
+                                <a href="#testimonials" className="w-full flex items-center gap-1">
+                                    <VscFolderLibrary /> Testimonials
+                                </a>
+                            </li>   
+                            <li className={menuStyle}>
                                 <a href="#skills" className="w-full flex items-center gap-1">
                                     <BiCodeAlt /> Skills
                                 </a>
@@ -67,27 +69,9 @@ function Header() {
             
             <ModeToggle />
 
-            <DropdownMenu>
-                <DropdownMenuTrigger>
-                    <Tooltip>
-                        <TooltipTrigger>
-                            <Button>Resume</Button>
-                        </TooltipTrigger>
-                        <TooltipContent className="z-[3000]">
-                            Click for options
-                        </TooltipContent>
-                    </Tooltip>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="z-[3000]">
-                    <DropdownMenuItem className="cursor-pointer">
-                        <Link to='/resume' className="w-full">Show</Link>
-                    </DropdownMenuItem>
-                    <a href="/pdf-files/Abdallah-Aziz-Resume.pdf" download>
-                        <DropdownMenuItem variant="default" className="cursor-pointer">Download</DropdownMenuItem>
-                    </a>
-                </DropdownMenuContent>
-            </DropdownMenu>
-
+            <Button asChild>
+                <a href='#contact' className='text-foreground'>Hire Me</a>
+            </Button>
         </div>
     </header>;
 }

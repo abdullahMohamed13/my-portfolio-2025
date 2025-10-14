@@ -31,13 +31,12 @@ export default function Resume() {
         </div>
 
         <div className='flex my-10 items-center justify-center flex-col gap-3'>
-            <div className='relative border-2 shadow border-primary/60 rounded-md bg-background'
-            >
+            <div className='relative border-2 shadow border-primary/60 rounded-md bg-background'>
                 <img src={resumeImgs[resumeCurrentPage - 1]}
                 alt="Resume Image" />
                 <div className='absolute top-1.5 right-1.5 md:top-3 md:right-3'>
                     <Button variant='outline' className='mr-2'>
-                        <a href='/pdf-files/Abdallah-Aziz-Resume.pdf' title='Show'>
+                        <a href='/pdf-files/Abdallah-Aziz-Resume.pdf' target="_blank" rel="noopener noreferrer" title='Open Resume'>
                             <FiEye color='var(--color-primary)' />
                         </a>
                     </Button>
@@ -48,9 +47,13 @@ export default function Resume() {
                     </Button>
                 </div>
             </div>
+
+            {/* Current Page number */}
             <div>
                 <p>Page {resumeCurrentPage.toString()} / {resumeImgs.length}</p>
             </div>
+
+            {/* Resume navigation */}
             <div className='flex item-center gap-2'>
                 <Button
                     className={`${resumeCurrentPage === 1 && inactiveButtonClass}`}

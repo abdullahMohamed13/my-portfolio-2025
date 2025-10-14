@@ -31,7 +31,7 @@ const copyToClipboard = (text: string) => {
       name: "Gmail",
       designation: "Send Email",
       size: 'medium',
-      image: "/contacts/gmail.png",
+      image: "/contacts/gmail.jpg",
       onClick: () => window.open("mailto:abdullah.229op@gmail.com"),
     },
     {
