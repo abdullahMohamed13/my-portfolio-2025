@@ -19,7 +19,7 @@ If you like this project, consider starring the repo⭐
 
 ### 🖥️ Desktop View
 
-![Desktop Screenshot](/public/portfolio-desktop.png)
+![Desktop Screenshot](/public/screenshots/portfolio-desktop.png)
 
 <br />
 <br />
@@ -27,7 +27,7 @@ If you like this project, consider starring the repo⭐
 
 ### 📱 Mobile View
 
-![Mobile Screenshot](/public/portfolio-mobile.png)
+![Mobile Screenshot](/public/screenshots/portfolio-mobile.png)
 
 ```bash
 src/
@@ -37,4 +37,4 @@ src/
 │   └── ui/             # UI components from Shadcn UI
 ├── css/                # Global styles and library-specific CSS overrides
 ├── lib/                # Utility functions and helpers (e.g. formatters, config)
-└── App.tsx             # Root component that sets up layout
+└── pages/              # Directory that includes portfolio pages and the layout component
