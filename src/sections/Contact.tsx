@@ -72,7 +72,7 @@ export default function Contact() {
               onChange={handleChange}
               required
               className="rounded-lg px-3 py-2 bg-[var(--background)] text-[var(--foreground)] border border-[var(--border)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition"
-              placeholder="Subject"
+              placeholder="What would you like to talk about?"
             />
           </label>
           <label className="flex flex-col gap-1">
@@ -84,7 +84,7 @@ export default function Contact() {
               required
               rows={5}
               className="rounded-lg px-3 py-2 bg-[var(--background)] text-[var(--foreground)] border border-[var(--border)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition resize-none"
-              placeholder="Type your message here..."
+              placeholder="Write your message here..."
             />
           </label>
           <Button

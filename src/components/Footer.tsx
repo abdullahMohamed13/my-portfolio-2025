@@ -51,7 +51,7 @@ function Footer() {
         <div className='flex flex-col gap-4 sm:gap-6 *:flex *:flex-col *:gap-1'>
           <div className='flex-center'>
             <p className='text-md flex items-center gap-1.5'><GiTalk className='sm:text-primary' /> Contact Me</p>
-            <SocialMedia className='flex gap-2 mt-1'/>
+            <SocialMedia centered className='mt-1'/>
           </div>
           <div className='flex-center'>
             <p className='text-md flex items-center gap-1.5'><GiEarthAsiaOceania className='sm:text-primary' /> Location</p>
@@ -75,12 +75,12 @@ function Footer() {
           <p className='mb-1'>©2025 Abdallah Aziz All Rights Reserved.</p>
           <p>Built With: ReactJs - TailwindCSS - TypeScript</p>
         </div>
-        <div className='mt-4 [max-width:300px]:hidden'>
+        {/* <div className='mt-4 [max-width:300px]:hidden'>
           Don't Forget 🙏
           <div>⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛</div>
           <div>🟥🟥🟥🟥⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜</div>
           <div>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</div>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

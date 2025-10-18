@@ -4,18 +4,26 @@ import AnimatedHeader from "../components/AnimatedHeader"
 // shadcn/ui
 import { Badge } from "@/components/ui/badge";
 import { SiNextdotjs }from 'react-icons/si';
-
+import { PiHeart } from "react-icons/pi";
 import TrueFocus from "@/components/react-bits/TextAnimations/TrueFocus";
 
 export default function About() {
   
   return (
-    <section id="about" className="px-4 sm:px-0 section-padding relative flex-section-center text-center">
+    <section id="about" className="px-3 sm:px-0 section-padding relative flex-section-center">
       <AnimatedHeader text="About Me" />
-      <div className="text-xl max-w-3xl leading-8">
-          I started coding in September 2022 with <Badge className="bg-[#004482] text-white">C++</Badge> , building simple console apps.
-          Around that period of time, frontend development caught my eye, since then I've focused on web development and designing.
+      <div className="text-xl max-w-5xl leading-8 text-center">
+          I started coding in September 2022 with <Badge className="bg-[#004482] text-white">C++</Badge> , building simple console apps and discovering the fundamentals of programming.
+          It wasn't long before frontend development caught my attention, and I quickly found my passion in web development and design.
           Brining an idea to life through code feels like superpower and I'm grateful that my tools allow me to make that happen.
+      </div>
+
+      <Separator />
+
+      <div className="text-xl max-w-5xl leading-8 text-center">
+          I would love to connect with fellow developers, designers, and teams who are passionate about creating exceptional web experiences,
+          so feel free to reach out
+          <PiHeart color="red" size={20} className="ml-1 inline" />
       </div>
       
       <Separator />

@@ -1,26 +1,7 @@
 import { useState } from 'react';
 import Dock from './react-bits/Components/Dock';
-import { FaArrowUp, FaArrowDown, FaQuoteLeft, FaRegEnvelope } from 'react-icons/fa'
-import { AiFillHome } from 'react-icons/ai'
-import { VscFolderLibrary } from 'react-icons/vsc'
-import { BiCodeAlt } from 'react-icons/bi'
-import { MdContactMail } from "react-icons/md";
-
-const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-    }
-};
-
-const items = [
-    { icon: <AiFillHome size={18} />, label: 'Intro', onClick: () => scrollToSection('hero')},
-    { icon: <MdContactMail size={18} />, label: 'About', onClick: () => scrollToSection('about')},
-    { icon: <VscFolderLibrary size={18} />, label: 'Projects', onClick: () => scrollToSection('projects')},
-    { icon: <FaQuoteLeft size={18} />, label: 'Testimonials', onClick: () => scrollToSection('testimonials')},
-    { icon: <BiCodeAlt size={18} />, label: 'Skills', onClick: () => scrollToSection('skills')},
-    { icon: <FaRegEnvelope size={18} />, label: 'Contact', onClick: () => scrollToSection('contact')},
-];
+import { FaArrowUp, FaArrowDown } from 'react-icons/fa'
+import { navItems } from '@/store/nav-items';
 
 function NavBar() {
     const [showNav, setShowNav] = useState<boolean>(true)
@@ -48,7 +29,7 @@ function NavBar() {
                     <Dock
                         className={`navigation-dock ${!showNav && `pointer-events-none`} bg-muted rounded-t-2xl
                         shadow-2xl px-4 py-2 flex justify-center items-center`}
-                        items={items}
+                        items={navItems}
                         panelHeight={68}
                         baseItemSize={50}
                         magnification={70}

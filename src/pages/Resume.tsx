@@ -35,12 +35,12 @@ export default function Resume() {
                 <img src={resumeImgs[resumeCurrentPage - 1]}
                 alt="Resume Image" />
                 <div className='absolute top-1.5 right-1.5 md:top-3 md:right-3'>
-                    <Button variant='outline' className='mr-2'>
+                    <Button asChild variant='outline' className='mr-2'>
                         <a href='/pdf-files/Abdallah-Aziz-Resume.pdf' target="_blank" rel="noopener noreferrer" title='Open Resume'>
                             <FiEye color='var(--color-primary)' />
                         </a>
                     </Button>
-                    <Button variant='outline'>
+                    <Button asChild variant='outline'>
                         <a href='/pdf-files/Abdallah-Aziz-Resume.pdf' download title='Download Resume'>
                             <FiDownload color='var(--color-primary)' />
                         </a>

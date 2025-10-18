@@ -124,31 +124,6 @@ export default function Projects() {
       githubURL: 'https://github.com/abdullahMohamed13/notary-app',
       linkedinPost: 'https://www.linkedin.com/posts/abdallah-aziz-999b54295_notary-notary-react-activity-7345069928779079681-5C4m?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEeKCYUB2f05TmAQBvRvCLK8mgQqJSaN2fg'
     },
-    // {
-    //   title: 'infoDash',
-    //   stack: ['HTML', 'CSS', "JavaScript"],
-    //   themeColor: '#5b100a',
-    //   deploymentPlatform: 'Render',
-    //   stackIcons: [
-    //     {
-    //       text: 'HTML',
-    //       icon: <SiHtml5 />
-    //     },
-    //     {
-    //       text: 'CSS',
-    //       icon: <SiCss3 />
-    //     },
-    //     {
-    //       text: 'JavaScript',
-    //       icon: <SiJavascript />
-    //     },
-    //   ],
-    //   description: 'A responsive dashboard interface with interactive components, clean layout structure, and smooth adaptability across devices for an optimal user experience.',
-    //   imgSrc: '/projects/info-dash.webp',
-    //   projectInSite: '/projects/info-dash-home-page.webp',
-    //   liveURL: 'https://infodashboard.onrender.com',
-    //   githubURL: 'https://github.com/abdullahMohamed13/InfoDashboard'
-    // },
   ];
 
   return (

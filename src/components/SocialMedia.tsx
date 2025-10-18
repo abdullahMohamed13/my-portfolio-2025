@@ -46,7 +46,7 @@ const copyToClipboard = (text: string) => {
 
 export default function SocialMedia({centered, className}: {centered?: boolean, className?: string}) {
 
-    return <div className={`${centered && 'flex-center gap-4'} ${className} *:text-2xl *:cursor-pointer *:transition-colors`}>
+    return <div className={`${centered && 'flex-center gap-5 sm:gap-4'} ${className} *:text-2xl *:cursor-pointer *:transition-colors`}>
           <AnimatedTooltip items={contacts} />
         </div>
 }

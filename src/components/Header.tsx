@@ -4,21 +4,26 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import { CgProfile, CgHome } from 'react-icons/cg'
-import { VscFolderLibrary } from 'react-icons/vsc'
-import { BiCodeAlt, BiConversation } from 'react-icons/bi'
 import { FiMenu } from 'react-icons/fi';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from './ui/button';
-
-const menuStyle = 'border-b-1 cursor-pointer hover:bg-background transition-colors rounded-md pl-2 py-1 text-left'
+import { navItems, scrollToSection } from '@/store/nav-items';
 
 function Header() {
     const [popoverOpen, setPopoverOpen] = useState<boolean>(false);
+    const [scrolled, setScrolled] = useState(false);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 991);
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [])
     return  <header className="sticky z-[2000] top-0 backdrop-blur flex justify-between p-3 [&_*]:no-underline">
 
-        <h1 className="font-mono font-bold text-primary pl-2 border-l-4 border-secondary text-2xl sm:text-3xl">
+        <h1 id='header' className={`${scrolled ? 'scrolled-header' : ''} font-mono font-bold text-primary pl-2 border-l-4 border-secondary text-2xl sm:text-3xl`}>
             <a href="/">Abdallah</a>
         </h1>
 
@@ -27,50 +32,25 @@ function Header() {
             <nav className="inline md:hidden">
                 <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
                     <PopoverTrigger>
-                        <FiMenu className="w-6 h-6 ml-2.5 inline cursor-pointer" />
+                        <FiMenu className="w-6 h-6 inline cursor-pointer" />
                     </PopoverTrigger>
-                    <PopoverContent className="z-[2001]">
-                        <ul className="[&>li]:mt-2 flex flex-col gap-2 -mb-[10px]">
-                            <li className={menuStyle}>
-                                <a href="#hero" className="w-full flex items-center gap-1">
-                                    <CgHome /> Intro
-                                </a>
-                            </li>   
-                            <li className={menuStyle}>
-                                <a href="#about" className="w-full flex items-center gap-1">
-                                    <CgProfile /> About
-                                </a>
-                            </li>   
-                            <li className={menuStyle}>
-                                <a href="#projects" className="w-full flex items-center gap-1">
-                                    <VscFolderLibrary /> Projects
-                                </a>
-                            </li>   
-                            <li className={menuStyle}>
-                                <a href="#testimonials" className="w-full flex items-center gap-1">
-                                    <VscFolderLibrary /> Testimonials
-                                </a>
-                            </li>   
-                            <li className={menuStyle}>
-                                <a href="#skills" className="w-full flex items-center gap-1">
-                                    <BiCodeAlt /> Skills
-                                </a>
-                            </li>   
-                            <li className={menuStyle}>
-                                <a href="#contact" className="w-full flex items-center gap-1">
-                                    <BiConversation /> Contact
-                                </a>
-                            </li>   
-                        </ul>
+                    <PopoverContent className="flex flex-col gap-3 py-3 pl-3 -pb-5 z-[2001]">
+                        {navItems.map((item, key) => {
+                            return <div className='w-full flex items-center gap-2.5' key={key} onClick={() => {
+                                item.onClick();
+                                setPopoverOpen(false);
+                                document.body.focus();
+                            }}>
+                                {item.icon} {item.label}
+                            </div>
+                        })}
                     </PopoverContent>
                 </Popover>
             </nav>
             
             <ModeToggle />
 
-            <Button asChild>
-                <a href='#contact' className='text-foreground'>Hire Me</a>
-            </Button>
+            <Button onClick={() => scrollToSection('contact')} className='text-white'>Hire Me</Button>
         </div>
     </header>;
 }

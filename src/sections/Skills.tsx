@@ -149,7 +149,7 @@ const planningToLearn: SkillsProps[] = [
     },
 ]
 
-const priorityOrder = ['React.Js', 'TypeScript', 'JavaScript ES6+', 'Bootstrap', 'Tailwind CSS', 'Docker'];
+const priorityOrder = ['React.Js', 'TypeScript', 'JavaScript ES6+', 'Tailwind CSS', 'Bootstrap', 'Docker'];
 
 const allSkills = [...languages, ...frameworks_libraries, ...styling_ui, ...tools]
     // remove duplicated skills items
@@ -224,10 +224,10 @@ export default function Skills() {
         return chosenSkillsCategory.map((skill, index) => (
             <div key={index}
                 style={{ '--skill-color': skill.color } as React.CSSProperties}
-                className={`flex-center flex-col gap-3 text-foreground rounded-lg p-5 transition shadow
+                className='flex-center flex-col gap-3 text-foreground rounded-lg p-5 transition shadow
                     bg-[color:var(--skill-color)]/50
                     hover:scale-110  hover:brightness-110 hover:saturate-150
-                    border-4 border-[color:var(--skill-color)]/40 aspect-square max-sm:min-h-[150px] hover:border-[color:var(--skill-color)]`}>
+                    border-4 border-[color:var(--skill-color)]/40 aspect-square max-sm:min-h-[150px] hover:border-[color:var(--skill-color)]'>
                 <img src={skill.img} className='h-22 w-22 object-contain sm:h-30 sm:w-30' />
                 <code className='text-center'>{skill.label}</code>
             </div>
@@ -251,20 +251,18 @@ export default function Skills() {
                         )?.label} <FaArrowDown style={{fontSize: '10px'}} />
                     </Button>
                 </PopoverTrigger>
-                <PopoverContent>
+                <PopoverContent className='flex flex-col gap-3 py-3 pl-3'>
                     {listItems.map((item, key) => {
-                        return <ul className="[&>li]:mt-2">
-                                    <li className='rounded-md pl-2 py-1'
-                                        key={key}
-                                        onClick={() => {
-                                            item.fn()
-                                            setPopoverOpen(false);
-                                            document.body.focus();
-                                        }}
-                                    >
-                                        {item.label}
-                                    </li>
-                                </ul>
+                        return <div
+                            key={key}
+                            onClick={() => {
+                                item.fn()
+                                setPopoverOpen(false);
+                                document.body.focus();
+                            }}
+                        >
+                            - {item.label}
+                        </div>
                     })}
                 </PopoverContent>
             </Popover>

@@ -12,6 +12,7 @@ import { SiTypescript, SiJavascript, SiHtml5, SiCss3, SiReact, SiTailwindcss } f
 // shadcn.io
 import { ContainerTextFlip } from '@/components/ui/shadcn-io/container-text-flip';
 import { TextGenerateEffect } from '@/components/ui/shadcn-io/text-generate-effect';
+import { scrollToSection } from "@/store/nav-items";
 
 const CTASectionOnMobile =
 <div className="block sm:hidden *:mx-1 mb-3">
@@ -24,9 +25,11 @@ const CTASectionOnMobile =
         <Button>Resume</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="z-[3000]">
-        <DropdownMenuItem className="cursor-pointer">
-            <Link to='/resume' className="w-full">Show</Link>
-        </DropdownMenuItem>
+        <Link to='/resume' className="w-full">
+          <DropdownMenuItem className="cursor-pointer">
+            Show
+          </DropdownMenuItem>
+        </Link>
         <a href="/pdf-files/Abdallah-Aziz-Resume.pdf" download>
             <DropdownMenuItem variant="default" className="cursor-pointer">Download</DropdownMenuItem>
         </a>
@@ -37,9 +40,7 @@ const CTASectionOnMobile =
 const CTASectionOnDesktop =
         <div className="hidden sm:block *:mx-1 mb-3">
           <Magnet padding={20} disabled={false} magnetStrength={3}>
-            <Button asChild>
-              <a href='#projects' className='text-white'>Check projects</a>
-            </Button>
+            <Button className="text-white" onClick={() => scrollToSection('projects')}>Check projects</Button>
           </Magnet>
 
           <DropdownMenu>
@@ -130,7 +131,7 @@ export function Hero() {
           <span className='w-3 h-3 bg-green-500 animate-pulse border-2 shadow-2xl rounded-full'></span>
           <p className='text-base'>Available To Work</p>
         </div>
-        <SocialMedia centered/>
+        <SocialMedia centered />
         {CTASectionOnMobile}
       </div>   
   </section>
