@@ -26,6 +26,11 @@ const languages: SkillsProps[] = [
         img: '/skills/css.svg',
     },
     {
+        label: 'SASS',
+        color: '#cc6699',
+        img: '/skills/sass.svg',
+    },
+    {
         color: '#F7DF1E',
         label: 'JavaScript ES6+',
         img: '/skills/javascript.svg',
@@ -67,19 +72,24 @@ const frameworks_libraries: SkillsProps[] = [
 
 const styling_ui: SkillsProps[] = [
     {
-        color: '#06B6D4',
         label: 'Tailwind CSS',
+        color: '#06B6D4',
         img: '/skills/tailwindcss.svg',
     },
     {
-        color: '#007FFF',
-        label: 'Material UI',
-        img: '/skills/material-ui.svg',
+        label: 'Bootstrap',
+        color: '#8B4AFE',
+        img: '/skills/bootstrap.svg',
     },
     {
-        color: '#6366F1',
         label: 'Shadcn UI',
+        color: '#6366F1',
         img: '/skills/shadcn-ui.svg',
+    },
+    {
+        label: 'Material UI',
+        color: '#007FFF',
+        img: '/skills/material-ui.svg',
     },
     {
         label: 'Framer Motion',
@@ -100,10 +110,15 @@ const tools: SkillsProps[] = [
         img: '/skills/docker.svg',
     },
     {
-        color: '#CB0000',
-        label: 'npm',
-        img: '/skills/npm.svg',
+        color: '#F8AC00',
+        label: 'pnpm',
+        img: '/skills/pnpm.svg',
     },
+    // {
+    //     color: '#CB0000',
+    //     label: 'npm',
+    //     img: '/skills/npm.svg',
+    // },
     {
         label: 'Vite',
         color: '#646CFF',
@@ -134,7 +149,7 @@ const planningToLearn: SkillsProps[] = [
     },
 ]
 
-const priorityOrder = ['React.Js', 'TypeScript', 'JavaScript ES6+', 'Tailwind CSS', 'Docker'];
+const priorityOrder = ['React.Js', 'TypeScript', 'JavaScript ES6+', 'Bootstrap', 'Tailwind CSS', 'Docker'];
 
 const allSkills = [...languages, ...frameworks_libraries, ...styling_ui, ...tools]
     // remove duplicated skills items
@@ -212,8 +227,8 @@ export default function Skills() {
                 className={`flex-center flex-col gap-3 text-foreground rounded-lg p-5 transition shadow
                     bg-[color:var(--skill-color)]/50
                     hover:scale-110  hover:brightness-110 hover:saturate-150
-                    border-4 border-[color:var(--skill-color)]/40 hover:border-[color:var(--skill-color)]`}>
-                <img src={skill.img} className='h-22 w-22 sm:h-30 sm:w-30' />
+                    border-4 border-[color:var(--skill-color)]/40 aspect-square max-sm:min-h-[150px] hover:border-[color:var(--skill-color)]`}>
+                <img src={skill.img} className='h-22 w-22 object-contain sm:h-30 sm:w-30' />
                 <code className='text-center'>{skill.label}</code>
             </div>
         ))
@@ -256,19 +271,19 @@ export default function Skills() {
         </nav>
 
         {/* Skills section on mobile */}
-        <div className='grid grid-cols-2 md:hidden gap-3 mx-3 mt-5'>
+        <div className='grid grid-cols-2 max-[290px]:grid-cols-1 sm:grid-cols-3 md:hidden gap-3 mx-3 mt-5'>
             {renderSkillsCards()}
         </div>
 
         {/* Skills section on desktop */}
-        <Tabs value={currentChoice} onValueChange={setCurrentChoice} className="rounded-lg hidden md:flex">
+        <Tabs value={currentChoice} onValueChange={setCurrentChoice} className="hidden md:flex">
             <TabsList className="w-full">
                 {skillsCategories.map((cat, index) => {
                     return <TabsTrigger key={index} value={cat.value}>{cat.label}</TabsTrigger>
                 })}
             </TabsList>
             <TabsContents className="mx-1 mb-1 -mt-2 rounded-sm h-full">
-                <TabsContent value={currentChoice} className="grid md:grid-cols-4 lg:grid-cols-5 p-5 mt-4 gap-5">
+                <TabsContent value={currentChoice} className="grid grid-cols-4 lg:grid-cols-5 p-5 mt-4 gap-5">
                     {renderSkillsCards()}
                 </TabsContent>
             </TabsContents>

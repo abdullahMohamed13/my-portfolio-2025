@@ -15,20 +15,19 @@ const menuStyle = 'border-b-1 cursor-pointer hover:bg-background transition-colo
 
 function Header() {
     const [popoverOpen, setPopoverOpen] = useState<boolean>(false);
-    
-    return  <header className="sticky z-[2000] top-0 backdrop-blur flex justify-between px-3 py-3 bg-[#140021] [&_*]:no-underline">
+
+    return  <header className="sticky z-[2000] top-0 backdrop-blur flex justify-between p-3 [&_*]:no-underline">
 
         <h1 className="font-mono font-bold text-primary pl-2 border-l-4 border-secondary text-2xl sm:text-3xl">
             <a href="/">Abdallah</a>
         </h1>
 
-        {/* theme-toggle and resume downloader */}
-        <div className="flex-center gap-2 sm:gap-2">
+        <div className="flex-center gap-2">
             {/* Hamburger Icon for navigation */}
-            <div className="inline md:hidden">
+            <nav className="inline md:hidden">
                 <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
                     <PopoverTrigger>
-                        <FiMenu className="w-6 h-6 ml-2.5 text-white inline cursor-pointer" />
+                        <FiMenu className="w-6 h-6 ml-2.5 inline cursor-pointer" />
                     </PopoverTrigger>
                     <PopoverContent className="z-[2001]">
                         <ul className="[&>li]:mt-2 flex flex-col gap-2 -mb-[10px]">
@@ -65,7 +64,7 @@ function Header() {
                         </ul>
                     </PopoverContent>
                 </Popover>
-            </div>
+            </nav>
             
             <ModeToggle />
 
