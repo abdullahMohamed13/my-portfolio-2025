@@ -6,30 +6,32 @@ import { Badge } from "@/components/ui/badge";
 import { SiNextdotjs }from 'react-icons/si';
 import { PiHeart } from "react-icons/pi";
 import TrueFocus from "@/components/react-bits/TextAnimations/TrueFocus";
+import { Button } from "@/components/ui/button";
+import { scrollToSection } from "@/store/nav-items";
 
 export default function About() {
-  
   return (
-    <section id="about" className="px-3 sm:px-0 section-padding relative flex-section-center">
+    <section id="about" className="relative flex-section-center section-padding px-3 sm:px-0 text-center">
       <AnimatedHeader text="About Me" />
-      <div className="text-xl max-w-5xl leading-8 text-center">
-          I started coding in September 2022 with <Badge className="bg-[#004482] text-white">C++</Badge> , building simple console apps and discovering the fundamentals of programming.
+      <div className="text-xl max-w-5xl leading-8">
+          I started coding in September 2022 with <Badge className="bg-[#004482] text-base text-white">C++</Badge> , building simple console apps and discovering the fundamentals of programming.
           It wasn't long before frontend development caught my attention, and I quickly found my passion in web development and design.
           Brining an idea to life through code feels like superpower and I'm grateful that my tools allow me to make that happen.
       </div>
 
       <Separator />
 
-      <div className="text-xl max-w-5xl leading-8 text-center">
+      <div className="text-xl max-w-5xl leading-8">
           I would love to connect with fellow developers, designers, and teams who are passionate about creating exceptional web experiences,
           so feel free to reach out
           <PiHeart color="red" size={20} className="ml-1 inline" />
       </div>
+      <Button className="mt-1.5 text-white hover:bg-primary" variant='secondary' onClick={() => scrollToSection('contact')}>Reach out Now!</Button>
       
       <Separator />
 
       <div className="w-full max-w-3xl flex flex-col gap-3">
-        <h3 className="text-2xl font-semibold flex items-center gap-1 justify-center mt-4">
+        <h3 className="text-2xl font-semibold flex-center gap-1 mt-4">
           Next Learning Goal On The Queue:
         </h3>
         <div

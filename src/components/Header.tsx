@@ -15,15 +15,17 @@ function Header() {
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 991);
+            setScrolled(window.scrollY > 995);
         }
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, [])
-    return  <header className="sticky z-[2000] top-0 backdrop-blur flex justify-between p-3 [&_*]:no-underline">
 
-        <h1 id='header' className={`${scrolled ? 'scrolled-header' : ''} font-mono font-bold text-primary pl-2 border-l-4 border-secondary text-2xl sm:text-3xl`}>
+    return  <header className="sticky z-2000 top-0 backdrop-blur flex justify-between p-3">
+
+        <h1 id='header' className={`${scrolled ? 'scrolled-header' : ''}
+        font-mono font-bold text-primary pl-2 border-l-0 border-accent text-2xl sm:text-3xl`}>
             <a href="/">Abdallah</a>
         </h1>
 
@@ -34,7 +36,7 @@ function Header() {
                     <PopoverTrigger>
                         <FiMenu className="w-6 h-6 inline cursor-pointer" />
                     </PopoverTrigger>
-                    <PopoverContent className="flex flex-col gap-3 py-3 pl-3 -pb-5 z-[2001]">
+                    <PopoverContent className="flex flex-col gap-4.5 py-3 pl-3 -pb-5 z-2001">
                         {navItems.map((item, key) => {
                             return <div className='w-full flex items-center gap-2.5' key={key} onClick={() => {
                                 item.onClick();
@@ -50,7 +52,7 @@ function Header() {
             
             <ModeToggle />
 
-            <Button onClick={() => scrollToSection('contact')} className='text-white'>Hire Me</Button>
+            <Button onClick={() => scrollToSection('contact')} className={`${scrolled && 'scrolled-header-button'} text-white`}>Hire Me</Button>
         </div>
     </header>;
 }

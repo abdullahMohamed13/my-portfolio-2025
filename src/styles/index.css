@@ -72,7 +72,7 @@
   --secondary-foreground: oklch(0.1408 0.0044 285.8229);
   --muted: oklch(0.9674 0.0013 286.3752);
   --muted-foreground: oklch(0.5517 0.0138 285.9385);
-  --accent: oklch(0.7107 0.0351 256.7878);
+  --accent: #9370DB;
   --accent-foreground: oklch(0 0 0);
   --destructive: oklch(0.5771 0.2152 27.3250);
   --destructive-foreground: oklch(1.0000 0 0);
@@ -90,7 +90,7 @@
 .dark {
   --background: oklch(0.2103 0.0059 285.8852);
   --foreground: oklch(0.9288 0.0126 255.5078);
-  --card: oklch(0.2739 0.0055 286.0326);
+  --card: #1f1f23;
   --card-foreground: oklch(1.0000 0 0);
   --popover: oklch(0.2739 0.0055 286.0326);
   --popover-foreground: oklch(1.0000 0 0);
@@ -100,7 +100,7 @@
   --secondary-foreground: oklch(1.0000 0 0);
   --muted: oklch(0.2711 0.0110 285.6414);
   --muted-foreground: oklch(0.7118 0.0129 286.0665);
-  --accent: oklch(0.5544 0.0407 257.4166);
+  --accent: #6A5ACD;
   --accent-foreground: oklch(1.0000 0 0);
   --destructive: oklch(0.6368 0.2078 25.3313);
   --destructive-foreground: oklch(1.0000 0 0);
@@ -162,5 +162,11 @@ html, body {
 
 .scrolled-header {
   color: var(--foreground);
+  border-left-width: 5px;
+  transition: ease-out .3s;
+}
+
+.scrolled-header-button {
+  background-color: var(--accent);
   transition: 0.3s;
 }

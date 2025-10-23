@@ -1,8 +1,11 @@
-import { AiFillHome } from 'react-icons/ai'
-import { VscFolderLibrary } from 'react-icons/vsc'
-import { BiCodeAlt } from 'react-icons/bi'
-import { MdContactMail } from "react-icons/md";
-import { FaQuoteLeft, FaRegEnvelope } from 'react-icons/fa'
+import { 
+  BiHomeAlt, 
+  BiUser, 
+  BiFolder, 
+  BiChat, 
+  BiCodeAlt, 
+  BiEnvelope 
+} from 'react-icons/bi'
 
 export const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
@@ -12,10 +15,10 @@ export const scrollToSection = (id: string) => {
 };
 
 export const navItems = [
-    { icon: <AiFillHome size={18} />, label: 'Intro', onClick: () => scrollToSection('hero')},
-    { icon: <MdContactMail size={18} />, label: 'About', onClick: () => scrollToSection('about')},
-    { icon: <VscFolderLibrary size={18} />, label: 'Projects', onClick: () => scrollToSection('projects')},
-    { icon: <FaQuoteLeft size={18} />, label: 'Testimonials', onClick: () => scrollToSection('testimonials')},
+    { icon: <BiHomeAlt size={18} />, label: 'Intro', onClick: () => scrollToSection('hero')},
+    { icon: <BiUser size={18} />, label: 'About', onClick: () => scrollToSection('about')},
+    { icon: <BiFolder size={18} />, label: 'Projects', onClick: () => scrollToSection('projects')},
+    { icon: <BiChat size={18} />, label: 'Testimonials', onClick: () => scrollToSection('testimonials')},
     { icon: <BiCodeAlt size={18} />, label: 'Skills', onClick: () => scrollToSection('skills')},
-    { icon: <FaRegEnvelope size={18} />, label: 'Contact', onClick: () => scrollToSection('contact')},
+    { icon: <BiEnvelope size={18} />, label: 'Contact', onClick: () => scrollToSection('contact')},
 ];

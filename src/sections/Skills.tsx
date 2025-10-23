@@ -8,6 +8,15 @@ import { Button } from './../components/ui/button'
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@/components/ui/shadcn-io/tabs';
 
+import { 
+  AiOutlineAppstore, 
+  AiOutlineCode, 
+  AiOutlineApi, 
+  AiOutlineBgColors, 
+  AiOutlineTool, 
+  AiOutlineRocket 
+} from "react-icons/ai";
+
 interface SkillsProps {
     label: string
     color?: string
@@ -94,7 +103,7 @@ const styling_ui: SkillsProps[] = [
     {
         label: 'Framer Motion',
         color: '#0055FF',
-        img: '/skills/framer-motion.jpeg',
+        img: '/skills/framer-motion.webp',
     },
 ]
 
@@ -176,15 +185,40 @@ export default function Skills() {
     const [currentChoice, setCurrentChoice] = useState<string>('all');
     const [popoverOpen, setPopoverOpen] = useState<boolean>(false);
     
+    const listItemIconSize = 20
     const listItems = [
-        { label: "All", fn: () => setCurrentChoice('all') },
-        { label: "Languages", fn: () => setCurrentChoice('languages') },
-        { label: "Frameworks & Libraries", fn: () => setCurrentChoice('frameworks-libraries') },
-        { label: "Styling/UI", fn: () => setCurrentChoice('styling-ui')  },
-        { label: "Tools", fn: () => setCurrentChoice('tools') },
-        { label: "What's Next", fn: () => setCurrentChoice('next')  },
+    { 
+        label: "All", 
+        fn: () => setCurrentChoice('all'),
+        icon: <AiOutlineAppstore size={listItemIconSize}/>
+    },
+    { 
+        label: "Languages", 
+        fn: () => setCurrentChoice('languages'),
+        icon: <AiOutlineCode size={listItemIconSize}/>
+    },
+    { 
+        label: "Frameworks & Libraries", 
+        fn: () => setCurrentChoice('frameworks-libraries'),
+        icon: <AiOutlineApi size={listItemIconSize}/>
+    },
+    { 
+        label: "Styling/UI", 
+        fn: () => setCurrentChoice('styling-ui'),
+        icon: <AiOutlineBgColors size={listItemIconSize}/>
+    },
+    { 
+        label: "Tools", 
+        fn: () => setCurrentChoice('tools'),
+        icon: <AiOutlineTool size={listItemIconSize}/>
+    },
+    { 
+        label: "What's Next", 
+        fn: () => setCurrentChoice('next'),
+        icon: <AiOutlineRocket size={listItemIconSize}/>
+    },
     ];
-    
+
     const skillsCategories = [
         {
             label:'All',
@@ -254,6 +288,7 @@ export default function Skills() {
                 <PopoverContent className='flex flex-col gap-3 py-3 pl-3'>
                     {listItems.map((item, key) => {
                         return <div
+                            className='flex items-center gap-2'
                             key={key}
                             onClick={() => {
                                 item.fn()
@@ -261,7 +296,7 @@ export default function Skills() {
                                 document.body.focus();
                             }}
                         >
-                            - {item.label}
+                            {item.icon} {item.label}
                         </div>
                     })}
                 </PopoverContent>

@@ -60,8 +60,7 @@ export function ContainerTextFlip({
       transition={{ duration: animationDuration / 2000 }}
       className={cn(
         'relative inline-block rounded-lg pt-2 pb-3 text-center font-bold md:text-4xl text-white',
-        'bg-[linear-gradient(135deg,var(--color-primary),#140021)]',
-        'shadow-[0_2px_8px_var(--color-border)]',
+        'bg-[linear-gradient(135deg,var(--color-primary),var(--color-secondary))]',
         className
       )}
     >

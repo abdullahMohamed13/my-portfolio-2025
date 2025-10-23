@@ -13,7 +13,7 @@ export default function Resume() {
     return <main className='px-3 md:px-0'>
         <header className='flex items-center justify-between p-4'>
             <a href='/' className='flex items-center gap-3'>
-                <img src="/me.png" className="h-15 w-15 rounded-full" alt="Abdallah's Image" />
+                <img src="/me.webp" className="h-15 w-15 rounded-full" alt="Abdallah's Image" />
                 <h1 className="font-mono font-bold text-primary pl-2 border-l-4 border-secondary text-2xl sm:text-3xl">
                     Abdallah
                 </h1>

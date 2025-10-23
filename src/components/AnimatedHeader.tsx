@@ -38,7 +38,7 @@ export default function AnimatedHeader({text, className}: TextProps) {
             className="relative font-bold mb-5">
             <VariableProximity
                 label={`// ${text}`}
-                className={`variable-proximity-demo italic text-4xl font-bold border-b-2 border-card ${className || ''}`}
+                className={`variable-proximity-demo italic text-4xl font-bold ${className || ''}`}
                 fromFontVariationSettings="'wght' 400"
                 toFontVariationSettings="'wght' 900"
                 containerRef={containerRef}

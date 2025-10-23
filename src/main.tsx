@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from 'sonner';
 
-import './css/index.css'
+import './styles/index.css'
 import Home from './pages/Home.tsx'
 import ResumePage from './pages/Resume.tsx'
 import Layout from './pages/Layout.tsx';

@@ -1,4 +1,4 @@
-import '../../../css/ShinyText.css';
+import '@/styles/shiny-text.css';
 
 interface ShinyTextProps {
     text: string;

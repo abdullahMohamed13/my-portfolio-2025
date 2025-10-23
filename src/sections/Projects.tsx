@@ -62,9 +62,9 @@ export default function Projects() {
           icon: <SiClerk />
         },
       ],
-      description: `A full-stack booking system designed to represent a Mixed Martial Arts (MMA) gym.
-      The primary purpose is to showcase the gym's classes, coaches, students, branches, and offerings
-      - while also allowing users to sign-up and book training sessions via the plans page.`,
+      description: `A full-stack booking system built for a Mixed Martial Arts (MMA) gym.
+      The system enables visitors to explore the gym's classes, coaches, branches, and membership offerings.
+      Users can seamlessly register for accounts and reserve training sessions through an integrated plans and booking interface.`,
       imgSrc: '/projects/titan-mma.webp',
       projectInSite: '/projects/titan-mma-home-page.webp',
       liveURL: 'https://titan-mma-gym.netlify.app',
@@ -91,7 +91,7 @@ export default function Projects() {
         },
       ],
       description: `A Free online chess clock, with customizable time controls & dashboard to track game
-      results. Perfect for over-the-board blitz, bullet, and classical chess.`,
+      results. Perfect for over-the-board blitz chess.`,
       imgSrc: '/projects/chess-times-square.webp',
       projectInSite: '/projects/chess-times-square-home-page.webp',
       liveURL: 'https://chesstimessquare.onrender.com',
@@ -173,8 +173,8 @@ export default function Projects() {
               {proj.stackIcons.map((stack, index) => (
                 <Tooltip key={index}>
                   <TooltipTrigger
-                    className="p-3 rounded-full shadow-lg bg-gradient-to-tr from-muted to-background
-                    hover:scale-125 hover:rotate-6 transition-transform duration-300 cursor-default"
+                    className="p-3 rounded-full shadow-lg hover:saturate-300 transition bg-linear-to-tr from-muted to-background
+                    hover:scale-125 hover:rotate-6 duration-300 cursor-default"
                     style={{ color: proj.themeColor }}
                   >
                     {stack.icon}
@@ -189,7 +189,7 @@ export default function Projects() {
             {/* Description */}
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
-                <AccordionTrigger>Description</AccordionTrigger>
+                <AccordionTrigger style={{color: proj.themeColor}}>Description</AccordionTrigger>
                 <AccordionContent>
                   {proj.description}
                 </AccordionContent>
@@ -226,7 +226,7 @@ export default function Projects() {
         ))}
       </div>
 
-      <div className="text-lg md:text-xl bg-muted hover:bg-muted/80 mt-8 px-4 py-2 rounded-lg shadow-sm
+      <div className="text-lg md:text-xl bg-card hover:bg-card/80 mt-8 px-4 py-2 rounded-lg shadow-sm
         hover:scale-[1.02] transition-transform duration-300">
           Stay Tuned For Upcoming Projects 🚀
       </div>

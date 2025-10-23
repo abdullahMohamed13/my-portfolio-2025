@@ -1,7 +1,3 @@
-/*
-	Installed from https://reactbits.dev/ts/tailwind/
-*/
-
 "use client";
 
 import {
@@ -192,7 +188,7 @@ export default function Dock({
           isHovered.set(0);
           mouseX.set(Infinity);
         }}
-        className={`${className} absolute bottom-2 left-1/2 transform -translate-x-1/2 flex items-end w-fit gap-4 rounded-2xl border-neutral-700 border-2 pb-2 px-4`}
+        className={`${className} absolute bottom-2 left-1/2 transform -translate-x-1/2 flex items-end w-fit gap-4 rounded-2xl border-primary/60 border-2 pb-2 px-4`}
         style={{ height: panelHeight }}
         role="toolbar"
         aria-label="Application dock"
@@ -201,7 +197,7 @@ export default function Dock({
           <DockItem
             key={index}
             onClick={item.onClick}
-            className={`${item.className} hover:bg-primary cursor-pointer text-white transition-colors`}
+            className={`${item.className} hover:bg-primary border-none bg-background cursor-pointer text-white transition-colors`}
             mouseX={mouseX}
             spring={spring}
             distance={distance}

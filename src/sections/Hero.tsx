@@ -24,7 +24,7 @@ const CTASectionOnMobile =
       <DropdownMenuTrigger>
         <Button>Resume</Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="z-[3000]">
+      <DropdownMenuContent>
         <Link to='/resume' className="w-full">
           <DropdownMenuItem className="cursor-pointer">
             Show
@@ -49,12 +49,12 @@ const CTASectionOnDesktop =
                     <TooltipTrigger>
                         <Button variant='outline' className="text-foreground">Resume</Button>
                     </TooltipTrigger>
-                    <TooltipContent className="text-white z-[3000]">
+                    <TooltipContent className="text-white">
                         Click for options
                     </TooltipContent>
                 </Tooltip>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="z-[3000]">
+            <DropdownMenuContent>
                 <DropdownMenuItem className="cursor-pointer">
                     <Link to='/resume' className="w-full">Show</Link>
                 </DropdownMenuItem>
@@ -72,7 +72,7 @@ export function Hero() {
 
     return <section id="hero"
       className="relative px-3 min-h-screen flex-center pt-5 pb-10 sm:pb-0 text-center sm:text-left flex-col sm:flex-row gap-5 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/backgrounds/hero-background.png')" }}
+      style={{ backgroundImage: "url('/backgrounds/hero-background.webp')" }}
     >
 
       <div className="sm:-mt-60 *:p-2">
@@ -97,24 +97,25 @@ export function Hero() {
             />
           
           <div className='text-center md:text-left text-2xl'>
-              <p>These are the technologies I'm most comfortable using:</p>
-              <div className="grid sm:flex grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 mt-1 place-items-center">
-                <Badge className="flex items-center gap-1 bg-[#F7DF1E]">
+              <p>Here's the technologies that helps me to do so:</p>
+              
+              <div className="grid sm:flex grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 mt-1 place-items-center *:flex *:items-center *:gap-1 ">
+                <Badge className="bg-[#F7DF1E]">
                   JavaScript <SiJavascript />
                 </Badge>
-                <Badge className="flex items-center gap-1 bg-[#61DAFB]">
+                <Badge className="bg-[#61DAFB]">
                   React <SiReact />
                 </Badge>
-                <Badge className="flex items-center gap-1 bg-[#3178C6]">
+                <Badge className="bg-[#3178C6]">
                   TypeScript <SiTypescript />
                 </Badge>
-                <Badge className="flex items-center gap-1 bg-[#06B6D4]">
+                <Badge className="bg-[#06B6D4]">
                   Tailwind CSS <SiTailwindcss />
                 </Badge>
-                <Badge className="flex items-center gap-1 bg-[#E34F26]">
+                <Badge className="bg-[#E34F26]">
                   HTML5 <SiHtml5 />
                 </Badge>
-                <Badge className="flex items-center gap-1 bg-[#1572B6]">
+                <Badge className="bg-[#1572B6]">
                   CSS3 <SiCss3 />
                 </Badge>
               </div>
@@ -126,7 +127,7 @@ export function Hero() {
       </div>
 
       <div className="flex flex-col gap-3 sm:-mt-60">
-        <img src="/me.png" className='rounded-full hover:border transition-all sm:mx-0 mx-10 border-3' alt="Abdallah Photo" />
+        <img src="/me.webp" className='rounded-full hover:border transition-all sm:mx-0 mx-10 border-3' alt="Abdallah Photo" />
         <div className='gap-1 flex-center'>
           <span className='w-3 h-3 bg-green-500 animate-pulse border-2 shadow-2xl rounded-full'></span>
           <p className='text-base'>Available To Work</p>

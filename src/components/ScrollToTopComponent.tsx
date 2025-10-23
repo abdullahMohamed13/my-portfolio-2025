@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { FaArrowCircleUp } from 'react-icons/fa'
+import { CgArrowUp } from 'react-icons/cg';
 
 export default function ScrollToTopComponent () {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.scrollY > 500) {
+      if (window.scrollY > 1150) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -29,10 +29,10 @@ export default function ScrollToTopComponent () {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="cursor-pointer z-1000 hover:animate-bounce fixed bottom-6 right-6 p-3 rounded-full bg-primary shadow-lg hover:bg-primary/70 transition-all"
+          className="cursor-pointer z-1000 fixed bottom-6 right-6 p-3 rounded-full bg-accent shadow-lg hover:bg-primary transition-all"
           aria-label="Scroll to top"
         >
-          <FaArrowCircleUp size={20} color="white"/>
+          <CgArrowUp size={20} color="white"/>
         </button>
       )}
     </div>
