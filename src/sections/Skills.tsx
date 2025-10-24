@@ -259,9 +259,9 @@ export default function Skills() {
             <div key={index}
                 style={{ '--skill-color': skill.color } as React.CSSProperties}
                 className='flex-center flex-col gap-3 text-foreground rounded-lg p-5 transition shadow
-                    bg-[color:var(--skill-color)]/50
+                    bg-[var(--skill-color)]/50
                     hover:scale-110  hover:brightness-110 hover:saturate-150
-                    border-4 border-[color:var(--skill-color)]/40 aspect-square max-sm:min-h-[150px] hover:border-[color:var(--skill-color)]'>
+                    border-4 border-[var(--skill-color)]/40 aspect-square max-sm:min-h-[150px] hover:border-[var(--skill-color)]'>
                 <img src={skill.img} className='h-22 w-22 object-contain sm:h-30 sm:w-30' />
                 <code className='text-center'>{skill.label}</code>
             </div>

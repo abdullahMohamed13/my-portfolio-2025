@@ -26,11 +26,17 @@ const router = createBrowserRouter([
   }
 ])
 
+const toasterStyle: React.CSSProperties & Record<string, string> = {
+  "--normal-bg": "var(--accent)",
+  "--normal-text": "#ffffff",
+  "--normal-border": "var(--accent)",
+};
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <RouterProvider router={router}/>
-      <Toaster />
+      <Toaster style={toasterStyle} duration={4500}/>
     </ThemeProvider>
   </StrictMode>,
 )

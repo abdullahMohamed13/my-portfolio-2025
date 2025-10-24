@@ -11,19 +11,23 @@ export default function Resume() {
     const resumeImgs = ['/resume-screenshots/page-1.png', '/resume-screenshots/page-2.png']
 
     return <main className='px-3 md:px-0'>
-        <header className='flex items-center justify-between p-4'>
+        <header className='flex items-center justify-between p-3'>
             <a href='/' className='flex items-center gap-3'>
-                <img src="/me.webp" className="h-15 w-15 rounded-full" alt="Abdallah's Image" />
+                <img src="/me.webp" className="h-13 rounded-full" alt="Abdallah's Image" />
                 <h1 className="font-mono font-bold text-primary pl-2 border-l-4 border-secondary text-2xl sm:text-3xl">
                     Abdallah
                 </h1>
             </a>
-            <ModeToggle />
+            <div className='flex gap-2 items-center'>
+                <ModeToggle />
+                <Link to='/' className='flex justify-center md:justify-end items-center gap-2 text-primary'>
+                    <Button>
+                        <FiHome /> Home
+                    </Button>
+                </Link>
+            </div>
         </header>
 
-        <Link to='/' className='flex justify-center md:justify-end items-center gap-2 md:mr-3 mt-3 text-primary'>
-            <FiHome /> Return Home
-        </Link>
         <div className='mt-6 flex flex-col items-center justify-center text-center'>
             <code className='text-xl'>
                 // A concise overview of my background, skills, and projects in frontend development.

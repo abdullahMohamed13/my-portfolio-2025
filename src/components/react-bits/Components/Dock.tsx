@@ -97,7 +97,7 @@ function DockItem({
           React.isValidElement(child) &&
           child.type === DockLabel
         ) {
-          return cloneElement(child as React.ReactElement<any>, { isHovered });
+          return cloneElement(child as React.ReactElement<DockLabelProps>, { isHovered });
         }
         return child;
       })}
@@ -169,7 +169,7 @@ export default function Dock({
 
   const maxHeight = useMemo(
     () => Math.max(dockHeight, magnification + magnification / 2 + 4),
-    [magnification]
+    [magnification, dockHeight]
   );
   const heightRow = useTransform(isHovered, [0, 1], [panelHeight, maxHeight]);
   const height = useSpring(heightRow, spring);
@@ -197,7 +197,7 @@ export default function Dock({
           <DockItem
             key={index}
             onClick={item.onClick}
-            className={`${item.className} hover:bg-primary border-none bg-background cursor-pointer text-white transition-colors`}
+            className={`${item.className} hover:bg-primary hover:text-white border-none bg-background cursor-pointer transition-colors`}
             mouseX={mouseX}
             spring={spring}
             distance={distance}

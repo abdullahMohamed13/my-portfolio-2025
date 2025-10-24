@@ -47,7 +47,7 @@ export default function AnimatedHeader({text, className}: TextProps) {
                 style={{
                     fontFamily: 'Inter, system-ui, sans-serif',
                     cursor: 'default',
-                    color: 'var(--secondary)'
+                    color: 'var(--accent)'
                 }}
             />
         </div>

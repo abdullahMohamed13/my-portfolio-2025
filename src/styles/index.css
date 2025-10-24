@@ -5,7 +5,7 @@
 
 @layer base {
   * {
-    @apply border-border box-border outline-ring/50;
+    @apply border-border box-border;
   }
 
   h1 {
@@ -20,10 +20,6 @@
   html {
     scroll-behavior: smooth;
   }
-
-  button {
-    @apply cursor-pointer
-  }
 }
 
 @layer utilities {
@@ -37,25 +33,8 @@
     @apply flex justify-center items-center flex-col;
   }
   .section-padding {
-    @apply py-16;
+    @apply py-14;
   }
-}
-
-@keyframes wave {
-  0% { transform: rotate(0deg); }
-  10% { transform: rotate(14deg); }
-  20% { transform: rotate(-8deg); }
-  30% { transform: rotate(14deg); }
-  40% { transform: rotate(-4deg); }
-  50% { transform: rotate(10deg); }
-  60% { transform: rotate(0deg); }
-  100% { transform: rotate(0deg); }
-}
-
-.wave {
-  display: inline-block;
-  transform-origin: 70% 70%;
-  animation: wave 2.5s infinite;
 }
 
 /* THEME MAIN COLORS */
@@ -142,13 +121,6 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-
-  --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
-  --tracking-tight: calc(var(--tracking-normal) - 0.025em);
-  --tracking-normal: var(--tracking-normal);
-  --tracking-wide: calc(var(--tracking-normal) + 0.025em);
-  --tracking-wider: calc(var(--tracking-normal) + 0.05em);
-  --tracking-widest: calc(var(--tracking-normal) + 0.1em);
 }
 
 ::-webkit-scrollbar {

@@ -26,12 +26,12 @@ const CTASectionOnMobile =
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <Link to='/resume' className="w-full">
-          <DropdownMenuItem className="cursor-pointer">
+          <DropdownMenuItem>
             Show
           </DropdownMenuItem>
         </Link>
         <a href="/pdf-files/Abdallah-Aziz-Resume.pdf" download>
-            <DropdownMenuItem variant="default" className="cursor-pointer">Download</DropdownMenuItem>
+            <DropdownMenuItem variant="default">Download</DropdownMenuItem>
         </a>
       </DropdownMenuContent>
     </DropdownMenu>
@@ -55,11 +55,11 @@ const CTASectionOnDesktop =
                 </Tooltip>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-                <DropdownMenuItem className="cursor-pointer">
+                <DropdownMenuItem>
                     <Link to='/resume' className="w-full">Show</Link>
                 </DropdownMenuItem>
                 <a href="/pdf-files/Abdallah-Aziz-Resume.pdf" download>
-                    <DropdownMenuItem variant="default" className="cursor-pointer">Download</DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer">Download</DropdownMenuItem>
                 </a>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -99,7 +99,7 @@ export function Hero() {
           <div className='text-center md:text-left text-2xl'>
               <p>Here's the technologies that helps me to do so:</p>
               
-              <div className="grid sm:flex grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 mt-1 place-items-center *:flex *:items-center *:gap-1 ">
+              <div className="grid sm:flex grid-cols-2 *:text-black sm:grid-cols-3 md:grid-cols-4 gap-2 mt-1 place-items-center *:flex *:items-center *:gap-1 ">
                 <Badge className="bg-[#F7DF1E]">
                   JavaScript <SiJavascript />
                 </Badge>
@@ -127,9 +127,13 @@ export function Hero() {
       </div>
 
       <div className="flex flex-col gap-3 sm:-mt-60">
-        <img src="/me.webp" className='rounded-full hover:border transition-all sm:mx-0 mx-10 border-3' alt="Abdallah Photo" />
+        <img src="/me.webp"
+          className='rounded-full border-4 border-double border-transparent hover:border-primary transition-all duration-300'
+          // sm:mx-0 mx-10
+          alt="Abdallah's Photo"
+        />
         <div className='gap-1 flex-center'>
-          <span className='w-3 h-3 bg-green-500 animate-pulse border-2 shadow-2xl rounded-full'></span>
+          <span className='w-3 h-3 bg-green-500 animate-pulse border-2 shadow-2xl rounded-full' />
           <p className='text-base'>Available To Work</p>
         </div>
         <SocialMedia centered />

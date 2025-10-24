@@ -11,7 +11,7 @@ import { scrollToSection } from "@/store/nav-items";
 
 export default function About() {
   return (
-    <section id="about" className="relative flex-section-center section-padding px-3 sm:px-0 text-center">
+    <section id="about" className="relative mt-10 flex-section-center section-padding px-3 sm:px-0 text-center">
       <AnimatedHeader text="About Me" />
       <div className="text-xl max-w-5xl leading-8">
           I started coding in September 2022 with <Badge className="bg-[#004482] text-base text-white">C++</Badge> , building simple console apps and discovering the fundamentals of programming.
@@ -26,7 +26,7 @@ export default function About() {
           so feel free to reach out
           <PiHeart color="red" size={20} className="ml-1 inline" />
       </div>
-      <Button className="mt-1.5 text-white hover:bg-primary" variant='secondary' onClick={() => scrollToSection('contact')}>Reach out Now!</Button>
+      <Button className="mt-1.5 text-white hover:bg-accent" onClick={() => scrollToSection('contact')}>Reach out Now!</Button>
       
       <Separator />
 
@@ -45,15 +45,15 @@ export default function About() {
               animationDuration={2}
               pauseBetweenAnimations={2}
             >
-                <Badge className="bg-card dark:text-white text-sm sm:text-lg">
-                  Jest
-                  <img src="/skills/jest.svg" className="h-6 ml-1" />
-                </Badge>
-                <Badge className="bg-card dark:text-white text-sm sm:text-lg">
-                  NextJS
-                  <SiNextdotjs className=" ml-1" size={28}/>
-                </Badge>
-              </TrueFocus>
+              <Badge className="bg-card text-sm sm:text-lg">
+                Jest
+                <img src="/skills/jest.svg" className="h-6 ml-1" />
+              </Badge>
+              <Badge className="bg-car text-sm sm:text-lg">
+                NextJS
+                <SiNextdotjs className=" ml-1" size={28}/>
+              </Badge>
+            </TrueFocus>
           </div>
         </div>
       </div>

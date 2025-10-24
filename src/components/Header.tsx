@@ -22,7 +22,7 @@ function Header() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [])
 
-    return  <header className="sticky z-2000 top-0 backdrop-blur flex justify-between p-3">
+    return <header className="sticky z-2000 top-0 backdrop-blur flex justify-between p-3">
 
         <h1 id='header' className={`${scrolled ? 'scrolled-header' : ''}
         font-mono font-bold text-primary pl-2 border-l-0 border-accent text-2xl sm:text-3xl`}>

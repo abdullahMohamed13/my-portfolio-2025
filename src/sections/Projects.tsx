@@ -189,7 +189,7 @@ export default function Projects() {
             {/* Description */}
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
-                <AccordionTrigger style={{color: proj.themeColor}}>Description</AccordionTrigger>
+                <AccordionTrigger style={{color: proj.themeColor, cursor: 'pointer'}}>Description</AccordionTrigger>
                 <AccordionContent>
                   {proj.description}
                 </AccordionContent>

@@ -5,7 +5,7 @@ const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
     toast.success("Whatsapp number copied!",  {
       description: "+201010434465",
-      style: {backgroundColor: 'var(--color-accent)', border: 'none', boxShadow: 'none', fontWeight: 'bold', color: '#ffffff'},
+      style: {backgroundColor: 'var(--secondary)', borderColor: 'var(--secondary)'}
     })
 }
 
@@ -46,7 +46,7 @@ const copyToClipboard = (text: string) => {
 
 export default function SocialMedia({centered, className}: {centered?: boolean, className?: string}) {
 
-    return <div className={`${centered && 'flex-center gap-5 sm:gap-4'} ${className} *:text-2xl *:cursor-pointer *:transition-colors`}>
+    return <div className={`${centered && 'flex-center gap-5 sm:gap-4'} ${className} *:text-2xl *:transition-colors`}>
           <AnimatedTooltip items={contacts} />
         </div>
 }

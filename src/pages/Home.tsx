@@ -19,11 +19,11 @@ export default function App() {
       <Hero />
       <NavBar />
       <Suspense fallback={null}>
-        <FadeInOnScroll><About /></FadeInOnScroll>
-        <FadeInOnScroll><Projects /></FadeInOnScroll>
-        <FadeInOnScroll><Testimonials /></FadeInOnScroll>
-        <FadeInOnScroll><Skills /></FadeInOnScroll>
-        <FadeInOnScroll><Contact /></FadeInOnScroll>
+        <FadeInOnScroll direction='left'><About /></FadeInOnScroll>
+        <FadeInOnScroll direction='up'><Projects /></FadeInOnScroll>
+        <FadeInOnScroll direction='left'><Testimonials /></FadeInOnScroll>
+        <FadeInOnScroll direction='down'><Skills /></FadeInOnScroll>
+        <FadeInOnScroll direction='left'><Contact /></FadeInOnScroll>
       </Suspense>
     </>
     )
