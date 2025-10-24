@@ -22,8 +22,8 @@ export default function FadeInOnScroll({ children, direction = "up", className }
       initial={directions[direction]}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
       viewport={{ 
-        once: false, 
-        amount: 0.1,
+        once: true, 
+        amount: 0.15,
         margin: "0px 0px -100px 0px"
       }}
       transition={{ 
