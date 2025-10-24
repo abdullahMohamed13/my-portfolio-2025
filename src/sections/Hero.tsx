@@ -128,7 +128,7 @@ export function Hero() {
 
       <div className="flex flex-col gap-3 sm:-mt-60">
         <img src="/me.webp"
-          className='rounded-full border-4 border-double border-transparent hover:border-primary transition-all duration-300'
+          className='rounded-full border-4 hover:border-primary transition-all duration-300'
           // sm:mx-0 mx-10
           alt="Abdallah's Photo"
         />
