@@ -10,17 +10,17 @@ export default function Resume() {
     const inactiveButtonClass = 'cursor-not-allowed opacity-40'
     const resumeImgs = ['/resume-screenshots/page-1.png', '/resume-screenshots/page-2.png']
 
-    return <main className='px-3 md:px-0'>
-        <header className='flex items-center justify-between p-3'>
-            <a href='/' className='flex items-center gap-3'>
-                <img src="/me.webp" className="h-13 rounded-full" alt="Abdallah's Image" />
+    return <main className='px-3 md:px-0 pt-5'>
+        <header className='flex items-center justify-between'>
+            <a href='/' className='flex items-center gap-2'>
+                <img src="/me.webp" className="h-10 sm:h-15 rounded-full" alt="Abdallah's Image" />
                 <h1 className="font-mono font-bold text-primary pl-2 border-l-4 border-secondary text-2xl sm:text-3xl">
                     Abdallah
                 </h1>
             </a>
-            <div className='flex gap-2 items-center'>
+            <div className='flex gap-1 items-center'>
                 <ModeToggle />
-                <Link to='/' className='flex justify-center md:justify-end items-center gap-2 text-primary'>
+                <Link to='/'>
                     <Button>
                         <FiHome /> Home
                     </Button>
