@@ -53,14 +53,14 @@ function Footer() {
             <p className='text-md flex items-center gap-1.5'><GiTalk className='sm:text-primary' /> Contact Me</p>
             <SocialMedia centered className='mt-1'/>
           </div>
-          <div className='flex-center'>
+          <div className='flex-center text-white sm:text-foreground'>
             <p className='text-md flex items-center gap-1.5'><GiEarthAsiaOceania className='sm:text-primary' /> Location</p>
             <p className='flex gap-2 items-center'>
               Cairo, Egypt
               <img title='Egypt' src='egypt.svg' className='h-6' alt='Egyptian Flag' />
             </p>
           </div>
-          <div className='flex-center'>
+          <div className='flex-center text-white sm:text-foreground'>
             <p className='text-md mb-2 flex items-center gap-1.5'><FaLanguage className='sm:text-primary' /> Languages</p>
             <div className='flex gap-2'>
               <AnimatedTooltip items={languages} />
