@@ -29,7 +29,7 @@ export default function FadeInOnScroll({ children, direction = "up", className }
         duration: 0.6, 
         ease: [0.25, 0.1, 0.25, 1]
       }}
-      className={`scroll-mt-20 ${className}`}
+      className={`scroll-mt-20 min-h-[200px] ${className}`}
     >
       {children}
     </motion.section>
