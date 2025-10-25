@@ -22,7 +22,7 @@ const CTASectionOnMobile =
 
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <Button>Resume</Button>
+        <Button variant='outline'>Resume</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <Link to='/resume' className="w-full">
@@ -38,7 +38,7 @@ const CTASectionOnMobile =
 </div> 
 
 const CTASectionOnDesktop =
-        <div className="hidden sm:block *:mx-1 mb-3">
+        <div className="hidden sm:flex items-center gap-3">
           <Magnet padding={20} disabled={false} magnetStrength={3}>
             <Button className="text-white" onClick={() => scrollToSection('projects')}>Check projects</Button>
           </Magnet>
@@ -128,13 +128,13 @@ export function Hero() {
 
       <div className="flex flex-col gap-3 sm:-mt-60">
         <img src="/me.webp"
-          className='rounded-full border-4 hover:border-primary transition-all duration-300'
+          className='rounded-full border-0 sm:border-4 hover:border-secondary transition-all duration-300'
           // sm:mx-0 mx-10
           alt="Abdallah's Photo"
         />
         <div className='gap-1 flex-center'>
           <span className='w-3 h-3 bg-green-500 animate-pulse border-2 shadow-2xl rounded-full' />
-          <p className='text-base'>Available To Work</p>
+          <p className='text-base text-white sm:text-foreground'>Available To Work</p>
         </div>
         <SocialMedia centered />
         {CTASectionOnMobile}
