@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 
 type Direction = "left" | "right" | "up" | "down";
 
@@ -10,17 +9,6 @@ interface FadeInOnScrollProps {
 }
 
 export default function FadeInOnScroll({ children, direction = "up", className }: FadeInOnScrollProps) {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
   
   const directions = {
     up: { opacity: 0, y: 40, x: 0 },
@@ -34,7 +22,7 @@ export default function FadeInOnScroll({ children, direction = "up", className }
       initial={directions[direction]}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
       viewport={{ 
-        once: isMobile, // true on mobile, false on desktop
+        once: true, 
         amount: 0.1,
       }}
       transition={{ 
