@@ -41,7 +41,7 @@ export default function ScrollToTopComponent() {
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.2 }}
           onClick={scrollToTop}
-          className="cursor-pointer z-1000 fixed bottom-6 right-6 p-3 rounded-full bg-accent shadow-lg hover:bg-primary transition-all"
+          className="cursor-pointer z-1000 fixed bottom-6 right-3.5 sm:right-5 p-3 rounded-full bg-accent shadow-lg hover:bg-primary transition-all"
           aria-label="Scroll to top"
         >
           <CgArrowUp size={20} color="white" />
