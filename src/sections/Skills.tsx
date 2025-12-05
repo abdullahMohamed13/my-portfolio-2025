@@ -114,6 +114,16 @@ const tools: SkillsProps[] = [
         img: '/skills/github.svg',
     },
     {
+        color: '#FF6C37',
+        label: 'Postman',
+        img: '/skills/postman.svg',
+    },
+    {
+        color: '#A259FF',
+        label: 'Figma',
+        img: '/skills/figma.svg',
+    },
+    {
         color: '#039DEC',
         label: 'Docker',
         img: '/skills/docker.svg',
@@ -123,11 +133,6 @@ const tools: SkillsProps[] = [
         label: 'pnpm',
         img: '/skills/pnpm.svg',
     },
-    // {
-    //     color: '#CB0000',
-    //     label: 'npm',
-    //     img: '/skills/npm.svg',
-    // },
     {
         label: 'Vite',
         color: '#646CFF',
@@ -258,9 +263,9 @@ export default function Skills() {
         return chosenSkillsCategory.map((skill, index) => (
             <div key={index}
                 style={{ '--skill-color': skill.color } as React.CSSProperties}
-                className='flex-center flex-col gap-3 text-foreground rounded-lg p-5 transition shadow
+                className='flex-center flex-col gap-3 ease-in-out duration-400 text-foreground rounded-lg p-5 transition shadow
                     bg-[var(--skill-color)]/50
-                    hover:scale-110  hover:brightness-110 hover:saturate-150
+                    hover:scale-110 hover:brightness-110 hover:saturate-150
                     border-4 border-[var(--skill-color)]/40 aspect-square max-sm:min-h-[150px] hover:border-[var(--skill-color)]'>
                 <img src={skill.img} className='h-22 w-22 object-contain sm:h-30 sm:w-30' />
                 <code className='text-center'>{skill.label}</code>

@@ -8,6 +8,7 @@ import './styles/index.css'
 import Home from './pages/Home.tsx'
 import ResumePage from './pages/Resume.tsx'
 import Layout from './pages/Layout.tsx';
+import { HelmetProvider } from "react-helmet-async";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,9 @@ const toasterStyle: React.CSSProperties & Record<string, string> = {
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <RouterProvider router={router}/>
+      <HelmetProvider>
+        <RouterProvider router={router}/>
+      </HelmetProvider>
       <Toaster style={toasterStyle} duration={4500}/>
     </ThemeProvider>
   </StrictMode>,

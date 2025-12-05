@@ -16,7 +16,7 @@ const copyToClipboard = (text: string) => {
       designation: "View Profile",
       size: 'medium',
       image: "/contacts/linkedIn.webp",
-      onClick: () => window.open("https://www.linkedin.com/in/abdallah-aziz-999b54295", "_blank"),
+      onClick: () => window.open("https://www.linkedin.com/in/abdallah-m-aziz", "_blank"),
     },
     {
       id: 1,

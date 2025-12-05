@@ -1,0 +1,3 @@
+User-agent: *  
+Allow: /  
+Sitemap: https://abdallah-aziz.netlify.app/sitemap.xml

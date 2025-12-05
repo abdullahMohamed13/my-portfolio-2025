@@ -31,7 +31,7 @@ const testimonials:TestimonialProps[] = [
 
 export default function Testimonials() {
     const [ratingLanguage, setRatingLanguage] = useState('english')
-    return <section id="testimonials" className="section-padding flex-section-center section">
+    return <section id="testimonials" className="section-padding flex-section-center">
           <AnimatedHeader text="Testimonials" />
 
           <div className="mx-3">
@@ -41,7 +41,7 @@ export default function Testimonials() {
                         {ratingLanguage === 'arabic' ? 'Translate To English' : 'Translate To Arabic'} <GiWorld />
                     </Button>
                     <img
-                        className="w-full h-auto max-w-4xl rounded-md object-contain mx-auto"
+                        className="w-full h-auto rounded-md object-contain"
                         src={ratingLanguage === 'arabic' ?
                                 test.ratingImgs?.arabicRatingVersionImg : 
                                 test.ratingImgs?.englishRatingVersionImg

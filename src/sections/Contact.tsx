@@ -3,6 +3,7 @@ import AnimatedHeader from './../components/AnimatedHeader';
 import { Button } from '@/components/ui/button';
 import emailjs from 'emailjs-com';
 import { toast } from 'sonner';
+import { Mail, MessageSquare, Send, SendHorizontal } from 'lucide-react';
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -37,9 +38,8 @@ export default function Contact() {
         setForm({ email: '', subject: '', message: '' });
         setTimeout(() => setSubmitted(false), 5000);
         toast.success("Your message is successfully sent, I'll reach out to you soon <3");
-    }, (error) => {
+    }, () => {
         toast.error('Failed to send message, please try again.');
-        console.log(error);
     });
   };
 
@@ -47,7 +47,10 @@ export default function Contact() {
 
   return (
     <section id="contact" className="flex-section-center px-4 section-padding">
-      <AnimatedHeader text='Contact Me' className='mb-1 font-bold text-center'/>
+      <div className='flex items-center justify-center flex-col gap-0 mb-3'>
+        <AnimatedHeader text='Contact Me' className='mb-1 font-bold text-center'/>
+        <div className='text-muted-foreground -mt-3'>Let's Have A Conversation!</div>
+      </div>
 
       <div className="flex flex-col gap-6 w-full max-w-xl bg-card rounded-2xl shadow-xl p-8">
         <p className="text-base text-red-500 font-medium -mt-2">
@@ -57,7 +60,10 @@ export default function Contact() {
         <form className="flex flex-col gap-4 *:flex *:flex-col *:gap-1" onSubmit={handleSubmit}>
 
           <label>
-            <span className="font-medium">Your Email</span>
+            <div className='flex items-center gap-1'>
+              <Mail size={20}/>
+              <span className="font-medium">Your Email</span>
+            </div>
             <input
               type="email"
               name="email"
@@ -70,7 +76,10 @@ export default function Contact() {
           </label>
 
           <label>
-            <span className="font-medium">Subject</span>
+            <div className='flex items-center gap-1'>
+              <MessageSquare size={20}/>
+              <span className="font-medium">Subject</span>
+            </div>
             <input
               type="text"
               name="subject"
@@ -83,7 +92,10 @@ export default function Contact() {
           </label>
 
           <label>
-            <span className="font-medium">Message</span>
+            <div className='flex items-center gap-1'>
+              <Send size={20}/>
+              <span className="font-medium">Message</span>
+            </div>
             <textarea
               name="message"
               value={form.message}
@@ -100,7 +112,12 @@ export default function Contact() {
             className="mt-2 font-semibold bg-accent hover:bg-accent/80 focus:outline-none focus:ring-2"
             disabled={submitted}
           >
-            {submitted ? 'Sent!' : 'Send'}
+            <div className='flex items-center gap-1'>
+              <SendHorizontal />
+              <span>
+                {submitted ? 'Sent!' : 'Send'}
+              </span>
+            </div>
           </Button>
 
         </form>

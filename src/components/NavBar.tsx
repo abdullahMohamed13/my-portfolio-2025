@@ -19,8 +19,8 @@ function NavBar() {
                 
                 {/* navbar-toggle-arrow  */}
                 <button
-                    className={`absolute right-0 border-neutral-700 bg-muted text-foreground cursor-pointer rounded-xl shadow-lg p-2 transition-opacity duration-200 hover:bg-opacity-80 focus:outline-none z-10
-                         ${showNav ? 'bottom-11 sm:right-11' : 'bottom-19 sm:right-68.5'}`}
+                    className={`absolute right-0 border-neutral-700 bg-background text-foreground cursor-pointer rounded-xl shadow-lg p-2 transition-opacity duration-200 hover:bg-opacity-80 focus:outline-none z-10
+                        ${showNav ? 'bottom-11 sm:right-11' : 'bottom-19 sm:right-68.5'}`}
                     onClick={handleNavExpand}
                     title={showNav ? 'Hide navigation' : 'Show navigation'}
                     aria-label={showNav ? 'Hide navigation' : 'Show navigation'}
